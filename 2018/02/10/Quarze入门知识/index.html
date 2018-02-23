@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="quarze," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Quartz 入门详解入门简介：基本上任何公司都会用到调度这个功能， 比如我们公司需要定期执行调度生成报表， 或者比如博客什么的定时更新之类的，都可以靠Quartz来完成。正如官网所说，小到独立应用大到大型电子商务网站， Quartz都能胜任。">
+<meta name="keywords" content="quarze">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quarze入门知识">
+<meta property="og:url" content="http://yoursite.com/2018/02/10/Quarze入门知识/index.html">
+<meta property="og:site_name" content="Fashionkillyou">
+<meta property="og:description" content="Quartz 入门详解入门简介：基本上任何公司都会用到调度这个功能， 比如我们公司需要定期执行调度生成报表， 或者比如博客什么的定时更新之类的，都可以靠Quartz来完成。正如官网所说，小到独立应用大到大型电子商务网站， Quartz都能胜任。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-11T15:41:46.157Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Quarze入门知识">
+<meta name="twitter:description" content="Quartz 入门详解入门简介：基本上任何公司都会用到调度这个功能， 比如我们公司需要定期执行调度生成报表， 或者比如博客什么的定时更新之类的，都可以靠Quartz来完成。正如官网所说，小到独立应用大到大型电子商务网站， Quartz都能胜任。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/10/Quarze入门知识/"/>
+
+
+
+
+
+  <title>Quarze入门知识 | Fashionkillyou</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fashionkillyou</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/10/Quarze入门知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuxinming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/../images/lxm.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fashionkillyou">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Quarze入门知识</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-10T23:18:51+08:00">
+                2018-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Quartz-入门详解"><a href="#Quartz-入门详解" class="headerlink" title="Quartz 入门详解"></a>Quartz 入门详解</h1><h2 id="入门简介："><a href="#入门简介：" class="headerlink" title="入门简介："></a>入门简介：</h2><p>基本上任何公司都会用到调度这个功能， 比如我们公司需要定期执行调度生成报表， 或者比如博客什么的定时更新之类的，都可以靠Quartz来完成。正如官网所说，小到独立应用大到大型电子商务网站， Quartz都能胜任。</p>
+<a id="more"></a>
+<h2 id="Quartz体系结构："><a href="#Quartz体系结构：" class="headerlink" title="Quartz体系结构："></a>Quartz体系结构：</h2><p>明白Quartz怎么用，首先要了解Scheduler(调度器)、Job(任务)和Trigger(触发器)这3个核心的概念。</p>
+<h3 id="1-Job："><a href="#1-Job：" class="headerlink" title="1. Job："></a>1. Job：</h3><p>是一个接口，只定义一个方法execute(JobExecutionContext context)，在实现接口的execute方法中编写所需要定时执行的Job(任务)， JobExecutionContext类提供了调度应用的一些信息。Job运行时的信息保存在JobDataMap实例中；</p>
+<h3 id="2-JobDetail："><a href="#2-JobDetail：" class="headerlink" title="2. JobDetail："></a>2. JobDetail：</h3><p>Quartz每次调度Job时， 都重新创建一个Job实例， 所以它不直接接受一个Job的实例，相反它接收一个Job实现类(JobDetail:描述Job的实现类及其它相关的静态信息，如Job名字、描述、关联监听器等信息)，以便运行时通过newInstance()的反射机制实例化Job。</p>
+<h3 id="3-Trigger："><a href="#3-Trigger：" class="headerlink" title="3. Trigger："></a>3. Trigger：</h3><p>是一个类，描述触发Job执行的时间触发规则。主要有SimpleTrigger和CronTrigger这两个子类。当且仅当需调度一次或者以固定时间间隔周期执行调度，SimpleTrigger是最适合的选择；而CronTrigger则可以通过Cron表达式定义出各种复杂时间规则的调度方案：如工作日周一到周五的15：00~16：00执行调度等；</p>
+<h4 id="Cron表达式的格式："><a href="#Cron表达式的格式：" class="headerlink" title="Cron表达式的格式："></a>Cron表达式的格式：</h4><pre><code>秒 分 时 日 月 周 年(可选)。
+字段名                 允许的值                        允许的特殊字符
+秒                         0-59                               , – * /
+分                         0-59                               , – * /
+小时                   0-23                                 , – * /
+日                         1-31                               , – * ? / L W C
+月                         1-12 or JAN-DEC           , – * /
+周几                     1-7 or SUN-SAT             , – * ? / L C #      MON  FRI
+年 (可选字段)     empty, 1970-2099            , – * /
+“?”字符：表示不确定的值
+“,”字符：指定数个值
+“-”字符：指定一个值的范围
+“/”字符：指定一个值的增加幅度。n/m表示从n开始，每次增加m
+“L”字符：用在日表示一个月中的最后一天，用在周表示该月最后一个星期X
+“W”字符：指定离给定日期最近的工作日(周一到周五)
+“#”字符：表示该月第几个周X。6#3表示该月第3个周五
+Cron表达式范例：
+每隔5秒执行一次：*/5 * * * * ?
+每隔1分钟执行一次：0 */1 * * * ?
+每天23点执行一次：0 0 23 * * ?
+每天凌晨1点执行一次：0 0 1 * * ?
+每月1号凌晨1点执行一次：0 0 1 1 * ?
+每月最后一天23点执行一次：0 0 23 L * ?
+每周星期天凌晨1点实行一次：0 0 1 ? * L
+在26分、29分、33分执行一次：0 26,29,33 * * * ?
+每天的0点、13点、18点、21点都执行一次：0 0 0,13,18,21 * * ?
+</code></pre><h3 id="4-Calendar："><a href="#4-Calendar：" class="headerlink" title="4. Calendar："></a>4. Calendar：</h3><p>org.quartz.Calendar和java.util.Calendar不同， 它是一些日历特定时间点的集合（可以简单地将org.quartz.Calendar看作java.util.Calendar的集合——java.util.Calendar代表一个日历时间点，无特殊说明后面的Calendar即指org.quartz.Calendar）。 一个Trigger可以和多个Calendar关联， 以便排除或包含某些时间点。<br>假设，我们安排每周星期一早上10:00执行任务，但是如果碰到法定的节日，任务则不执行，这时就需要在Trigger触发机制的基础上使用Calendar进行定点排除。针对不同时间段类型，Quartz在org.quartz.impl.calendar包下提供了若干个Calendar的实现类，如AnnualCalendar、MonthlyCalendar、WeeklyCalendar分别针对每年、每月和每周进行定义；</p>
+<h3 id="5-Scheduler："><a href="#5-Scheduler：" class="headerlink" title="5. Scheduler："></a>5. Scheduler：</h3><p>代表一个Quartz的独立运行容器， Trigger和JobDetail可以注册到Scheduler中， 两者在Scheduler中拥有各自的组及名称， 组及名称是Scheduler查找定位容器中某一对象的依据， Trigger的组及名称必须唯一， JobDetail的组和名称也必须唯一（但可以和Trigger的组和名称相同，因为它们是不同类型的）。Scheduler定义了多个接口方法， 允许外部通过组及名称访问和控制容器中Trigger和JobDetail。<br>Scheduler可以将Trigger绑定到某一JobDetail中， 这样当Trigger触发时， 对应的Job就被执行。一个Job可以对应多个Trigger， 但一个Trigger只能对应一个Job。可以通过SchedulerFactory创建一个Scheduler实例。Scheduler拥有一个SchedulerContext，它类似于ServletContext，保存着Scheduler上下文信息，Job和Trigger都可以访问SchedulerContext内的信息。SchedulerContext内部通过一个Map，以键值对的方式维护这些上下文数据，SchedulerContext为保存和获取数据提供了多个put()和getXxx()的方法。可以通过Scheduler# getContext()获取对应的SchedulerContext实例；</p>
+<h3 id="6-ThreadPool："><a href="#6-ThreadPool：" class="headerlink" title="6. ThreadPool："></a>6. ThreadPool：</h3><p>Scheduler使用一个线程池作为任务运行的基础设施，任务通过共享线程池中的线程提高运行效率。<br>Job有一个StatefulJob子接口，代表有状态的任务，该接口是一个没有方法的标签接口，其目的是让Quartz知道任务的类型，以便采用不同的执行方案。无状态任务在执行时拥有自己的JobDataMap拷贝，对JobDataMap的更改不会影响下次的执行。而有状态任务共享共享同一个JobDataMap实例，每次任务执行对JobDataMap所做的更改会保存下来，后面的执行可以看到这个更改，也即每次执行任务后都会对后面的执行发生影响。<br>正因为这个原因，无状态的Job可以并发执行，而有状态的StatefulJob不能并发执行，这意味着如果前次的StatefulJob还没有执行完毕，下一次的任务将阻塞等待，直到前次任务执行完毕。有状态任务比无状态任务需要考虑更多的因素，程序往往拥有更高的复杂度，因此除非必要，应该尽量使用无状态的Job。<br>如果Quartz使用了数据库持久化任务调度信息，无状态的JobDataMap仅会在Scheduler注册任务时保持一次，而有状态任务对应的JobDataMap在每次执行任务后都会进行保存。<br>Trigger自身也可以拥有一个JobDataMap，其关联的Job可以通过JobExecutionContext#getTrigger().getJobDataMap()获取Trigger中的JobDataMap。不管是有状态还是无状态的任务，在任务执行期间对Trigger的JobDataMap所做的更改都不会进行持久，也即不会对下次的执行产生影响。<br>Quartz拥有完善的事件和监听体系，大部分组件都拥有事件，如任务执行前事件、任务执行后事件、触发器触发前事件、触发后事件、调度器开始事件、关闭事件等等，可以注册相应的监听器处理感兴趣的事件。<br>下图描述了Scheduler的内部组件结构，SchedulerContext提供Scheduler全局可见的上下文信息，每一个任务都对应一个JobDataMap，虚线表达的JobDataMap表示对应有状态的任务：</p>
+<p>废话不多说， 上代码：</p>
+<ol>
+<li><p>最简单的Job代码(就打印Hello Quartz ！)：<br> package com.wenniuwuren.quartz;  </p>
+<p> import org.quartz.Job;<br> import org.quartz.JobExecutionContext;<br> import org.quartz.JobExecutionException;  </p>
+<p> public class HelloQuartz  implements Job {  </p>
+<p> public void execute(JobExecutionContext arg0) throws JobExecutionException {  </p>
+<pre><code>System.out.println(&quot;Hello Quartz !&quot;);                 
+</code></pre><p> }<br> }</p>
+</li>
+<li><p>设置触发器<br> package com.wenniuwuren.quartz;  </p>
+<p> import org.quartz.CronScheduleBuilder;<br> import org.quartz.JobBuilder;<br> import org.quartz.JobDetail;<br> import org.quartz.Scheduler;<br> import org.quartz.SchedulerException;<br> import org.quartz.SchedulerFactory;<br> import org.quartz.SimpleScheduleBuilder;<br> import org.quartz.Trigger;<br> import org.quartz.TriggerBuilder;<br> import org.quartz.impl.StdSchedulerFactory;    </p>
+<p> public class SchedulerTest {    </p>
+<pre><code>public static void main(String[] args) throws InterruptedException {    
+
+//通过schedulerFactory获取一个调度器    
+SchedulerFactory schedulerfactory = new StdSchedulerFactory();    
+Scheduler scheduler=null;    
+try{    
+    // 通过schedulerFactory获取一个调度器    
+    scheduler = schedulerfactory.getScheduler();    
+
+     // 创建jobDetail实例，绑定Job实现类    
+     // 指明job的名称，所在组的名称，以及绑定job类    
+    JobDetail job = JobBuilder.newJob(HelloQuartz.class).withIdentity(&quot;JobName&quot;, &quot;JobGroupName&quot;).build();    
+
+     // 定义调度触发规则    
+
+     // SimpleTrigger   
+ //      Trigger trigger=TriggerBuilder.newTrigger().withIdentity(&quot;SimpleTrigger&quot;, &quot;SimpleTriggerGroup&quot;)    
+ //                    .withSchedule(SimpleScheduleBuilder.repeatSecondlyForever(3).withRepeatCount(6))    
+ //                    .startNow().build();    
+
+     //  corn表达式  每五秒执行一次  
+       Trigger trigger=TriggerBuilder.newTrigger().withIdentity(&quot;CronTrigger1&quot;, &quot;CronTriggerGroup&quot;)    
+       .withSchedule(CronScheduleBuilder.cronSchedule(&quot;*/5 * * * * ?&quot;))    
+       .startNow().build();     
+
+     // 把作业和触发器注册到任务调度中    
+    scheduler.scheduleJob(job, trigger);    
+
+    // 启动调度    
+    scheduler.start();    
+
+    Thread.sleep(10000);  
+    // 停止调度  
+    scheduler.shutdown();  
+ }catch(SchedulerException e){    
+        e.printStackTrace();    
+    }    
+    }    
+ }
+</code></pre><p>输出(设置了sleep10秒， 故在0秒调度一次， 5秒一次， 10秒最后一次)：</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/quarze/" rel="tag"># quarze</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/10/Oracle知识点终结/" rel="next" title="Oracle知识点终结">
+                <i class="fa fa-chevron-left"></i> Oracle知识点终结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/11/webService天气预报接口/" rel="prev" title="webService天气预报接口">
+                webService天气预报接口 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/../images/lxm.jpg"
+                alt="liuxinming" />
+            
+              <p class="site-author-name" itemprop="name">liuxinming</p>
+              <p class="site-description motion-element" itemprop="description">一花一世界,一叶一追寻,一曲一场叹,一生为一人.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=439915614&auto=1&height=66"></iframe>
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Quartz-入门详解"><span class="nav-number">1.</span> <span class="nav-text">Quartz 入门详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#入门简介："><span class="nav-number">1.1.</span> <span class="nav-text">入门简介：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quartz体系结构："><span class="nav-number">1.2.</span> <span class="nav-text">Quartz体系结构：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Job："><span class="nav-number">1.2.1.</span> <span class="nav-text">1. Job：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-JobDetail："><span class="nav-number">1.2.2.</span> <span class="nav-text">2. JobDetail：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Trigger："><span class="nav-number">1.2.3.</span> <span class="nav-text">3. Trigger：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cron表达式的格式："><span class="nav-number">1.2.3.1.</span> <span class="nav-text">Cron表达式的格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Calendar："><span class="nav-number">1.2.4.</span> <span class="nav-text">4. Calendar：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Scheduler："><span class="nav-number">1.2.5.</span> <span class="nav-text">5. Scheduler：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-ThreadPool："><span class="nav-number">1.2.6.</span> <span class="nav-text">6. ThreadPool：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+		  
+		  
+       
+	   </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liuxinming</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+<script type="text/javascript"
+color="0,0,255" opacity='0.7' zIndex="-2" count="150" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+</body>
+</html>
