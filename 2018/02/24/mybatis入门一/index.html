@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Fashionkillyou">
 <meta property="og:description" content="Mybatis入门程序1 mybatis下载mybaits的代码由github.com管理，地址：https://github.com/mybatis/mybatis-3/releases">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-24T10:46:21.686Z">
+<meta property="og:updated_time" content="2018-02-24T13:27:05.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis入门一">
 <meta name="twitter:description" content="Mybatis入门程序1 mybatis下载mybaits的代码由github.com管理，地址：https://github.com/mybatis/mybatis-3/releases">
@@ -403,7 +403,7 @@ PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
 &lt;mapper namespace=&quot;test&quot;&gt;
 &lt;/mapper&gt;
 </code></pre><p>namespace ：命名空间，用于隔离sql语句，后面会讲另一层非常重要的作用。</p>
-<h3 id="第七步：加载映射文件"><a href="#第七步：加载映射文件" class="headerlink" title="第七步：加载映射文件"></a>第七步：加载映射文件</h3><p>mybatis框架需要加载映射文件，将Users.xml添加在SqlMapConfig.xml，如下：</p>
+<h3 id="第七步：加载映射文件"><a href="#第七步：加载映射文件" class="headerlink" title="第七步：加载映射文件"></a>第七步：加载映射文件</h3><p>mybatis框架需要加载映射文件，将User.xml添加在SqlMapConfig.xml，如下：</p>
 <pre><code>&lt;mappers&gt;
     &lt;mapper resource=&quot;sqlmap/User.xml&quot;/&gt;
 &lt;/mappers&gt;
@@ -511,7 +511,7 @@ public void testInsert() {
 }
 </code></pre><h2 id="mysql自增主键返回"><a href="#mysql自增主键返回" class="headerlink" title="mysql自增主键返回"></a>mysql自增主键返回</h2><p>通过修改sql映射文件，可以将mysql自增主键返回:</p>
 <pre><code>&lt;insert id=&quot;insertUser&quot; parameterType=&quot;cn.itcast.mybatis.po.User&quot;&gt;
-    &lt;!-- selectKey将主键返回，需要再返回 --&gt;
+    &lt;!-- selectKey将主键返回，需要再返回 使用user.getId()获取返回的id值 --&gt;
     &lt;selectKey keyProperty=&quot;id&quot; order=&quot;AFTER&quot; resultType=&quot;java.lang.Integer&quot;&gt;
         select LAST_INSERT_ID()
     &lt;/selectKey&gt;
