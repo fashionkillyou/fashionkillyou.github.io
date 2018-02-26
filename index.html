@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo, Next" />
 
 
 
@@ -248,6 +248,466 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/25/mybatis入门四/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuxinming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/../images/lxm.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fashionkillyou">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/25/mybatis入门四/" itemprop="url">mybatis入门四</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-25T16:07:42+08:00">
+                2018-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="关联查询"><a href="#关联查询" class="headerlink" title="关联查询"></a>关联查询</h1><h2 id="一对一查询"><a href="#一对一查询" class="headerlink" title="一对一查询"></a>一对一查询</h2><p>这里举例是一个订单对应一个用户</p>
+<h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>使用resultType，定义订单信息po类，此po类中包括了订单信息和用户信息：</p>
+<h4 id="Sql语句："><a href="#Sql语句：" class="headerlink" title="Sql语句："></a>Sql语句：</h4><pre><code>SELECT 
+  orders.*,
+  user.username,
+  user.address
+FROM
+  orders,
+  user 
+WHERE orders.user_id = user.id
+</code></pre><h4 id="定义po类"><a href="#定义po类" class="headerlink" title="定义po类"></a>定义po类</h4><p>Po类中应该包括上边sql查询出来的所有字段，如下：</p>
+<pre><code>public class OrdersCustom extends Orders {
+private String username;// 用户名称
+private String address;// 用户地址
+get/set。。。。
+</code></pre><p>OrdersCustom类继承Orders类后OrdersCustom类包括了Orders类的所有字段，只需要定义用户的信息字段即可。</p>
+<h4 id="Mapper-xml"><a href="#Mapper-xml" class="headerlink" title="Mapper.xml"></a>Mapper.xml</h4><pre><code>&lt;!-- 查询所有订单信息 --&gt;
+&lt;select id=&quot;findOrdersList&quot; resultType=&quot;cn.itcast.mybatis.po.OrdersCustom&quot;&gt;
+SELECT
+orders.*,
+user.username,
+user.address
+FROM
+orders,    user
+WHERE orders.user_id = user.id 
+&lt;/select&gt;
+</code></pre><h4 id="Mapper接口："><a href="#Mapper接口：" class="headerlink" title="Mapper接口："></a>Mapper接口：</h4><pre><code>public List&lt;OrdersCustom&gt; findOrdersList() throws Exception;
+</code></pre><h4 id="测试："><a href="#测试：" class="headerlink" title="测试："></a>测试：</h4><pre><code>Public void testfindOrdersList()throws Exception{
+    //获取session
+    SqlSession session = sqlSessionFactory.openSession();
+    //获限mapper接口实例
+    UserMapper userMapper = session.getMapper(UserMapper.class);
+    //查询订单信息
+    List&lt;OrdersCustom&gt; list = userMapper.findOrdersList();
+    System.out.println(list);
+    //关闭session
+    session.close();
+}
+</code></pre><h4 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h4><pre><code>定义专门的po类作为输出类型，其中定义了sql查询结果集所有的字段。此方法较为简单，企业中使用普遍。
+</code></pre><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>使用resultMap，定义专门的resultMap用于映射一对一查询结果。</p>
+<h4 id="Sql语句：-1"><a href="#Sql语句：-1" class="headerlink" title="Sql语句："></a>Sql语句：</h4><pre><code>SELECT 
+  orders.*,
+  user.username,
+  user.address
+FROM
+  orders,
+  user 
+WHERE orders.user_id = user.id
+</code></pre><h4 id="定义po类-1"><a href="#定义po类-1" class="headerlink" title="定义po类"></a>定义po类</h4><p>在Orders类中加入User属性，user属性中用于存储关联查询的用户信息，因为订单关联查询用户是一对一关系，所以这里使用单个User对象存储关联查询的用户信息。<br>    public class Orders {<br>    private Integer id;</p>
+<pre><code>private Integer userId;
+
+private String number;
+
+private Date createtime;
+
+private String note;
+
+private User user;
+
+get/set()...
+</code></pre><h4 id="Mapper-xml-1"><a href="#Mapper-xml-1" class="headerlink" title="Mapper.xml"></a>Mapper.xml</h4><pre><code>&lt;!-- 查询订单关联用户信息使用resultmap --&gt;
+&lt;resultMap type=&quot;Orders&quot; id=&quot;orderUserResultMap&quot;&gt;
+    &lt;id column=&quot;id&quot; property=&quot;id&quot;/&gt;
+    &lt;result column=&quot;user_id&quot; property=&quot;userId&quot;/&gt;
+    &lt;result column=&quot;number&quot; property=&quot;number&quot;/&gt;
+    &lt;result column=&quot;createtime&quot; property=&quot;createtime&quot;/&gt;
+    &lt;result column=&quot;note&quot; property=&quot;note&quot;/&gt;
+    &lt;!-- 一对一关联映射 --&gt;
+    &lt;!-- 
+    property:Orders对象的user属性
+    javaType：user属性对应 的类型
+     --&gt;
+    &lt;association property=&quot;user&quot; javaType=&quot;cn.itcast.po.User&quot;&gt;
+        &lt;!-- column:user表的主键对应的列  property：user对象中id属性--&gt;
+        &lt;id column=&quot;user_id&quot; property=&quot;id&quot;/&gt;
+        &lt;result column=&quot;username&quot; property=&quot;username&quot;/&gt;
+        &lt;result column=&quot;address&quot; property=&quot;address&quot;/&gt;
+    &lt;/association&gt;
+&lt;/resultMap&gt;
+&lt;select id=&quot;findOrdersWithUserResultMap&quot; resultMap=&quot;orderUserResultMap&quot;&gt;
+    SELECT
+        o.id,
+        o.user_id,
+        o.number,
+        o.createtime,
+        o.note,
+        u.username,
+        u.address
+    FROM
+        orders o
+    JOIN `user` u ON u.id = o.user_id
+&lt;/select&gt;
+</code></pre><p>这里resultMap指定orderUserResultMap。</p>
+<p>association：表示进行关联查询单条记录</p>
+<p>property：表示关联查询的结果存储在cn.itcast.mybatis.po.Orders的user属性中</p>
+<p>javaType：表示关联查询的结果类型</p>
+<p>&lt; id property=”id” column=”user_id”/&gt;：查询结果的user_id列对应关联对象的id属性，这里是&lt; id /&gt;表示user_id是关联查询对象的唯一标识。</p>
+<p>&lt; result property=”username” column=”username”/&gt;：查询结果的username列对应关联对象的username属性。</p>
+<h4 id="Mapper接口：-1"><a href="#Mapper接口：-1" class="headerlink" title="Mapper接口："></a>Mapper接口：</h4><pre><code>public List&lt;Orders&gt; findOrdersListResultMap() throws Exception;
+</code></pre><h4 id="测试：-1"><a href="#测试：-1" class="headerlink" title="测试："></a>测试：</h4><pre><code>Public void testfindOrdersListResultMap()throws Exception{
+    //获取session
+    SqlSession session = sqlSessionFactory.openSession();
+    //获限mapper接口实例
+    UserMapper userMapper = session.getMapper(UserMapper.class);
+    //查询订单信息
+    List&lt;Orders&gt; list = userMapper.findOrdersList2();
+    System.out.println(list);
+    //关闭session
+    session.close();
+}
+</code></pre><h4 id="小结：-1"><a href="#小结：-1" class="headerlink" title="小结："></a>小结：</h4><p>使用association完成关联查询，将关联查询信息映射到pojo对象中。</p>
+<h2 id="一对多查询"><a href="#一对多查询" class="headerlink" title="一对多查询"></a>一对多查询</h2><p>案例：查询所有用户信息及用户关联的订单信息。</p>
+<p>用户信息和订单信息为一对多关系。</p>
+<p>使用resultMap实现如下：</p>
+<h3 id="Sql语句：-2"><a href="#Sql语句：-2" class="headerlink" title="Sql语句："></a>Sql语句：</h3><pre><code>SELECT
+u.*, o.id oid,
+o.number,
+o.createtime,
+o.note
+FROM
+`user` u
+LEFT JOIN orders o ON u.id = o.user_id
+</code></pre><h3 id="定义po类-2"><a href="#定义po类-2" class="headerlink" title="定义po类"></a>定义po类</h3><p>在User类中加入List&lt; Orders&gt; orders属性</p>
+<pre><code>public class User {
+   private int id;
+   private String username;// 用户姓名
+   private String sex;// 性别
+   private Date birthday;// 生日
+   private String address;// 地址
+   private List&lt;Orders&gt; orders;
+   get/set()...
+</code></pre><h3 id="Mapper-xml-2"><a href="#Mapper-xml-2" class="headerlink" title="Mapper.xml"></a>Mapper.xml</h3><pre><code>&lt;resultMap type=&quot;user&quot; id=&quot;userOrderResultMap&quot;&gt;
+    &lt;!-- 用户信息映射 --&gt;
+    &lt;id property=&quot;id&quot; column=&quot;id&quot;/&gt;
+    &lt;result property=&quot;username&quot; column=&quot;username&quot;/&gt;
+    &lt;result property=&quot;birthday&quot; column=&quot;birthday&quot;/&gt;
+    &lt;result property=&quot;sex&quot; column=&quot;sex&quot;/&gt;
+    &lt;result property=&quot;address&quot; column=&quot;address&quot;/&gt;
+    &lt;!-- 一对多关联映射 --&gt;
+    &lt;collection property=&quot;orders&quot; ofType=&quot;orders&quot;&gt;
+        &lt;id property=&quot;id&quot; column=&quot;oid&quot;/&gt;    
+          &lt;!--用户id已经在user对象中存在，此处可以不设置--&gt;
+        &lt;!-- &lt;result property=&quot;userId&quot; column=&quot;id&quot;/&gt; --&gt;
+        &lt;result property=&quot;number&quot; column=&quot;number&quot;/&gt;
+        &lt;result property=&quot;createtime&quot; column=&quot;createtime&quot;/&gt;
+        &lt;result property=&quot;note&quot; column=&quot;note&quot;/&gt;
+    &lt;/collection&gt;
+&lt;/resultMap&gt;
+&lt;select id=&quot;getUserOrderList&quot; resultMap=&quot;userOrderResultMap&quot;&gt;
+    SELECT
+    u.*, o.id oid,
+    o.number,
+    o.createtime,
+    o.note
+    FROM
+    `user` u
+    LEFT JOIN orders o ON u.id = o.user_id
+&lt;/select&gt;
+</code></pre><p>collection部分定义了用户关联的订单信息。表示关联查询结果集</p>
+<p>property=”orders”：关联查询的结果集存储在User对象的上哪个属性。</p>
+<p>ofType=”orders”：指定关联查询的结果集中的对象类型即List中的对象类型。此处可以使用别名，也可以使用全限定名。</p>
+<p>&lt; id /&gt;及&lt; result/&gt;的意义同一对一查询。</p>
+<h3 id="Mapper接口：-2"><a href="#Mapper接口：-2" class="headerlink" title="Mapper接口："></a>Mapper接口：</h3><pre><code>List&lt;User&gt; getUserOrderList();
+</code></pre><h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><pre><code>@Test
+public void getUserOrderList() {
+    SqlSession session = sqlSessionFactory.openSession();
+    UserMapper userMapper = session.getMapper(UserMapper.class);
+    List&lt;User&gt; result = userMapper.getUserOrderList();
+    for (User user : result) {
+        System.out.println(user);
+    }
+    session.close();
+}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/25/mybatis入门三/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuxinming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/../images/lxm.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fashionkillyou">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/25/mybatis入门三/" itemprop="url">mybatis入门三</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-25T08:58:28+08:00">
+                2018-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="输入映射和输出映射"><a href="#输入映射和输出映射" class="headerlink" title="输入映射和输出映射"></a>输入映射和输出映射</h1><p>Mapper.xml映射文件中定义了操作数据库的sql，每个sql是一个statement，映射文件是mybatis的核心。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/25/mybatis入门三/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1323,7 +1783,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1399,7 +1859,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by"><a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
