@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Fashionkillyou">
 <meta property="og:description" content="关联查询一对一查询这里举例是一个订单对应一个用户 方法一：使用resultType，定义订单信息po类，此po类中包括了订单信息和用户信息：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-26T08:15:49.414Z">
+<meta property="og:updated_time" content="2018-02-27T13:50:32.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis入门四">
 <meta name="twitter:description" content="关联查询一对一查询这里举例是一个订单对应一个用户 方法一：使用resultType，定义订单信息po类，此po类中包括了订单信息和用户信息：">
@@ -408,7 +408,7 @@ private String address;// 用户地址
 get/set。。。。
 </code></pre><p>OrdersCustom类继承Orders类后OrdersCustom类包括了Orders类的所有字段，只需要定义用户的信息字段即可。</p>
 <h4 id="Mapper-xml"><a href="#Mapper-xml" class="headerlink" title="Mapper.xml"></a>Mapper.xml</h4><pre><code>&lt;!-- 查询所有订单信息 --&gt;
-&lt;select id=&quot;findOrdersList&quot; resultType=&quot;cn.itcast.mybatis.po.OrdersCustom&quot;&gt;
+&lt;select id=&quot;findOrdersList&quot; resultType=&quot;cn.lxm.mybatis.po.OrdersCustom&quot;&gt;
 SELECT
 orders.*,
 user.username,
@@ -463,7 +463,7 @@ get/set()...
     property:Orders对象的user属性
     javaType：user属性对应 的类型
      --&gt;
-    &lt;association property=&quot;user&quot; javaType=&quot;cn.itcast.po.User&quot;&gt;
+    &lt;association property=&quot;user&quot; javaType=&quot;cn.lxm.po.User&quot;&gt;
         &lt;!-- column:user表的主键对应的列  property：user对象中id属性--&gt;
         &lt;id column=&quot;user_id&quot; property=&quot;id&quot;/&gt;
         &lt;result column=&quot;username&quot; property=&quot;username&quot;/&gt;
@@ -485,7 +485,7 @@ get/set()...
 &lt;/select&gt;
 </code></pre><p>这里resultMap指定orderUserResultMap。</p>
 <p>association：表示进行关联查询单条记录</p>
-<p>property：表示关联查询的结果存储在cn.itcast.mybatis.po.Orders的user属性中</p>
+<p>property：表示关联查询的结果存储在cn.lxm.mybatis.po.Orders的user属性中</p>
 <p>javaType：表示关联查询的结果类型</p>
 <p>&lt; id property=”id” column=”user_id”/&gt;：查询结果的user_id列对应关联对象的id属性，这里是&lt; id /&gt;表示user_id是关联查询对象的唯一标识。</p>
 <p>&lt; result property=”username” column=”username”/&gt;：查询结果的username列对应关联对象的username属性。</p>
@@ -687,7 +687,7 @@ public void getUserOrderList() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -709,7 +709,7 @@ public void getUserOrderList() {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -780,7 +780,7 @@ public void getUserOrderList() {
     
       <span class="post-meta-item-text">网站文字总数&#58;</span>
     
-    <span title="网站文字总数">20.1k</span>
+    <span title="网站文字总数">21.4k</span>
   
 </div>
 

@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Fashionkillyou">
 <meta property="og:description" content="mybatis整合spring整合思路1、SqlSessionFactory对象应该放到spring容器中作为单例存在。 2、传统dao的开发方式中，应该从spring容器中获得sqlsession对象。 3、Mapper代理形式中，应该从spring容器中直接获得mapper的代理对象。 4、数据库的连接以及数据库连接池事务管理都交给spring容器来完成。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-27T01:00:06.265Z">
+<meta property="og:updated_time" content="2018-02-27T13:50:56.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis入门五">
 <meta name="twitter:description" content="mybatis整合spring整合思路1、SqlSessionFactory对象应该放到spring容器中作为单例存在。 2、传统dao的开发方式中，应该从spring容器中获得sqlsession对象。 3、Mapper代理形式中，应该从spring容器中直接获得mapper的代理对象。 4、数据库的连接以及数据库连接池事务管理都交给spring容器来完成。">
@@ -415,13 +415,13 @@ PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
 &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
 &lt;configuration&gt;
     &lt;typeAliases&gt;
-        &lt;package name=&quot;cn.itcast.mybatis.pojo&quot;/&gt;
+        &lt;package name=&quot;cn.lxm.mybatis.pojo&quot;/&gt;
     &lt;/typeAliases&gt;
     &lt;mappers&gt;
         &lt;!-- 使用包扫描扫描mapper.xml
             如果在ApplicationContext.xml中配置了扫描包之后,就 不需要此配置
          --&gt;
-        &lt;package name=&quot;cn.itheima.mybatis.mapper&quot;/&gt;
+        &lt;package name=&quot;cn.lxm.mybatis.mapper&quot;/&gt;
     &lt;/mappers&gt;
 &lt;/configuration&gt;
 </code></pre><h3 id="applicationContext-xml"><a href="#applicationContext-xml" class="headerlink" title="applicationContext.xml"></a>applicationContext.xml</h3><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -477,15 +477,15 @@ jdbc.password=root
 &lt;!DOCTYPE mapper
 PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
 &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
-&lt;mapper namespace=&quot;cn.itcast.mybatis.mapper.UserMapper&quot;&gt;
+&lt;mapper namespace=&quot;cn.lxm.mybatis.mapper.UserMapper&quot;&gt;
     &lt;!-- 根据id获取用户信息 --&gt;
-    &lt;select id=&quot;findUserById&quot; parameterType=&quot;int&quot; resultType=&quot;cn.itheima.mybatis.po.User&quot;&gt;
+    &lt;select id=&quot;findUserById&quot; parameterType=&quot;int&quot; resultType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
         select * from user where id = #{id}
     &lt;/select&gt;
 &lt;/mapper&gt;
 </code></pre><h4 id="配置mapper代理"><a href="#配置mapper代理" class="headerlink" title="配置mapper代理"></a>配置mapper代理</h4><pre><code>&lt;!-- 配置mapper代理对象 --&gt;
 &lt;bean class=&quot;org.mybatis.spring.mapper.MapperFactoryBean&quot;&gt;
-    &lt;property name=&quot;mapperInterface&quot; value=&quot;cn.itcast.mybatis.mapper.UserMapper&quot;/&gt;
+    &lt;property name=&quot;mapperInterface&quot; value=&quot;cn.lxm.mybatis.mapper.UserMapper&quot;/&gt;
     &lt;property name=&quot;sqlSessionFactory&quot; ref=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;
 &lt;/bean&gt;
 </code></pre><h4 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h4><pre><code>public class UserMapperTest {
@@ -506,7 +506,7 @@ PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
 }
 </code></pre><h3 id="扫描包形式配置mapper"><a href="#扫描包形式配置mapper" class="headerlink" title="扫描包形式配置mapper"></a>扫描包形式配置mapper</h3><pre><code>&lt;!-- 使用扫描包的形式来创建mapper代理对象 --&gt;
 &lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
-    &lt;property name=&quot;basePackage&quot; value=&quot;cn.itcast.mybatis.mapper&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;basePackage&quot; value=&quot;cn.lxm.mybatis.mapper&quot;&gt;&lt;/property&gt;
 &lt;/bean&gt;
 </code></pre><p>如果配置了这个后 ,在SQLMapConfig.xml中的包扫描配置就不需要了</p>
 <h2 id="逆向工程生成代码"><a href="#逆向工程生成代码" class="headerlink" title="逆向工程生成代码"></a>逆向工程生成代码</h2><p>步骤:</p>
@@ -540,7 +540,7 @@ PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
         &lt;/javaTypeResolver&gt;
 
         &lt;!-- targetProject:生成PO类的位置 --&gt;
-        &lt;javaModelGenerator targetPackage=&quot;cn.itheima.mybatis.po&quot;
+        &lt;javaModelGenerator targetPackage=&quot;cn.lxm.mybatis.po&quot;
             targetProject=&quot;.\src&quot;&gt;
             &lt;!-- enableSubPackages:是否让schema作为包的后缀 --&gt;
             &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot; /&gt;
@@ -548,14 +548,14 @@ PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
             &lt;property name=&quot;trimStrings&quot; value=&quot;true&quot; /&gt;
         &lt;/javaModelGenerator&gt;
         &lt;!-- targetProject:mapper映射文件生成的位置 --&gt;
-        &lt;sqlMapGenerator targetPackage=&quot;cn.itheima.mybatis.mapper&quot; 
+        &lt;sqlMapGenerator targetPackage=&quot;cn.lxm.mybatis.mapper&quot; 
             targetProject=&quot;.\src&quot;&gt;
             &lt;!-- enableSubPackages:是否让schema作为包的后缀 --&gt;
             &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot; /&gt;
         &lt;/sqlMapGenerator&gt;
         &lt;!-- targetPackage：mapper接口生成的位置 --&gt;
         &lt;javaClientGenerator type=&quot;XMLMAPPER&quot;
-            targetPackage=&quot;cn.itheima.mybatis.mapper&quot; 
+            targetPackage=&quot;cn.lxm.mybatis.mapper&quot; 
             targetProject=&quot;.\src&quot;&gt;
             &lt;!-- enableSubPackages:是否让schema作为包的后缀 --&gt;
             &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot; /&gt;
@@ -610,6 +610,10 @@ PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/27/SpringMVC架构入门一/" rel="prev" title="SpringMVC架构入门一">
+                SpringMVC架构入门一 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -690,7 +694,7 @@ PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -712,7 +716,7 @@ PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -783,7 +787,7 @@ PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
     
       <span class="post-meta-item-text">网站文字总数&#58;</span>
     
-    <span title="网站文字总数">20.1k</span>
+    <span title="网站文字总数">21.4k</span>
   
 </div>
 

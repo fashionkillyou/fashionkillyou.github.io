@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Fashionkillyou">
 <meta property="og:description" content="Mybatis入门程序1 mybatis下载mybaits的代码由github.com管理，地址：https://github.com/mybatis/mybatis-3/releases">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-24T13:27:05.459Z">
+<meta property="og:updated_time" content="2018-02-27T13:51:22.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis入门一">
 <meta name="twitter:description" content="Mybatis入门程序1 mybatis下载mybaits的代码由github.com管理，地址：https://github.com/mybatis/mybatis-3/releases">
@@ -447,7 +447,7 @@ PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
 &lt;/mappers&gt;
 </code></pre><h2 id="3-根据id查询用户信息"><a href="#3-根据id查询用户信息" class="headerlink" title="3 根据id查询用户信息"></a>3 根据id查询用户信息</h2><h3 id="映射文件："><a href="#映射文件：" class="headerlink" title="映射文件："></a>映射文件：</h3><p>在user.xml中添加：</p>
 <pre><code>&lt;!-- 根据id获取用户信息 - -&gt;
-&lt;select id=&quot;findUserById&quot; parameterType=&quot;int&quot; resultType=&quot;cn.itcast.mybatis.po.User&quot;&gt;
+&lt;select id=&quot;findUserById&quot; parameterType=&quot;int&quot; resultType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
     select * from user where id = #{id}
 &lt;/select&gt;
 </code></pre><p>parameterType：定义输入到sql中的映射类型，#{id}表示使用preparedstatement设置占位符号并将输入变量id传到sql。<br>resultType：定义结果映射类型。</p>
@@ -493,7 +493,7 @@ PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
 </code></pre><h2 id="4-根据用户名查询用户信息"><a href="#4-根据用户名查询用户信息" class="headerlink" title="4 根据用户名查询用户信息"></a>4 根据用户名查询用户信息</h2><h3 id="映射文件：-1"><a href="#映射文件：-1" class="headerlink" title="映射文件："></a>映射文件：</h3><p>在user.xml中添加：</p>
 <pre><code>&lt;!-- 自定义条件查询用户列表  - -&gt;
 &lt;select id=&quot;findUserByUsername&quot; parameterType=&quot;java.lang.String&quot; 
-        resultType=&quot;cn.itcast.mybatis.po.User&quot;&gt;
+        resultType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
    select * from user where username like &apos;%${value}%&apos; 
 &lt;/select&gt;
 </code></pre><p>parameterType：定义输入到sql中的映射类型，${value}表示使用参数将${value}替换，做字符串的拼接。<br>注意：如果是取简单数据类型的参数，括号中的值必须为value<br>resultType：定义结果映射类型。</p>
@@ -521,7 +521,7 @@ public void testFindUserByUsername() {
 <h2 id="parameterType和resultType"><a href="#parameterType和resultType" class="headerlink" title="parameterType和resultType"></a>parameterType和resultType</h2><p>parameterType：指定输入参数类型，mybatis通过ognl从输入对象中获取参数值拼接在sql中。<br>resultType：指定输出结果类型，mybatis将sql查询结果的一行记录数据映射为resultType指定类型的对象。</p>
 <h2 id="selectOne和selectList"><a href="#selectOne和selectList" class="headerlink" title="selectOne和selectList"></a>selectOne和selectList</h2><p>selectOne查询一条记录，如果使用selectOne查询多条记录则抛出异常：<br>    org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 3<br>    at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:70)</p>
 <p>selectList可以查询一条或多条记录。</p>
-<h1 id="6添加用户"><a href="#6添加用户" class="headerlink" title="6添加用户"></a>6添加用户</h1><h2 id="映射文件：-2"><a href="#映射文件：-2" class="headerlink" title="映射文件："></a>映射文件：</h2><p>在SqlMapConfig.xml中添加：<br><!-- 添加用户 --><br>    <insert id="insertUser" parametertype="cn.itcast.mybatis.po.User"><br>      insert into user(username,birthday,sex,address)<br>      values(#{username},#{birthday},#{sex},#{address})<br>    </insert></p>
+<h1 id="6添加用户"><a href="#6添加用户" class="headerlink" title="6添加用户"></a>6添加用户</h1><h2 id="映射文件：-2"><a href="#映射文件：-2" class="headerlink" title="映射文件："></a>映射文件：</h2><p>在SqlMapConfig.xml中添加：<br><!-- 添加用户 --><br>    <insert id="insertUser" parametertype="cn.lxm.mybatis.po.User"><br>      insert into user(username,birthday,sex,address)<br>      values(#{username},#{birthday},#{sex},#{address})<br>    </insert></p>
 <h2 id="测试程序：-2"><a href="#测试程序：-2" class="headerlink" title="测试程序："></a>测试程序：</h2><pre><code>// 添加用户信息
 @Test
 public void testInsert() {
@@ -548,7 +548,7 @@ public void testInsert() {
     }
 }
 </code></pre><h2 id="mysql自增主键返回"><a href="#mysql自增主键返回" class="headerlink" title="mysql自增主键返回"></a>mysql自增主键返回</h2><p>通过修改sql映射文件，可以将mysql自增主键返回:</p>
-<pre><code>&lt;insert id=&quot;insertUser&quot; parameterType=&quot;cn.itcast.mybatis.po.User&quot;&gt;
+<pre><code>&lt;insert id=&quot;insertUser&quot; parameterType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
     &lt;!-- selectKey将主键返回，需要再返回 使用user.getId()获取返回的id值 --&gt;
     &lt;selectKey keyProperty=&quot;id&quot; order=&quot;AFTER&quot; resultType=&quot;java.lang.Integer&quot;&gt;
         select LAST_INSERT_ID()
@@ -561,7 +561,7 @@ public void testInsert() {
 <p>order：selectKey的执行顺序，是相对与insert语句来说，由于mysql的自增原理执行完insert语句之后才将主键生成，所以这里selectKey的执行顺序为after</p>
 <p>resultType:返回的主键是什么类型</p>
 <p>LAST_INSERT_ID():是mysql的函数，返回auto_increment自增列新记录id值。</p>
-<h2 id="oracle自增主键返回"><a href="#oracle自增主键返回" class="headerlink" title="oracle自增主键返回"></a>oracle自增主键返回</h2><pre><code>&lt;insert id=&quot;insertUser&quot; parameterType=&quot;cn.itcast.mybatis.po.User&quot;&gt;
+<h2 id="oracle自增主键返回"><a href="#oracle自增主键返回" class="headerlink" title="oracle自增主键返回"></a>oracle自增主键返回</h2><pre><code>&lt;insert id=&quot;insertUser&quot; parameterType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
     &lt;!-- selectKey将主键返回，需要再返回 --&gt;
     &lt;selectKey keyProperty=&quot;id&quot; order=&quot;BEFORE&quot; resultType=&quot;java.lang.Integer&quot;&gt;
         select 序列的.nextval()
@@ -571,7 +571,7 @@ public void testInsert() {
 &lt;/insert&gt;
 </code></pre><p>oracle的不是很常用,这里是需要先取出序列里面的主键,然后再插入数据,插入的时候讲取出来的主键放进去.所以这里的order是BEFORE</p>
 <h2 id="Mysql使用-uuid实现主键"><a href="#Mysql使用-uuid实现主键" class="headerlink" title="Mysql使用 uuid实现主键"></a>Mysql使用 uuid实现主键</h2><p>需要增加通过select uuid()得到uuid值</p>
-<pre><code>&lt;insert  id=&quot;insertUser&quot; parameterType=&quot;cn.itcast.mybatis.po.User&quot;&gt;
+<pre><code>&lt;insert  id=&quot;insertUser&quot; parameterType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
 &lt;selectKey resultType=&quot;java.lang.String&quot; order=&quot;BEFORE&quot; 
 keyProperty=&quot;id&quot;&gt;
 select uuid()
@@ -605,7 +605,7 @@ public void testDelete() {
     }
 }
 </code></pre><h1 id="8修改用户"><a href="#8修改用户" class="headerlink" title="8修改用户"></a>8修改用户</h1><h2 id="映射文件"><a href="#映射文件" class="headerlink" title="映射文件"></a>映射文件</h2><!-- 更新用户 -->
-<pre><code>&lt;update id=&quot;updateUser&quot; parameterType=&quot;cn.itcast.mybatis.po.User&quot;&gt;
+<pre><code>&lt;update id=&quot;updateUser&quot; parameterType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
     update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address}
     where id=#{id}
 &lt;/update&gt;
@@ -775,7 +775,7 @@ public void testUpdate() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -797,7 +797,7 @@ public void testUpdate() {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -868,7 +868,7 @@ public void testUpdate() {
     
       <span class="post-meta-item-text">网站文字总数&#58;</span>
     
-    <span title="网站文字总数">20.1k</span>
+    <span title="网站文字总数">21.4k</span>
   
 </div>
 

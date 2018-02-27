@@ -269,6 +269,267 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/27/SpringMVC架构入门一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuxinming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/../images/lxm.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fashionkillyou">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/27/SpringMVC架构入门一/" itemprop="url">SpringMVC架构入门一</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-27T18:58:33+08:00">
+                2018-02-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,319
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="SpringMVC架构"><a href="#SpringMVC架构" class="headerlink" title="SpringMVC架构"></a>SpringMVC架构</h1><p>Spring web mvc和Struts2都属于表现层的框架,它是Spring框架的一部分.</p>
+<h2 id="架构流程"><a href="#架构流程" class="headerlink" title="架构流程"></a>架构流程</h2><pre><code>1、    用户发送请求至前端控制器DispatcherServlet
+
+2、    DispatcherServlet收到请求调用HandlerMapping处理器映射器。
+
+3、    处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet。
+
+4、    DispatcherServlet通过HandlerAdapter处理器适配器调用处理器
+
+5、    执行处理器(Controller，也叫后端控制器)。
+
+6、    Controller执行完成返回ModelAndView
+
+7、    HandlerAdapter将controller执行结果ModelAndView返回给DispatcherServlet
+
+8、    DispatcherServlet将ModelAndView传给ViewReslover视图解析器
+
+9、    ViewReslover解析后返回具体View
+
+10、    DispatcherServlet对View进行渲染视图（即将模型数据填充至视图中）。
+
+11、    DispatcherServlet响应用户
+</code></pre><h2 id="组件说明"><a href="#组件说明" class="headerlink" title="组件说明"></a>组件说明</h2><p>以下组件通常使用框架提供实现：</p>
+<ul>
+<li><p>DispatcherServlet：前端控制器</p>
+<p>  用户请求到达前端控制器，它就相当于mvc模式中的c，dispatcherServlet是整个流程控制的中心，由它调用其它组件处理用户的请求，dispatcherServlet的存在降低了组件之间的耦合性。</p>
+</li>
+<li><p>HandlerMapping：处理器映射器</p>
+<p>  HandlerMapping负责根据用户请求找到Handler即处理器，springmvc提供了不同的映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。</p>
+</li>
+<li><p>Handler：处理器</p>
+<p>  Handler 是继DispatcherServlet前端控制器的后端控制器，在DispatcherServlet的控制下Handler对具体的用户请求进行处理。<br>  由于Handler涉及到具体的用户业务请求，所以一般情况需要程序员根据业务需求开发Handler。</p>
+</li>
+<li><p>HandlAdapter：处理器适配器</p>
+<p>  通过HandlerAdapter对处理器进行执行，这是适配器模式的应用，通过扩展适配器可以对更多类型的处理器进行执行。</p>
+</li>
+<li><p>View Resolver：视图解析器</p>
+<p>  View Resolver负责将处理结果生成View视图，View Resolver首先根据逻辑视图名解析成物理视图名即具体的页面地址，再生成View视图对象，最后对View进行渲染将处理结果通过页面展示给用户。 </p>
+</li>
+<li><p>View：视图</p>
+<p>  springmvc框架提供了很多的View视图类型的支持，包括：jstlView、freemarkerView、pdfView等。我们最常用的视图就是jsp。<br>  一般情况下需要通过页面标签或页面模版技术将模型数据通过页面展示给用户，需要由程序员根据业务需求开发具体的页面。</p>
+</li>
+</ul>
+<p>说明：在springmvc的各个组件中，<strong>处理器映射器</strong>、<strong>处理器适配器</strong>、<strong>视图解析器</strong>称为springmvc的三大组件。</p>
+<p>需要用户开放的组件有<strong>handler、view</strong></p>
+<h2 id="注解映射器和适配器"><a href="#注解映射器和适配器" class="headerlink" title="注解映射器和适配器"></a>注解映射器和适配器</h2><h3 id="组件扫描器"><a href="#组件扫描器" class="headerlink" title="组件扫描器"></a>组件扫描器</h3><p>使用组件扫描器省去在spring容器配置每个controller类的繁琐。使用<context:component-scan>自动扫描标记@controller的控制器类，配置如下：</context:component-scan></p>
+<pre><code>&lt;!-- 扫描controller注解,多个包中间使用半角逗号分隔 --&gt;
+&lt;context:component-scan base-package=&quot;cn.lxm.springmvc.controller.first&quot;/&gt;
+</code></pre><h3 id="RequestMappingHandlerMapping"><a href="#RequestMappingHandlerMapping" class="headerlink" title="RequestMappingHandlerMapping"></a>RequestMappingHandlerMapping</h3><p>注解式处理器映射器，对类中标记@ResquestMapping的方法进行映射，根据ResquestMapping定义的url匹配ResquestMapping标记的方法，匹配成功返回HandlerMethod对象给前端控制器，HandlerMethod对象中封装url对应的方法Method。 </p>
+<p>从spring3.1版本开始，废除了DefaultAnnotationHandlerMapping的使用，推荐使用RequestMappingHandlerMapping完成注解式处理器映射。</p>
+<p>配置如下：</p>
+<pre><code>&lt;!--注解映射器 --&gt;
+&lt;bean class=&quot;org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping&quot;/&gt;
+</code></pre><p>注解描述：<br>@RequestMapping：定义请求url到处理器功能方法的映射</p>
+<h3 id="RequestMappingHandlerAdapter"><a href="#RequestMappingHandlerAdapter" class="headerlink" title="RequestMappingHandlerAdapter"></a>RequestMappingHandlerAdapter</h3><p>注解式处理器适配器，对标记@ResquestMapping的方法进行适配。</p>
+<p>从spring3.1版本开始，废除了AnnotationMethodHandlerAdapter的使用，推荐使用RequestMappingHandlerAdapter完成注解式处理器适配。</p>
+<p>配置如下：</p>
+<pre><code>&lt;!--注解适配器 --&gt;
+&lt;bean class=&quot;org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter&quot;/&gt;
+</code></pre><h3 id=""><a href="#" class="headerlink" title=""></a><mvc:annotation-driven></mvc:annotation-driven></h3><p>springmvc使用<mvc:annotation-driven>自动加载RequestMappingHandlerMapping和RequestMappingHandlerAdapter，可用在springmvc.xml配置文件中使用<mvc:annotation-driven>替代注解处理器和适配器的配置。</mvc:annotation-driven></mvc:annotation-driven></p>
+<h2 id="视图解析器"><a href="#视图解析器" class="headerlink" title="视图解析器"></a>视图解析器</h2><p>在springmvc.xml文件配置如下：</p>
+<pre><code>&lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+    &lt;property name=&quot;viewClass&quot;
+        value=&quot;org.springframework.web.servlet.view.JstlView&quot; /&gt;
+    &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsp/&quot; /&gt;
+    &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;
+&lt;/bean&gt;
+</code></pre><p>InternalResourceViewResolver：支持JSP视图解析</p>
+<p>viewClass：JstlView表示JSP模板页面需要使用JSTL标签库，所以classpath中必须包含jstl的相关jar 包。此属性可以不设置，默认为JstlView。</p>
+<p>prefix 和suffix：查找视图页面的前缀和后缀，最终视图的地址为：<br>前缀+逻辑视图名+后缀，逻辑视图名需要在controller中返回ModelAndView指定，比如逻辑视图名为hello，则最终返回的jsp视图地址 “WEB-INF/jsp/hello.jsp”</p>
+<h1 id="整合mybatis"><a href="#整合mybatis" class="headerlink" title="整合mybatis"></a>整合mybatis</h1><p>ssm框架:springmvc + spring + mybatis</p>
+<p>控制层采用springmvc、持久层使用mybatis实现。</p>
+<h2 id="准备jar包"><a href="#准备jar包" class="headerlink" title="准备jar包"></a>准备jar包</h2><p>spring（包括springmvc）、mybatis、mybatis-spring整合包、数据库驱动、第三方连接池。</p>
+<h2 id="整合思路"><a href="#整合思路" class="headerlink" title="整合思路"></a>整合思路</h2><h3 id="Dao层："><a href="#Dao层：" class="headerlink" title="Dao层："></a>Dao层：</h3><p>1、SqlMapConfig.xml</p>
+<pre><code>空文件即可。需要文件头。
+</code></pre><p>2、applicationContext-dao.xml。</p>
+<pre><code>a)    数据库连接池
+b)    SqlSessionFactory对象，需要spring和mybatis整合包下的。
+c)    配置mapper文件扫描器。
+</code></pre><h3 id="Service层："><a href="#Service层：" class="headerlink" title="Service层："></a>Service层：</h3><p>1、applicationContext-service.xml</p>
+<pre><code>包扫描器，扫描@service注解的类。
+</code></pre><p>2、applicationContext-trans.xml</p>
+<pre><code>配置事务。
+</code></pre><h3 id="表现层："><a href="#表现层：" class="headerlink" title="表现层："></a>表现层：</h3><p>Springmvc.xml</p>
+<pre><code>1、包扫描器，扫描@Controller注解的类。
+2、配置注解驱动。
+3、视图解析器
+</code></pre><p>Web.xml</p>
+<pre><code>配置前端控制器。
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/26/mybatis入门五/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1855,186 +2116,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/10/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuxinming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/../images/lxm.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fashionkillyou">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/10/hello-world/" itemprop="url">写文章的步骤</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-10T17:30:04+08:00">
-                2018-02-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂七杂八/" itemprop="url" rel="index">
-                    <span itemprop="name">杂七杂八</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  87
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="创建步骤"><a href="#创建步骤" class="headerlink" title="创建步骤:"></a>创建步骤:</h1><p>1、写一篇文章:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/10/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2082,7 +2170,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2104,7 +2192,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2156,7 +2244,7 @@
     
       <span class="post-meta-item-text">网站文字总数&#58;</span>
     
-    <span title="网站文字总数">20.1k</span>
+    <span title="网站文字总数">21.4k</span>
   
 </div>
 

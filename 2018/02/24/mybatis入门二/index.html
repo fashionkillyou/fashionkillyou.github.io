@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Fashionkillyou">
 <meta property="og:description" content="Mapper动态代理方式开发规范Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。 Mapper接口开发需要遵循以下规范：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-25T11:26:35.329Z">
+<meta property="og:updated_time" content="2018-02-27T13:48:55.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis入门二">
 <meta name="twitter:description" content="Mapper动态代理方式开发规范Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。 Mapper接口开发需要遵循以下规范：">
@@ -400,18 +400,18 @@
 &lt;!DOCTYPE mapper
 PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
 &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
-&lt;mapper namespace=&quot;cn.itcast.mybatis.mapper.UserMapper&quot;&gt;
+&lt;mapper namespace=&quot;cn.lxm.mybatis.mapper.UserMapper&quot;&gt;
 &lt;!-- 根据id获取用户信息 --&gt;
-&lt;select id=&quot;findUserById&quot; parameterType=&quot;int&quot; resultType=&quot;cn.itcast.mybatis.po.User&quot;&gt;
+&lt;select id=&quot;findUserById&quot; parameterType=&quot;int&quot; resultType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
     select * from user where id = #{id}
 &lt;/select&gt;
 &lt;!-- 自定义条件查询用户列表 --&gt;
 &lt;select id=&quot;findUserByUsername&quot; parameterType=&quot;java.lang.String&quot; 
-        resultType=&quot;cn.itcast.mybatis.po.User&quot;&gt;
+        resultType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
    select * from user where username like &apos;%${value}%&apos; 
 &lt;/select&gt;
 &lt;!-- 添加用户 --&gt;
-&lt;insert id=&quot;insertUser&quot; parameterType=&quot;cn.itcast.mybatis.po.User&quot;&gt;
+&lt;insert id=&quot;insertUser&quot; parameterType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
 &lt;selectKey keyProperty=&quot;id&quot; order=&quot;AFTER&quot; resultType=&quot;java.lang.Integer&quot;&gt;
     select LAST_INSERT_ID() 
 &lt;/selectKey&gt;
@@ -557,7 +557,7 @@ date     Date
 decimal     BigDecimal 
 bigdecimal     BigDecimal 
 map    Map
-</code></pre><h3 id="自定义别名："><a href="#自定义别名：" class="headerlink" title="自定义别名："></a>自定义别名：</h3><p>在SqlMapConfig.xml中配置：<br>    <typealiases><br>        <!-- 单个别名定义 --><br>        <typealias alias="user" type="cn.itcast.mybatis.po.User"><br>        <!-- 批量别名定义，扫描整个包下的类，别名为类名（首字母大写或小写都可以） --><br>        <package name="cn.itcast.mybatis.po"><br>        <package name="其它包"><br>    </package></package></typealias></typealiases><br>这个<typealiases>标签的位置必须放在<environments>标签前面,dtd的约束</environments></typealiases></p>
+</code></pre><h3 id="自定义别名："><a href="#自定义别名：" class="headerlink" title="自定义别名："></a>自定义别名：</h3><p>在SqlMapConfig.xml中配置：<br>    <typealiases><br>        <!-- 单个别名定义 --><br>        <typealias alias="user" type="cn.lxm.mybatis.po.User"><br>        <!-- 批量别名定义，扫描整个包下的类，别名为类名（首字母大写或小写都可以） --><br>        <package name="cn.lxm.mybatis.po"><br>        <package name="其它包"><br>    </package></package></typealias></typealiases><br>这个<typealiases>标签的位置必须放在<environments>标签前面,dtd的约束</environments></typealiases></p>
 <h2 id="mappers（映射器）"><a href="#mappers（映射器）" class="headerlink" title="mappers（映射器）"></a>mappers（映射器）</h2><p>Mapper配置的几种方法：</p>
 <ul>
 <li>&lt; mapper resource=” “ /&gt;</li>
@@ -568,13 +568,13 @@ map    Map
 <li>&lt; mapper class=” “ /&gt;</li>
 </ul>
 <p>使用mapper接口类路径如：</p>
-<pre><code>&lt;mapper class=&quot;cn.itcast.mybatis.mapper.UserMapper&quot;/&gt;
+<pre><code>&lt;mapper class=&quot;cn.lxm.mybatis.mapper.UserMapper&quot;/&gt;
 </code></pre><p>注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。</p>
 <ul>
 <li>&lt; package name=””/&gt;</li>
 </ul>
 <p>注册指定包下的所有mapper接口如：</p>
-<pre><code>&lt;package name=&quot;cn.itcast.mybatis.mapper&quot;/&gt;
+<pre><code>&lt;package name=&quot;cn.lxm.mybatis.mapper&quot;/&gt;
 </code></pre><p>注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。</p>
 
       
@@ -699,7 +699,7 @@ map    Map
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -721,7 +721,7 @@ map    Map
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -792,7 +792,7 @@ map    Map
     
       <span class="post-meta-item-text">网站文字总数&#58;</span>
     
-    <span title="网站文字总数">20.1k</span>
+    <span title="网站文字总数">21.4k</span>
   
 </div>
 
