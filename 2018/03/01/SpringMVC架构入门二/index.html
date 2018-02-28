@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="mybatis," />
+  <meta name="keywords" content="SpringMVC,SpringWebMVC," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="Mapper动态代理方式开发规范Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。 Mapper接口开发需要遵循以下规范：">
-<meta name="keywords" content="mybatis">
+<meta name="description" content="高级参数绑定绑定数组Controller方法中可以用String[]接收，或者pojo的String[]属性接收。两种方式任选其一即可。">
+<meta name="keywords" content="SpringMVC,SpringWebMVC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mybatis入门二">
-<meta property="og:url" content="http://yoursite.com/2018/02/24/mybatis入门二/index.html">
+<meta property="og:title" content="SpringMVC架构入门二">
+<meta property="og:url" content="http://yoursite.com/2018/03/01/SpringMVC架构入门二/index.html">
 <meta property="og:site_name" content="Fashionkillyou">
-<meta property="og:description" content="Mapper动态代理方式开发规范Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。 Mapper接口开发需要遵循以下规范：">
+<meta property="og:description" content="高级参数绑定绑定数组Controller方法中可以用String[]接收，或者pojo的String[]属性接收。两种方式任选其一即可。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-27T13:48:55.433Z">
+<meta property="og:updated_time" content="2018-02-28T17:08:25.224Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mybatis入门二">
-<meta name="twitter:description" content="Mapper动态代理方式开发规范Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。 Mapper接口开发需要遵循以下规范：">
+<meta name="twitter:title" content="SpringMVC架构入门二">
+<meta name="twitter:description" content="高级参数绑定绑定数组Controller方法中可以用String[]接收，或者pojo的String[]属性接收。两种方式任选其一即可。">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/24/mybatis入门二/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/01/SpringMVC架构入门二/"/>
 
 
 
 
 
-  <title>mybatis入门二 | Fashionkillyou</title>
+  <title>SpringMVC架构入门二 | Fashionkillyou</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/24/mybatis入门二/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/SpringMVC架构入门二/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuxinming">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mybatis入门二</h1>
+          <h1 class="post-title" itemprop="name headline">SpringMVC架构入门二</h1>
         
 
         <div class="post-meta">
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-24T17:18:11+08:00">
-                2018-02-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T00:10:20+08:00">
+                2018-03-01
               </time>
             
 
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,277
+                  501
                 </span>
               
 
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  2
                 </span>
               
             </div>
@@ -426,192 +426,88 @@
       
 
       
-        <h1 id="Mapper动态代理方式"><a href="#Mapper动态代理方式" class="headerlink" title="Mapper动态代理方式"></a>Mapper动态代理方式</h1><h2 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h2><p>Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。</p>
-<p>Mapper接口开发需要遵循以下规范：<br><a id="more"></a><br>1、    Mapper.xml文件中的namespace与mapper接口的类路径相同。</p>
-<p>2、    Mapper接口方法名和Mapper.xml中定义的每个statement的id相同</p>
-<p>3、    Mapper接口方法的输入参数类型和mapper.xml中定义的每个sql 的parameterType的类型相同</p>
-<p>4、    Mapper接口方法的输出参数类型和mapper.xml中定义的每个sql的resultType的类型相同</p>
-<h2 id="Mapper-xml-映射文件"><a href="#Mapper-xml-映射文件" class="headerlink" title="Mapper.xml(映射文件)"></a>Mapper.xml(映射文件)</h2><p>定义mapper映射文件UserMapper.xml（内容同Users.xml），需要修改namespace的值为 UserMapper接口路径。将UserMapper.xml放在classpath 下mapper目录 下。</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;!DOCTYPE mapper
-PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
-&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
-&lt;mapper namespace=&quot;cn.lxm.mybatis.mapper.UserMapper&quot;&gt;
-&lt;!-- 根据id获取用户信息 --&gt;
-&lt;select id=&quot;findUserById&quot; parameterType=&quot;int&quot; resultType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
-    select * from user where id = #{id}
-&lt;/select&gt;
-&lt;!-- 自定义条件查询用户列表 --&gt;
-&lt;select id=&quot;findUserByUsername&quot; parameterType=&quot;java.lang.String&quot; 
-        resultType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
-   select * from user where username like &apos;%${value}%&apos; 
-&lt;/select&gt;
-&lt;!-- 添加用户 --&gt;
-&lt;insert id=&quot;insertUser&quot; parameterType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
-&lt;selectKey keyProperty=&quot;id&quot; order=&quot;AFTER&quot; resultType=&quot;java.lang.Integer&quot;&gt;
-    select LAST_INSERT_ID() 
-&lt;/selectKey&gt;
-  insert into user(username,birthday,sex,address) 
-  values(#{username},#{birthday},#{sex},#{address})
-&lt;/insert&gt;
-
-&lt;/mapper&gt;
-</code></pre><h2 id="Mapper-java-接口文件"><a href="#Mapper-java-接口文件" class="headerlink" title="Mapper.java(接口文件)"></a>Mapper.java(接口文件)</h2><pre><code>/**
- * 用户管理mapper
- */
-Public interface UserMapper {
-//根据用户id查询用户信息
-public User findUserById(int id) throws Exception;
-//查询用户列表
-public List&lt;User&gt; findUserByUsername(String username) throws Exception;
-//添加用户信息
-public void insertUser(User user)throws Exception; 
+        <h1 id="高级参数绑定"><a href="#高级参数绑定" class="headerlink" title="高级参数绑定"></a>高级参数绑定</h1><h2 id="绑定数组"><a href="#绑定数组" class="headerlink" title="绑定数组"></a>绑定数组</h2><p>Controller方法中可以用String[]接收，或者pojo的String[]属性接收。两种方式任选其一即可。<br><a id="more"></a><br>使用String[]:</p>
+<pre><code>@RequestMapping(&quot;/queryitem&quot;)
+public String queryItem(Query queryVo, String[] ids) {
+    System.out.println(queryVo.getItems().getName());
+    System.out.println(queryVo.getItems().getPrice());
+    System.out.println(ids.toString());
+    return null;
 }
-</code></pre><p>接口定义有如下特点：</p>
-<p>1、    Mapper接口方法名和Mapper.xml中定义的statement的id相同</p>
-<p>2、    Mapper接口方法的输入参数类型和mapper.xml中定义的statement的parameterType的类型相同</p>
-<p>3、    Mapper接口方法的输出参数类型和mapper.xml中定义的statement的resultType的类型相同</p>
-<h2 id="加载UserMapper-xml文件"><a href="#加载UserMapper-xml文件" class="headerlink" title="加载UserMapper.xml文件"></a>加载UserMapper.xml文件</h2><p>修改SqlMapConfig.xml文件：</p>
-<pre><code>&lt;!-- 加载映射文件 --&gt;
-&lt;mappers&gt;
-    &lt;mapper resource=&quot;mapper/UserMapper.xml&quot;/&gt;
-&lt;/mappers&gt;
-</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><pre><code>Public class UserMapperTest extends TestCase {
+</code></pre><p>pojo的String[]:</p>
+<pre><code>public class Query{
+    private Items items;
+    private String[] ids;
 
-    private SqlSessionFactory sqlSessionFactory;
-
-    protected void setUp() throws Exception {
-        //mybatis配置文件
-        String resource = &quot;sqlMapConfig.xml&quot;;
-        InputStream inputStream = Resources.getResourceAsStream(resource);
-        //使用SqlSessionFactoryBuilder创建sessionFactory
-        sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-    }
-
-
-    Public void testFindUserById() throws Exception {
-        //获取session
-        SqlSession session = sqlSessionFactory.openSession();
-        //获取mapper接口的代理对象
-        UserMapper userMapper = session.getMapper(UserMapper.class);
-        //调用代理对象方法
-        User user = userMapper.findUserById(1);
-        System.out.println(user);
-        //关闭session
-        session.close();
-
-    }
-    @Test
-    public void testFindUserByUsername() throws Exception {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        List&lt;User&gt; list = userMapper.findUserByUsername(&quot;张&quot;);
-        System.out.println(list.size());
-
-    }
-    Public void testInsertUser() throws Exception {
-        //获取session
-        SqlSession session = sqlSessionFactory.openSession();
-        //获取mapper接口的代理对象
-        UserMapper userMapper = session.getMapper(UserMapper.class);
-        //要添加的数据
-        User user = new User();
-        user.setUsername(&quot;张三&quot;);
-        user.setBirthday(new Date());
-        user.setSex(&quot;1&quot;);
-        user.setAddress(&quot;北京市&quot;);
-        //通过mapper接口添加用户
-        userMapper.insertUser(user);
-        //提交
-        session.commit();
-        //关闭session
-        session.close();
-    }
-
+    get/set...
 }
-</code></pre><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li><p>selectOne和selectList<br>动态代理对象调用sqlSession.selectOne()和sqlSession.selectList()是根据mapper接口方法的返回值决定，如果返回list则调用selectList方法，如果返回单个对象则调用selectOne方法。</p>
-</li>
-<li><p>namespace<br>mybatis官方推荐使用mapper代理方法开发mapper接口，程序员不用编写mapper接口实现类，使用mapper代理方法时，输入参数可以使用pojo包装对象或map对象，保证dao的通用性。</p>
-</li>
-</ul>
-<h2 id="SqlMapConfig-xml配置文件"><a href="#SqlMapConfig-xml配置文件" class="headerlink" title="SqlMapConfig.xml配置文件"></a>SqlMapConfig.xml配置文件</h2><h3 id="配置内容"><a href="#配置内容" class="headerlink" title="配置内容"></a>配置内容</h3><p>SqlMapConfig.xml中配置的内容和顺序如下：</p>
-<pre><code>properties（属性）
-settings（全局配置参数）
-typeAliases（类型别名）
-typeHandlers（类型处理器）
-objectFactory（对象工厂）
-plugins（插件）
-environments（环境集合属性对象）
-environment（环境子属性对象）
-transactionManager（事务管理）
-dataSource（数据源）
-mappers（映射器）
-</code></pre><h2 id="properties（属性）"><a href="#properties（属性）" class="headerlink" title="properties（属性）"></a>properties（属性）</h2><p>SqlMapConfig.xml可以引用java属性文件中的配置信息如下：</p>
-<p>在classpath下定义db.properties文件</p>
-<pre><code>jdbc.driver=com.mysql.jdbc.Driver
-jdbc.url=jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8
-jdbc.username=root
-jdbc.password=root
-</code></pre><p>SqlMapConfig.xml引用如下：</p>
-<pre><code>&lt;properties resource=&quot;db.properties&quot;/&gt;
-    &lt;environments default=&quot;development&quot;&gt;
-        &lt;environment id=&quot;development&quot;&gt;
-            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
-            &lt;dataSource type=&quot;POOLED&quot;&gt;
-                &lt;property name=&quot;driver&quot; value=&quot;${jdbc.driver}&quot;/&gt;
-                &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot;/&gt;
-                &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot;/&gt;
-                &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
-            &lt;/dataSource&gt;
-        &lt;/environment&gt;
-    &lt;/environments&gt;
-</code></pre><p>注意： MyBatis 将按照下面的顺序来加载属性：</p>
-<ul>
-<li>在 properties 元素体内定义的属性首先被读取。 </li>
-<li>然后会读取properties 元素中resource或 url 加载的属性，它会覆盖已读取的同名属性。 </li>
-</ul>
-<h2 id="typeAliases（类型别名）"><a href="#typeAliases（类型别名）" class="headerlink" title="typeAliases（类型别名）"></a>typeAliases（类型别名）</h2><h3 id="mybatis支持别名："><a href="#mybatis支持别名：" class="headerlink" title="mybatis支持别名："></a>mybatis支持别名：</h3><pre><code>别名    映射的类型
-_byte     byte 
-_long     long 
-_short     short 
-_int     int 
-_integer     int 
-_double     double 
-_float     float 
-_boolean     boolean 
-string     String 
-byte     Byte 
-long     Long 
-short     Short 
-int     Integer 
-integer     Integer 
-double     Double 
-float     Float 
-boolean     Boolean 
-date     Date 
-decimal     BigDecimal 
-bigdecimal     BigDecimal 
-map    Map
-</code></pre><h3 id="自定义别名："><a href="#自定义别名：" class="headerlink" title="自定义别名："></a>自定义别名：</h3><p>在SqlMapConfig.xml中配置：<br>    <typealiases><br>        <!-- 单个别名定义 --><br>        <typealias alias="user" type="cn.lxm.mybatis.po.User"><br>        <!-- 批量别名定义，扫描整个包下的类，别名为类名（首字母大写或小写都可以） --><br>        <package name="cn.lxm.mybatis.po"><br>        <package name="其它包"><br>    </package></package></typealias></typealiases><br>这个<typealiases>标签的位置必须放在<environments>标签前面,dtd的约束</environments></typealiases></p>
-<h2 id="mappers（映射器）"><a href="#mappers（映射器）" class="headerlink" title="mappers（映射器）"></a>mappers（映射器）</h2><p>Mapper配置的几种方法：</p>
-<ul>
-<li>&lt; mapper resource=” “ /&gt;</li>
-</ul>
-<p>使用相对于类路径的资源如：</p>
-<pre><code>&lt;mapper resource=&quot;sqlmap/User.xml&quot; /&gt;
-</code></pre><ul>
-<li>&lt; mapper class=” “ /&gt;</li>
-</ul>
-<p>使用mapper接口类路径如：</p>
-<pre><code>&lt;mapper class=&quot;cn.lxm.mybatis.mapper.UserMapper&quot;/&gt;
-</code></pre><p>注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。</p>
-<ul>
-<li>&lt; package name=””/&gt;</li>
-</ul>
-<p>注册指定包下的所有mapper接口如：</p>
-<pre><code>&lt;package name=&quot;cn.lxm.mybatis.mapper&quot;/&gt;
-</code></pre><p>注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。</p>
+</code></pre><h2 id="将表单的数据绑定到List"><a href="#将表单的数据绑定到List" class="headerlink" title="将表单的数据绑定到List"></a>将表单的数据绑定到List</h2><p>List中存放对象，并将定义的List放在包装类中，使用包装pojo对象接收。</p>
+<pre><code>public class Query{
+    private Items items;
+    private String[] ids;
+    private List&lt;Items&gt; itemList;
+    get/set...
+}
+</code></pre><p>jsp页面:</p>
+<pre><code>&lt;tr&gt;
+    &lt;td&gt;
+        &lt;input type=&quot;text&quot; name=&quot; itemsList[0].id&quot; value=&quot;${item.id}&quot;/&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;input type=&quot;text&quot; name=&quot; itemsList[0].name&quot; value=&quot;${item.name }&quot;/&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;input type=&quot;text&quot; name=&quot; itemsList[0].price&quot; value=&quot;${item.price}&quot;/&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;
+        &lt;input type=&quot;text&quot; name=&quot; itemsList[1].id&quot; value=&quot;${item.id}&quot;/&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;input type=&quot;text&quot; name=&quot; itemsList[1].name&quot; value=&quot;${item.name }&quot;/&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;input type=&quot;text&quot; name=&quot; itemsList[1].price&quot; value=&quot;${item.price}&quot;/&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+</code></pre><p>Name属性必须是包装pojo的list属性+下标+元素属性。</p>
+<p>Jsp做如下改造：</p>
+<pre><code>&lt;c:forEach items=&quot;${itemList }&quot; var=&quot;item&quot;&gt;
+&lt;tr&gt;
+    &lt;td&gt;
+        &lt;input name=&quot;ids&quot; value=&quot;${item.id}&quot; type=&quot;checkbox&quot;&gt;&lt;/td&gt;
+    &lt;td&gt;
+        &lt;input name=&quot;id&quot; value=&quot;${item.id}&quot; type=&quot;hidden&quot;&gt;
+        &lt;input name=&quot;name&quot; value=&quot;${item.name }&quot; type=&quot;text&quot;&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;input name=&quot;name&quot; value=&quot;${item.price }&quot; type=&quot;text&quot;&gt;&lt;/td&gt;
+    &lt;td&gt;
+        &lt;input name=&quot;name&quot; value=&quot;&lt;fmt:formatDate value=&quot;${item.createtime}&quot; pattern=&quot;yyyy-MM-dd HH:mm:ss&quot;/&gt;&quot; type=&quot;text&quot;&gt;&lt;/td&gt;
+    &lt;td&gt;
+        &lt;input name=&quot;name&quot; value=&quot;${item.detail }&quot; type=&quot;text&quot;&gt;&lt;/td&gt;
+    &lt;td&gt;
+        &lt;a href=&quot;${pageContext.request.contextPath }/itemEdit.action?id=${item.id}&quot;&gt;修改&lt;/a&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/c:forEach&gt;
+</code></pre><p>varStatus属性常用参数总结下：</p>
+<pre><code>${status.index}      输出行号，从0开始。
+${status.count}      输出行号，从1开始。
+${status.current}   当前这次迭代的（集合中的）项
+${status.first}  判断当前项是否为集合中的第一项，返回值为true或false
+${status.last}   判断当前项是否为集合中的最后一项，返回值为true或false
+begin、end、step分别表示：起始序号，结束序号，跳跃步伐。
+</code></pre><p>Contrller</p>
+<pre><code>@RequestMapping(&quot;/queryitem&quot;)
+public String queryItem(QueryVo queryVo, String[] ids) {
+    System.out.println(queryVo.getItems().getName());
+    System.out.println(queryVo.getItems().getPrice());
+    System.out.println(ids.toString());
+    return null;
+}
+</code></pre><p>注意：接收List类型的数据必须是pojo的属性，方法的形参为List类型无法正确接收到数据。</p>
 
       
     </div>
@@ -629,7 +525,9 @@ map    Map
       
         <div class="post-tags">
           
-            <a href="/tags/mybatis/" rel="tag"># mybatis</a>
+            <a href="/tags/SpringMVC/" rel="tag"># SpringMVC</a>
+          
+            <a href="/tags/SpringWebMVC/" rel="tag"># SpringWebMVC</a>
           
         </div>
       
@@ -642,8 +540,8 @@ map    Map
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/24/mybatis入门一/" rel="next" title="mybatis入门一">
-                <i class="fa fa-chevron-left"></i> mybatis入门一
+              <a href="/2018/02/27/SpringMVC架构入门一/" rel="next" title="SpringMVC架构入门一">
+                <i class="fa fa-chevron-left"></i> SpringMVC架构入门一
               </a>
             
           </div>
@@ -651,10 +549,6 @@ map    Map
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/25/mybatis入门三/" rel="prev" title="mybatis入门三">
-                mybatis入门三 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -802,7 +696,7 @@ map    Map
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mapper动态代理方式"><span class="nav-number">1.</span> <span class="nav-text">Mapper动态代理方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开发规范"><span class="nav-number">1.1.</span> <span class="nav-text">开发规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mapper-xml-映射文件"><span class="nav-number">1.2.</span> <span class="nav-text">Mapper.xml(映射文件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mapper-java-接口文件"><span class="nav-number">1.3.</span> <span class="nav-text">Mapper.java(接口文件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载UserMapper-xml文件"><span class="nav-number">1.4.</span> <span class="nav-text">加载UserMapper.xml文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">1.5.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.6.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SqlMapConfig-xml配置文件"><span class="nav-number">1.7.</span> <span class="nav-text">SqlMapConfig.xml配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置内容"><span class="nav-number">1.7.1.</span> <span class="nav-text">配置内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#properties（属性）"><span class="nav-number">1.8.</span> <span class="nav-text">properties（属性）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typeAliases（类型别名）"><span class="nav-number">1.9.</span> <span class="nav-text">typeAliases（类型别名）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis支持别名："><span class="nav-number">1.9.1.</span> <span class="nav-text">mybatis支持别名：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义别名："><span class="nav-number">1.9.2.</span> <span class="nav-text">自定义别名：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mappers（映射器）"><span class="nav-number">1.10.</span> <span class="nav-text">mappers（映射器）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#高级参数绑定"><span class="nav-number">1.</span> <span class="nav-text">高级参数绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定数组"><span class="nav-number">1.1.</span> <span class="nav-text">绑定数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将表单的数据绑定到List"><span class="nav-number">1.2.</span> <span class="nav-text">将表单的数据绑定到List</span></a></li></ol></li></ol></div>
             
 
           </div>
