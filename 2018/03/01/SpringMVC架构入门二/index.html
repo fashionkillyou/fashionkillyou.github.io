@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Fashionkillyou">
 <meta property="og:description" content="高级参数绑定绑定数组Controller方法中可以用String[]接收，或者pojo的String[]属性接收。两种方式任选其一即可。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-01T03:30:39.031Z">
+<meta property="og:updated_time" content="2018-03-01T12:56:11.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringMVC架构入门二">
 <meta name="twitter:description" content="高级参数绑定绑定数组Controller方法中可以用String[]接收，或者pojo的String[]属性接收。两种方式任选其一即可。">
@@ -608,7 +608,7 @@ ${message }
 &lt;/html&gt;
 </code></pre><h2 id="异常处理器配置"><a href="#异常处理器配置" class="headerlink" title="异常处理器配置"></a>异常处理器配置</h2><p>在springmvc.xml中添加：</p>
 <pre><code>&lt;!-- 全局异常处理器 --&gt;
-&lt;bean class=&quot;com.itheima.springmvc.exception.GlobalExceptionResolver&quot;/&gt;
+&lt;bean class=&quot;com.lxm.springmvc.exception.GlobalExceptionResolver&quot;/&gt;
 </code></pre><h2 id="测试异常"><a href="#测试异常" class="headerlink" title="测试异常"></a>测试异常</h2><p>在需要抛出异常的地方加上throw new CustomerException(“出错信息”);然后方法上向上抛出就可以了</p>
 <pre><code>@RequestMapping(&quot;/itemEdit&quot;)
 public String getEditItem(@RequestParam(value=&quot;id&quot;,required=true)Integer id,Model model) throws CustomerException{
