@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://www.fashionkillyou.xyz/"/>
   <updated>2018-03-02T16:12:15.573Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://www.fashionkillyou.xyz/</id>
   
   <author>
     <name>liuxinming</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>使用formfill.js快速填充表单</title>
-    <link href="http://yoursite.com/2018/03/02/%E4%BD%BF%E7%94%A8formfill-js%E5%BF%AB%E9%80%9F%E5%A1%AB%E5%85%85%E8%A1%A8%E5%8D%95/"/>
-    <id>http://yoursite.com/2018/03/02/使用formfill-js快速填充表单/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/03/02/%E4%BD%BF%E7%94%A8formfill-js%E5%BF%AB%E9%80%9F%E5%A1%AB%E5%85%85%E8%A1%A8%E5%8D%95/"/>
+    <id>http://www.fashionkillyou.xyz/2018/03/02/使用formfill-js快速填充表单/</id>
     <published>2018-03-02T13:26:17.000Z</published>
     <updated>2018-03-02T16:12:15.573Z</updated>
     
@@ -32,19 +32,19 @@
     
     </summary>
     
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://www.fashionkillyou.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="jquery" scheme="http://yoursite.com/tags/jquery/"/>
+      <category term="jquery" scheme="http://www.fashionkillyou.xyz/tags/jquery/"/>
     
-      <category term="formautofill" scheme="http://yoursite.com/tags/formautofill/"/>
+      <category term="formautofill" scheme="http://www.fashionkillyou.xyz/tags/formautofill/"/>
     
   </entry>
   
   <entry>
     <title>技术交流文章</title>
-    <link href="http://yoursite.com/2018/03/02/%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E6%96%87%E7%AB%A0/"/>
-    <id>http://yoursite.com/2018/03/02/技术交流文章/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/03/02/%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E6%96%87%E7%AB%A0/"/>
+    <id>http://www.fashionkillyou.xyz/2018/03/02/技术交流文章/</id>
     <published>2018-03-02T06:25:39.000Z</published>
     <updated>2018-03-02T15:53:02.857Z</updated>
     
@@ -59,17 +59,17 @@
     
     </summary>
     
-      <category term="站长留言" scheme="http://yoursite.com/categories/%E7%AB%99%E9%95%BF%E7%95%99%E8%A8%80/"/>
+      <category term="站长留言" scheme="http://www.fashionkillyou.xyz/categories/%E7%AB%99%E9%95%BF%E7%95%99%E8%A8%80/"/>
     
     
-      <category term="站长留言" scheme="http://yoursite.com/tags/%E7%AB%99%E9%95%BF%E7%95%99%E8%A8%80/"/>
+      <category term="站长留言" scheme="http://www.fashionkillyou.xyz/tags/%E7%AB%99%E9%95%BF%E7%95%99%E8%A8%80/"/>
     
   </entry>
   
   <entry>
     <title>SpringMVC架构入门二</title>
-    <link href="http://yoursite.com/2018/03/01/SpringMVC%E6%9E%B6%E6%9E%84%E5%85%A5%E9%97%A8%E4%BA%8C/"/>
-    <id>http://yoursite.com/2018/03/01/SpringMVC架构入门二/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/03/01/SpringMVC%E6%9E%B6%E6%9E%84%E5%85%A5%E9%97%A8%E4%BA%8C/"/>
+    <id>http://www.fashionkillyou.xyz/2018/03/01/SpringMVC架构入门二/</id>
     <published>2018-02-28T16:10:20.000Z</published>
     <updated>2018-03-01T12:56:11.029Z</updated>
     
@@ -81,19 +81,19 @@
     
     </summary>
     
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+      <category term="java" scheme="http://www.fashionkillyou.xyz/categories/java/"/>
     
     
-      <category term="SpringMVC" scheme="http://yoursite.com/tags/SpringMVC/"/>
+      <category term="SpringMVC" scheme="http://www.fashionkillyou.xyz/tags/SpringMVC/"/>
     
-      <category term="SpringWebMVC" scheme="http://yoursite.com/tags/SpringWebMVC/"/>
+      <category term="SpringWebMVC" scheme="http://www.fashionkillyou.xyz/tags/SpringWebMVC/"/>
     
   </entry>
   
   <entry>
     <title>SpringMVC架构入门一</title>
-    <link href="http://yoursite.com/2018/02/27/SpringMVC%E6%9E%B6%E6%9E%84%E5%85%A5%E9%97%A8%E4%B8%80/"/>
-    <id>http://yoursite.com/2018/02/27/SpringMVC架构入门一/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/02/27/SpringMVC%E6%9E%B6%E6%9E%84%E5%85%A5%E9%97%A8%E4%B8%80/"/>
+    <id>http://www.fashionkillyou.xyz/2018/02/27/SpringMVC架构入门一/</id>
     <published>2018-02-27T10:58:33.000Z</published>
     <updated>2018-02-28T16:57:03.167Z</updated>
     
@@ -127,19 +127,19 @@
     
     </summary>
     
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+      <category term="java" scheme="http://www.fashionkillyou.xyz/categories/java/"/>
     
     
-      <category term="SpringMVC" scheme="http://yoursite.com/tags/SpringMVC/"/>
+      <category term="SpringMVC" scheme="http://www.fashionkillyou.xyz/tags/SpringMVC/"/>
     
-      <category term="SpringWebMVC" scheme="http://yoursite.com/tags/SpringWebMVC/"/>
+      <category term="SpringWebMVC" scheme="http://www.fashionkillyou.xyz/tags/SpringWebMVC/"/>
     
   </entry>
   
   <entry>
     <title>mybatis入门五</title>
-    <link href="http://yoursite.com/2018/02/26/mybatis%E5%85%A5%E9%97%A8%E4%BA%94/"/>
-    <id>http://yoursite.com/2018/02/26/mybatis入门五/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/02/26/mybatis%E5%85%A5%E9%97%A8%E4%BA%94/"/>
+    <id>http://www.fashionkillyou.xyz/2018/02/26/mybatis入门五/</id>
     <published>2018-02-26T08:21:09.000Z</published>
     <updated>2018-02-27T13:50:56.344Z</updated>
     
@@ -154,17 +154,17 @@
     
     </summary>
     
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+      <category term="java" scheme="http://www.fashionkillyou.xyz/categories/java/"/>
     
     
-      <category term="mybatis" scheme="http://yoursite.com/tags/mybatis/"/>
+      <category term="mybatis" scheme="http://www.fashionkillyou.xyz/tags/mybatis/"/>
     
   </entry>
   
   <entry>
     <title>mybatis入门四</title>
-    <link href="http://yoursite.com/2018/02/25/mybatis%E5%85%A5%E9%97%A8%E5%9B%9B/"/>
-    <id>http://yoursite.com/2018/02/25/mybatis入门四/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/02/25/mybatis%E5%85%A5%E9%97%A8%E5%9B%9B/"/>
+    <id>http://www.fashionkillyou.xyz/2018/02/25/mybatis入门四/</id>
     <published>2018-02-25T08:07:42.000Z</published>
     <updated>2018-02-27T13:50:32.042Z</updated>
     
@@ -177,17 +177,17 @@
     
     </summary>
     
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+      <category term="java" scheme="http://www.fashionkillyou.xyz/categories/java/"/>
     
     
-      <category term="mybatis" scheme="http://yoursite.com/tags/mybatis/"/>
+      <category term="mybatis" scheme="http://www.fashionkillyou.xyz/tags/mybatis/"/>
     
   </entry>
   
   <entry>
     <title>mybatis入门三</title>
-    <link href="http://yoursite.com/2018/02/25/mybatis%E5%85%A5%E9%97%A8%E4%B8%89/"/>
-    <id>http://yoursite.com/2018/02/25/mybatis入门三/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/02/25/mybatis%E5%85%A5%E9%97%A8%E4%B8%89/"/>
+    <id>http://www.fashionkillyou.xyz/2018/02/25/mybatis入门三/</id>
     <published>2018-02-25T00:58:28.000Z</published>
     <updated>2018-02-25T12:24:16.165Z</updated>
     
@@ -199,17 +199,17 @@
     
     </summary>
     
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+      <category term="java" scheme="http://www.fashionkillyou.xyz/categories/java/"/>
     
     
-      <category term="mybatis" scheme="http://yoursite.com/tags/mybatis/"/>
+      <category term="mybatis" scheme="http://www.fashionkillyou.xyz/tags/mybatis/"/>
     
   </entry>
   
   <entry>
     <title>mybatis入门二</title>
-    <link href="http://yoursite.com/2018/02/24/mybatis%E5%85%A5%E9%97%A8%E4%BA%8C/"/>
-    <id>http://yoursite.com/2018/02/24/mybatis入门二/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/02/24/mybatis%E5%85%A5%E9%97%A8%E4%BA%8C/"/>
+    <id>http://www.fashionkillyou.xyz/2018/02/24/mybatis入门二/</id>
     <published>2018-02-24T09:18:11.000Z</published>
     <updated>2018-02-27T13:48:55.433Z</updated>
     
@@ -222,17 +222,17 @@
     
     </summary>
     
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+      <category term="java" scheme="http://www.fashionkillyou.xyz/categories/java/"/>
     
     
-      <category term="mybatis" scheme="http://yoursite.com/tags/mybatis/"/>
+      <category term="mybatis" scheme="http://www.fashionkillyou.xyz/tags/mybatis/"/>
     
   </entry>
   
   <entry>
     <title>mybatis入门一</title>
-    <link href="http://yoursite.com/2018/02/24/mybatis%E5%85%A5%E9%97%A8%E4%B8%80/"/>
-    <id>http://yoursite.com/2018/02/24/mybatis入门一/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/02/24/mybatis%E5%85%A5%E9%97%A8%E4%B8%80/"/>
+    <id>http://www.fashionkillyou.xyz/2018/02/24/mybatis入门一/</id>
     <published>2018-02-24T02:09:08.000Z</published>
     <updated>2018-02-27T13:51:22.571Z</updated>
     
@@ -244,17 +244,17 @@
     
     </summary>
     
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+      <category term="java" scheme="http://www.fashionkillyou.xyz/categories/java/"/>
     
     
-      <category term="mybatis" scheme="http://yoursite.com/tags/mybatis/"/>
+      <category term="mybatis" scheme="http://www.fashionkillyou.xyz/tags/mybatis/"/>
     
   </entry>
   
   <entry>
     <title>webService天气预报接口</title>
-    <link href="http://yoursite.com/2018/02/11/webService%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/"/>
-    <id>http://yoursite.com/2018/02/11/webService天气预报接口/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/02/11/webService%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/"/>
+    <id>http://www.fashionkillyou.xyz/2018/02/11/webService天气预报接口/</id>
     <published>2018-02-11T15:36:17.000Z</published>
     <updated>2018-02-11T15:42:41.163Z</updated>
     
@@ -266,17 +266,17 @@
     
     </summary>
     
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://www.fashionkillyou.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="webservice" scheme="http://yoursite.com/tags/webservice/"/>
+      <category term="webservice" scheme="http://www.fashionkillyou.xyz/tags/webservice/"/>
     
   </entry>
   
   <entry>
     <title>Quarze入门知识</title>
-    <link href="http://yoursite.com/2018/02/10/Quarze%E5%85%A5%E9%97%A8%E7%9F%A5%E8%AF%86/"/>
-    <id>http://yoursite.com/2018/02/10/Quarze入门知识/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/02/10/Quarze%E5%85%A5%E9%97%A8%E7%9F%A5%E8%AF%86/"/>
+    <id>http://www.fashionkillyou.xyz/2018/02/10/Quarze入门知识/</id>
     <published>2018-02-10T15:18:51.000Z</published>
     <updated>2018-02-11T15:41:46.157Z</updated>
     
@@ -288,17 +288,17 @@
     
     </summary>
     
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+      <category term="java" scheme="http://www.fashionkillyou.xyz/categories/java/"/>
     
     
-      <category term="quarze" scheme="http://yoursite.com/tags/quarze/"/>
+      <category term="quarze" scheme="http://www.fashionkillyou.xyz/tags/quarze/"/>
     
   </entry>
   
   <entry>
     <title>Oracle知识点总结</title>
-    <link href="http://yoursite.com/2018/02/10/Oracle%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2018/02/10/Oracle知识点总结/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/02/10/Oracle%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.fashionkillyou.xyz/2018/02/10/Oracle知识点总结/</id>
     <published>2018-02-10T15:04:18.000Z</published>
     <updated>2018-02-24T01:33:16.315Z</updated>
     
@@ -314,17 +314,17 @@
     
     </summary>
     
-      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="http://www.fashionkillyou.xyz/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="oracle" scheme="http://yoursite.com/tags/oracle/"/>
+      <category term="oracle" scheme="http://www.fashionkillyou.xyz/tags/oracle/"/>
     
   </entry>
   
   <entry>
     <title>第一篇播客</title>
-    <link href="http://yoursite.com/2018/02/10/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%92%AD%E5%AE%A2/"/>
-    <id>http://yoursite.com/2018/02/10/第一篇播客/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/02/10/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%92%AD%E5%AE%A2/"/>
+    <id>http://www.fashionkillyou.xyz/2018/02/10/第一篇播客/</id>
     <published>2018-02-10T11:30:34.000Z</published>
     <updated>2018-02-10T18:17:40.208Z</updated>
     
@@ -339,17 +339,17 @@
     
     </summary>
     
-      <category term="杂七杂八" scheme="http://yoursite.com/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
+      <category term="杂七杂八" scheme="http://www.fashionkillyou.xyz/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
     
     
-      <category term="test" scheme="http://yoursite.com/tags/test/"/>
+      <category term="test" scheme="http://www.fashionkillyou.xyz/tags/test/"/>
     
   </entry>
   
   <entry>
     <title>写文章的步骤</title>
-    <link href="http://yoursite.com/2018/02/10/hello-world/"/>
-    <id>http://yoursite.com/2018/02/10/hello-world/</id>
+    <link href="http://www.fashionkillyou.xyz/2018/02/10/hello-world/"/>
+    <id>http://www.fashionkillyou.xyz/2018/02/10/hello-world/</id>
     <published>2018-02-10T09:30:04.914Z</published>
     <updated>2018-02-24T08:17:47.553Z</updated>
     
@@ -361,7 +361,7 @@
     
     </summary>
     
-      <category term="杂七杂八" scheme="http://yoursite.com/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
+      <category term="杂七杂八" scheme="http://www.fashionkillyou.xyz/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
     
     
   </entry>
