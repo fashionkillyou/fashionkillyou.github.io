@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.fashionkillyou.xyz/"/>
-  <updated>2018-03-02T16:12:15.573Z</updated>
+  <updated>2018-03-04T15:56:35.724Z</updated>
   <id>http://www.fashionkillyou.xyz/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Lucene全文检索入门</title>
+    <link href="http://www.fashionkillyou.xyz/2018/03/03/Lucene%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2%E5%85%A5%E9%97%A8/"/>
+    <id>http://www.fashionkillyou.xyz/2018/03/03/Lucene全文检索入门/</id>
+    <published>2018-03-03T13:02:41.000Z</published>
+    <updated>2018-03-04T15:56:35.724Z</updated>
+    
+    <content type="html"><![CDATA[<p>#Lucene概述</p><h2 id="什么是Lucene"><a href="#什么是Lucene" class="headerlink" title="什么是Lucene"></a>什么是Lucene</h2><ul><li><p>Lucene是一套用于全文检索和搜寻的开源程序库，由Apache软件基金会支持和提供</p></li><li><p>Lucene提供了一个简单却强大的应用程序接口（API），能够做全文索引和搜寻，在Java开发环境里Lucene是一个成熟的免费开放源代码工具</p></li><li><p>Lucene并不是现成的搜索引擎产品，但可以用来制作搜索引擎产品</p></li><li><p>官网：<a href="http://lucene.apache.org/" target="_blank" rel="noopener">http://lucene.apache.org/</a></p></li></ul><p># </p><p>待更新…</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#Lucene概述&lt;/p&gt;
+&lt;h2 id=&quot;什么是Lucene&quot;&gt;&lt;a href=&quot;#什么是Lucene&quot; class=&quot;headerlink&quot; title=&quot;什么是Lucene&quot;&gt;&lt;/a&gt;什么是Lucene&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Lucene是一套用于全文检索和
+      
+    
+    </summary>
+    
+      <category term="java" scheme="http://www.fashionkillyou.xyz/categories/java/"/>
+    
+    
+      <category term="Lucene" scheme="http://www.fashionkillyou.xyz/tags/Lucene/"/>
+    
+      <category term="全文检索" scheme="http://www.fashionkillyou.xyz/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>使用formfill.js快速填充表单</title>
@@ -46,15 +75,15 @@
     <link href="http://www.fashionkillyou.xyz/2018/03/02/%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E6%96%87%E7%AB%A0/"/>
     <id>http://www.fashionkillyou.xyz/2018/03/02/技术交流文章/</id>
     <published>2018-03-02T06:25:39.000Z</published>
-    <updated>2018-03-02T15:53:02.857Z</updated>
+    <updated>2018-03-03T12:28:18.464Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="站长留言-置顶博文"><a href="#站长留言-置顶博文" class="headerlink" title="站长留言(置顶博文)"></a>站长留言(置顶博文)</h1><h3 id="你好-朋友-如果你有神马想和我说的请留言-可以在此处评论留言也可以发送邮件至我的邮箱"><a href="#你好-朋友-如果你有神马想和我说的请留言-可以在此处评论留言也可以发送邮件至我的邮箱" class="headerlink" title="你好,朋友!如果你有神马想和我说的请留言,可以在此处评论留言也可以发送邮件至我的邮箱:"></a>你好,朋友!如果你有神马想和我说的请留言,可以在此处评论留言也可以发送邮件至我的邮箱:</h3><h2 id="fashionkillyou-foxmail-com"><a href="#fashionkillyou-foxmail-com" class="headerlink" title="fashionkillyou@foxmail.com"></a>fashionkillyou@foxmail.com</h2><h3 id="请大家多多支持-多多指教-持续更新中…"><a href="#请大家多多支持-多多指教-持续更新中…" class="headerlink" title="请大家多多支持,多多指教!持续更新中…"></a>请大家多多支持,多多指教!持续更新中…</h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="你好-朋友-如果你有神马想和我说的请留言-可以在此处评论留言也可以发送邮件至我的邮箱"><a href="#你好-朋友-如果你有神马想和我说的请留言-可以在此处评论留言也可以发送邮件至我的邮箱" class="headerlink" title="你好,朋友!如果你有神马想和我说的请留言,可以在此处评论留言也可以发送邮件至我的邮箱:"></a>你好,朋友!如果你有神马想和我说的请留言,可以在此处评论留言也可以发送邮件至我的邮箱:</h3><h2 id="fashionkillyou-foxmail-com"><a href="#fashionkillyou-foxmail-com" class="headerlink" title="fashionkillyou@foxmail.com"></a>fashionkillyou@foxmail.com</h2><h3 id="请大家多多支持-多多指教-持续更新中…"><a href="#请大家多多支持-多多指教-持续更新中…" class="headerlink" title="请大家多多支持,多多指教!持续更新中…"></a>请大家多多支持,多多指教!持续更新中…</h3>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;站长留言-置顶博文&quot;&gt;&lt;a href=&quot;#站长留言-置顶博文&quot; class=&quot;headerlink&quot; title=&quot;站长留言(置顶博文)&quot;&gt;&lt;/a&gt;站长留言(置顶博文)&lt;/h1&gt;&lt;h3 id=&quot;你好-朋友-如果你有神马想和我说的请留言-可以在此处评论留言也可以发送
+        &lt;h3 id=&quot;你好-朋友-如果你有神马想和我说的请留言-可以在此处评论留言也可以发送邮件至我的邮箱&quot;&gt;&lt;a href=&quot;#你好-朋友-如果你有神马想和我说的请留言-可以在此处评论留言也可以发送邮件至我的邮箱&quot; class=&quot;headerlink&quot; title=&quot;你好,朋友!如果
       
     
     </summary>
