@@ -1938,7 +1938,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d040ff;
+  background: #132d82;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3106,7 +3106,7 @@ img:hover {
     text-align: justify;
   }
 }
-.post {
+Custom styles. .post {
   margin-top: 60px;
   margin-bottom: 60px;
   padding: 25px;
