@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="Dubbox框架Dubbox简介Dubbox 是一个分布式服务框架，其前身是阿里巴巴开源项目Dubbo ，被国内电商及互联网项目中使用，后期阿里巴巴停止了该项目的维护，当当网便在Dubbo基础上进行优化，并继续维护，为了与原有的Dubbo区分，故将其命名为Dubbox。 Dubbox 致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。简单的说，dubbox就是个服务框架，">
+<meta name="description" content="Dubbox框架Dubbox简介Dubbox 是一个分布式服务框架，其前身是阿里巴巴开源项目Dubbo ，被国内电商及互联网项目中使用，后期阿里巴巴停止了该项目的维护，当当网便在Dubbo基础上进行优化，并继续维护，为了与原有的Dubbo区分，故将其命名为Dubbox。">
 <meta name="keywords" content="Dubbox,分布式服务框架,Dubbo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dubbox框架入门小demo">
 <meta property="og:url" content="http://www.fashionkillyou.xyz/2018/03/05/Dubbox框架入门小demo/index.html">
 <meta property="og:site_name" content="Fashionkillyou">
-<meta property="og:description" content="Dubbox框架Dubbox简介Dubbox 是一个分布式服务框架，其前身是阿里巴巴开源项目Dubbo ，被国内电商及互联网项目中使用，后期阿里巴巴停止了该项目的维护，当当网便在Dubbo基础上进行优化，并继续维护，为了与原有的Dubbo区分，故将其命名为Dubbox。 Dubbox 致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。简单的说，dubbox就是个服务框架，">
+<meta property="og:description" content="Dubbox框架Dubbox简介Dubbox 是一个分布式服务框架，其前身是阿里巴巴开源项目Dubbo ，被国内电商及互联网项目中使用，后期阿里巴巴停止了该项目的维护，当当网便在Dubbo基础上进行优化，并继续维护，为了与原有的Dubbo区分，故将其命名为Dubbox。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-05T12:24:58.010Z">
+<meta property="og:updated_time" content="2018-03-05T16:42:05.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dubbox框架入门小demo">
-<meta name="twitter:description" content="Dubbox框架Dubbox简介Dubbox 是一个分布式服务框架，其前身是阿里巴巴开源项目Dubbo ，被国内电商及互联网项目中使用，后期阿里巴巴停止了该项目的维护，当当网便在Dubbo基础上进行优化，并继续维护，为了与原有的Dubbo区分，故将其命名为Dubbox。 Dubbox 致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。简单的说，dubbox就是个服务框架，">
+<meta name="twitter:description" content="Dubbox框架Dubbox简介Dubbox 是一个分布式服务框架，其前身是阿里巴巴开源项目Dubbo ，被国内电商及互联网项目中使用，后期阿里巴巴停止了该项目的维护，当当网便在Dubbo基础上进行优化，并继续维护，为了与原有的Dubbo区分，故将其命名为Dubbox。">
 
 
 
@@ -426,8 +426,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Dubbox框架"><a href="#Dubbox框架" class="headerlink" title="Dubbox框架"></a>Dubbox框架</h1><h2 id="Dubbox简介"><a href="#Dubbox简介" class="headerlink" title="Dubbox简介"></a>Dubbox简介</h2><p>Dubbox 是一个<strong>分布式服务框架</strong>，其前身是阿里巴巴开源项目Dubbo ，被国内电商及互联网项目中使用，后期阿里巴巴停止了该项目的维护，当当网便在Dubbo基础上进行优化，并继续维护，为了与原有的Dubbo区分，故将其命名为Dubbox。</p>
-<p>Dubbox 致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。简单的说，dubbox就是个服务框架，如果没有分布式的需求，其实是不需要用的，只有在分布式的时候，才有dubbox这样的分布式服务框架的需求，并且本质上是个服务调用的东东，说白了就是个远程服务调用的分布式框架。</p>
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Dubbox框架"><a href="#Dubbox框架" class="headerlink" title="Dubbox框架"></a>Dubbox框架</h1><h2 id="Dubbox简介"><a href="#Dubbox简介" class="headerlink" title="Dubbox简介"></a>Dubbox简介</h2><p>Dubbox 是一个<strong>分布式服务框架</strong>，其前身是阿里巴巴开源项目Dubbo ，被国内电商及互联网项目中使用，后期阿里巴巴停止了该项目的维护，当当网便在Dubbo基础上进行优化，并继续维护，为了与原有的Dubbo区分，故将其命名为Dubbox。<br><a id="more"></a><br>Dubbox 致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。简单的说，dubbox就是个服务框架，如果没有分布式的需求，其实是不需要用的，只有在分布式的时候，才有dubbox这样的分布式服务框架的需求，并且本质上是个服务调用的东东，说白了就是个远程服务调用的分布式框架。</p>
 <p>###节点角色说明：<br>• Provider: 暴露服务的服务提供方。</p>
 <p>• Consumer: 调用远程服务的服务消费方。</p>
 <p>• Registry: 服务注册与发现的注册中心。</p>
@@ -470,7 +469,7 @@ mv zoo_sample.cfg zoo.cfg
 <p>（1）创建Maven工程（WAR）dubboxdemo-service  ，在pom.xml中引入依赖</p>
 <pre><code>&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-  &lt;groupId&gt;cn.itcast.dubboxdemo&lt;/groupId&gt;
+  &lt;groupId&gt;cn.lxm.dubboxdemo&lt;/groupId&gt;
   &lt;artifactId&gt;dubboxdemo-service&lt;/artifactId&gt;
   &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
   &lt;packaging&gt;war&lt;/packaging&gt;  
@@ -574,8 +573,8 @@ mv zoo_sample.cfg zoo.cfg
     &lt;listener&gt;        &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
     &lt;/listener&gt;    
 &lt;/web-app&gt;
-</code></pre><p>（3）创建业务接口<br>创建包cn.itcast.dubbodemo.service，用于存放业务接口，创建接口</p>
-<pre><code>package cn.itcast.dubbodemo.service;
+</code></pre><p>（3）创建业务接口<br>创建包cn.lxm.dubbodemo.service，用于存放业务接口，创建接口</p>
+<pre><code>package cn.lxm.dubbodemo.service;
 /**
  * 业务接口
  * @author Administrator
@@ -584,14 +583,14 @@ mv zoo_sample.cfg zoo.cfg
 public interface UserService {    
     public String getName();    
 }
-</code></pre><p>（4）创建业务实现类<br>创建包cn.itcast.dubbodemo.service.impl ，用于存放业务实现类。创建业务实现类：</p>
-<pre><code>package cn.itcast.dubbodemo.service.impl;
+</code></pre><p>（4）创建业务实现类<br>创建包cn.lxm.dubbodemo.service.impl ，用于存放业务实现类。创建业务实现类：</p>
+<pre><code>package cn.lxm.dubbodemo.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
-import cn.itcast.dubbodemo.service.UserService;
+import cn.lxm.dubbodemo.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
     public String getName() {        
-        return &quot;itcast&quot;;
+        return &quot;lxm&quot;;
     }
 }
 </code></pre><p>注意：Service注解与原来不同，需要引入com.alibaba包下的</p>
@@ -608,7 +607,7 @@ public class UserServiceImpl implements UserService {
 
     &lt;dubbo:application name=&quot;dubboxdemo-service&quot;/&gt;  
 &lt;dubbo:registry address=&quot;zookeeper://192.168.25.132:2181&quot;/&gt; 
-&lt;dubbo:annotation package=&quot;cn.itcast.dubboxdemo.service&quot; /&gt; 
+&lt;dubbo:annotation package=&quot;cn.lxm.dubboxdemo.service&quot; /&gt; 
 &lt;/beans&gt;
 </code></pre><p>注意：dubbo:annotation用于扫描@Service注解。</p>
 <h3 id="服务消费者开发"><a href="#服务消费者开发" class="headerlink" title="服务消费者开发"></a>服务消费者开发</h3><p>开发步骤：</p>
@@ -648,14 +647,14 @@ public class UserServiceImpl implements UserService {
       &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
   &lt;/servlet-mapping&gt;
 &lt;/web-app&gt;
-</code></pre><p>（3）拷贝业务接口<br>将“dubboxdemo-service”工程的cn.itcast.dubboxdemo.service 包以及下面的接口拷贝至此工程。</p>
+</code></pre><p>（3）拷贝业务接口<br>将“dubboxdemo-service”工程的cn.lxm.dubboxdemo.service 包以及下面的接口拷贝至此工程。</p>
 <p>（4）编写Controller </p>
-<pre><code>package cn.itcast.dubboxdemo.controller;
+<pre><code>package cn.lxm.dubboxdemo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import cn.itcast.dubbodemo.service.UserService;
+import cn.lxm.dubbodemo.service.UserService;
 @Controller
 @RequestMapping(&quot;/user&quot;)
 public class UserController {
@@ -688,7 +687,7 @@ public class UserController {
     &lt;!-- 引用dubbo 服务 --&gt;
     &lt;dubbo:application name=&quot;dubboxdemo-web&quot; /&gt;
     &lt;dubbo:registry address=&quot;zookeeper://192.168.25.132:2181&quot;/&gt;
-     &lt;dubbo:annotation package=&quot;cn.itcast.dubboxdemo.controller&quot; /&gt;
+     &lt;dubbo:annotation package=&quot;cn.lxm.dubboxdemo.controller&quot; /&gt;
 &lt;/beans&gt;
 </code></pre><p>（6）测试运行</p>
 <p>tomcat7:run<br>在浏览器输入<a href="http://localhost:8082/user/showName.do，查看浏览器输出结果" target="_blank" rel="noopener">http://localhost:8082/user/showName.do，查看浏览器输出结果</a></p>
