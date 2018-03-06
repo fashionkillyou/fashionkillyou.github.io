@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="Mapper动态代理方式开发规范Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。 Mapper接口开发需要遵循以下规范：">
+<meta name="description" content="关联查询一对一查询这里举例是一个订单对应一个用户 方法一：使用resultType，定义订单信息po类，此po类中包括了订单信息和用户信息：">
 <meta name="keywords" content="mybatis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mybatis入门二">
-<meta property="og:url" content="http://www.fashionkillyou.xyz/2018/02/24/mybatis入门二/index.html">
+<meta property="og:title" content="mybatis四">
+<meta property="og:url" content="http://www.fashionkillyou.xyz/2018/02/25/mybatis四/index.html">
 <meta property="og:site_name" content="Fashionkillyou">
-<meta property="og:description" content="Mapper动态代理方式开发规范Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。 Mapper接口开发需要遵循以下规范：">
+<meta property="og:description" content="关联查询一对一查询这里举例是一个订单对应一个用户 方法一：使用resultType，定义订单信息po类，此po类中包括了订单信息和用户信息：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-27T13:48:55.433Z">
+<meta property="og:updated_time" content="2018-03-06T01:25:46.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mybatis入门二">
-<meta name="twitter:description" content="Mapper动态代理方式开发规范Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。 Mapper接口开发需要遵循以下规范：">
+<meta name="twitter:title" content="mybatis四">
+<meta name="twitter:description" content="关联查询一对一查询这里举例是一个订单对应一个用户 方法一：使用resultType，定义订单信息po类，此po类中包括了订单信息和用户信息：">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://www.fashionkillyou.xyz/2018/02/24/mybatis入门二/"/>
+  <link rel="canonical" href="http://www.fashionkillyou.xyz/2018/02/25/mybatis四/"/>
 
 
 
 
 
-  <title>mybatis入门二 | Fashionkillyou</title>
+  <title>mybatis四 | Fashionkillyou</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/02/24/mybatis入门二/">
+    <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/02/25/mybatis四/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuxinming">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mybatis入门二</h1>
+          <h1 class="post-title" itemprop="name headline">mybatis四</h1>
         
 
         <div class="post-meta">
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-24T17:18:11+08:00">
-                2018-02-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-25T16:07:42+08:00">
+                2018-02-25
               </time>
             
 
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,277
+                  1,130
                 </span>
               
 
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  5
                 </span>
               
             </div>
@@ -426,193 +426,181 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Mapper动态代理方式"><a href="#Mapper动态代理方式" class="headerlink" title="Mapper动态代理方式"></a>Mapper动态代理方式</h1><h2 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h2><p>Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。</p>
-<p>Mapper接口开发需要遵循以下规范：<br><a id="more"></a><br>1、    Mapper.xml文件中的namespace与mapper接口的类路径相同。</p>
-<p>2、    Mapper接口方法名和Mapper.xml中定义的每个statement的id相同</p>
-<p>3、    Mapper接口方法的输入参数类型和mapper.xml中定义的每个sql 的parameterType的类型相同</p>
-<p>4、    Mapper接口方法的输出参数类型和mapper.xml中定义的每个sql的resultType的类型相同</p>
-<h2 id="Mapper-xml-映射文件"><a href="#Mapper-xml-映射文件" class="headerlink" title="Mapper.xml(映射文件)"></a>Mapper.xml(映射文件)</h2><p>定义mapper映射文件UserMapper.xml（内容同Users.xml），需要修改namespace的值为 UserMapper接口路径。将UserMapper.xml放在classpath 下mapper目录 下。</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;!DOCTYPE mapper
-PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
-&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
-&lt;mapper namespace=&quot;cn.lxm.mybatis.mapper.UserMapper&quot;&gt;
-&lt;!-- 根据id获取用户信息 --&gt;
-&lt;select id=&quot;findUserById&quot; parameterType=&quot;int&quot; resultType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
-    select * from user where id = #{id}
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="关联查询"><a href="#关联查询" class="headerlink" title="关联查询"></a>关联查询</h1><h2 id="一对一查询"><a href="#一对一查询" class="headerlink" title="一对一查询"></a>一对一查询</h2><p>这里举例是一个订单对应一个用户</p>
+<h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>使用resultType，定义订单信息po类，此po类中包括了订单信息和用户信息：</p>
+<a id="more"></a>
+<h4 id="Sql语句："><a href="#Sql语句：" class="headerlink" title="Sql语句："></a>Sql语句：</h4><pre><code>SELECT 
+  orders.*,
+  user.username,
+  user.address
+FROM
+  orders,
+  user 
+WHERE orders.user_id = user.id
+</code></pre><h4 id="定义po类"><a href="#定义po类" class="headerlink" title="定义po类"></a>定义po类</h4><p>Po类中应该包括上边sql查询出来的所有字段，如下：</p>
+<pre><code>public class OrdersCustom extends Orders {
+private String username;// 用户名称
+private String address;// 用户地址
+get/set。。。。
+</code></pre><p>OrdersCustom类继承Orders类后OrdersCustom类包括了Orders类的所有字段，只需要定义用户的信息字段即可。</p>
+<h4 id="Mapper-xml"><a href="#Mapper-xml" class="headerlink" title="Mapper.xml"></a>Mapper.xml</h4><pre><code>&lt;!-- 查询所有订单信息 --&gt;
+&lt;select id=&quot;findOrdersList&quot; resultType=&quot;cn.lxm.mybatis.po.OrdersCustom&quot;&gt;
+SELECT
+orders.*,
+user.username,
+user.address
+FROM
+orders,    user
+WHERE orders.user_id = user.id 
 &lt;/select&gt;
-&lt;!-- 自定义条件查询用户列表 --&gt;
-&lt;select id=&quot;findUserByUsername&quot; parameterType=&quot;java.lang.String&quot; 
-        resultType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
-   select * from user where username like &apos;%${value}%&apos; 
-&lt;/select&gt;
-&lt;!-- 添加用户 --&gt;
-&lt;insert id=&quot;insertUser&quot; parameterType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
-&lt;selectKey keyProperty=&quot;id&quot; order=&quot;AFTER&quot; resultType=&quot;java.lang.Integer&quot;&gt;
-    select LAST_INSERT_ID() 
-&lt;/selectKey&gt;
-  insert into user(username,birthday,sex,address) 
-  values(#{username},#{birthday},#{sex},#{address})
-&lt;/insert&gt;
-
-&lt;/mapper&gt;
-</code></pre><h2 id="Mapper-java-接口文件"><a href="#Mapper-java-接口文件" class="headerlink" title="Mapper.java(接口文件)"></a>Mapper.java(接口文件)</h2><pre><code>/**
- * 用户管理mapper
- */
-Public interface UserMapper {
-//根据用户id查询用户信息
-public User findUserById(int id) throws Exception;
-//查询用户列表
-public List&lt;User&gt; findUserByUsername(String username) throws Exception;
-//添加用户信息
-public void insertUser(User user)throws Exception; 
+</code></pre><h4 id="Mapper接口："><a href="#Mapper接口：" class="headerlink" title="Mapper接口："></a>Mapper接口：</h4><pre><code>public List&lt;OrdersCustom&gt; findOrdersList() throws Exception;
+</code></pre><h4 id="测试："><a href="#测试：" class="headerlink" title="测试："></a>测试：</h4><pre><code>Public void testfindOrdersList()throws Exception{
+    //获取session
+    SqlSession session = sqlSessionFactory.openSession();
+    //获限mapper接口实例
+    UserMapper userMapper = session.getMapper(UserMapper.class);
+    //查询订单信息
+    List&lt;OrdersCustom&gt; list = userMapper.findOrdersList();
+    System.out.println(list);
+    //关闭session
+    session.close();
 }
-</code></pre><p>接口定义有如下特点：</p>
-<p>1、    Mapper接口方法名和Mapper.xml中定义的statement的id相同</p>
-<p>2、    Mapper接口方法的输入参数类型和mapper.xml中定义的statement的parameterType的类型相同</p>
-<p>3、    Mapper接口方法的输出参数类型和mapper.xml中定义的statement的resultType的类型相同</p>
-<h2 id="加载UserMapper-xml文件"><a href="#加载UserMapper-xml文件" class="headerlink" title="加载UserMapper.xml文件"></a>加载UserMapper.xml文件</h2><p>修改SqlMapConfig.xml文件：</p>
-<pre><code>&lt;!-- 加载映射文件 --&gt;
-&lt;mappers&gt;
-    &lt;mapper resource=&quot;mapper/UserMapper.xml&quot;/&gt;
-&lt;/mappers&gt;
-</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><pre><code>Public class UserMapperTest extends TestCase {
+</code></pre><h4 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h4><pre><code>定义专门的po类作为输出类型，其中定义了sql查询结果集所有的字段。此方法较为简单，企业中使用普遍。
+</code></pre><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>使用resultMap，定义专门的resultMap用于映射一对一查询结果。</p>
+<h4 id="Sql语句：-1"><a href="#Sql语句：-1" class="headerlink" title="Sql语句："></a>Sql语句：</h4><pre><code>SELECT 
+  orders.*,
+  user.username,
+  user.address
+FROM
+  orders,
+  user 
+WHERE orders.user_id = user.id
+</code></pre><h4 id="定义po类-1"><a href="#定义po类-1" class="headerlink" title="定义po类"></a>定义po类</h4><p>在Orders类中加入User属性，user属性中用于存储关联查询的用户信息，因为订单关联查询用户是一对一关系，所以这里使用单个User对象存储关联查询的用户信息。<br>    public class Orders {<br>    private Integer id;</p>
+<pre><code>private Integer userId;
 
-    private SqlSessionFactory sqlSessionFactory;
+private String number;
 
-    protected void setUp() throws Exception {
-        //mybatis配置文件
-        String resource = &quot;sqlMapConfig.xml&quot;;
-        InputStream inputStream = Resources.getResourceAsStream(resource);
-        //使用SqlSessionFactoryBuilder创建sessionFactory
-        sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-    }
+private Date createtime;
 
+private String note;
 
-    Public void testFindUserById() throws Exception {
-        //获取session
-        SqlSession session = sqlSessionFactory.openSession();
-        //获取mapper接口的代理对象
-        UserMapper userMapper = session.getMapper(UserMapper.class);
-        //调用代理对象方法
-        User user = userMapper.findUserById(1);
+private User user;
+
+get/set()...
+</code></pre><h4 id="Mapper-xml-1"><a href="#Mapper-xml-1" class="headerlink" title="Mapper.xml"></a>Mapper.xml</h4><pre><code>&lt;!-- 查询订单关联用户信息使用resultmap --&gt;
+&lt;resultMap type=&quot;Orders&quot; id=&quot;orderUserResultMap&quot;&gt;
+    &lt;id column=&quot;id&quot; property=&quot;id&quot;/&gt;
+    &lt;result column=&quot;user_id&quot; property=&quot;userId&quot;/&gt;
+    &lt;result column=&quot;number&quot; property=&quot;number&quot;/&gt;
+    &lt;result column=&quot;createtime&quot; property=&quot;createtime&quot;/&gt;
+    &lt;result column=&quot;note&quot; property=&quot;note&quot;/&gt;
+    &lt;!-- 一对一关联映射 --&gt;
+    &lt;!-- 
+    property:Orders对象的user属性
+    javaType：user属性对应 的类型
+     --&gt;
+    &lt;association property=&quot;user&quot; javaType=&quot;cn.lxm.po.User&quot;&gt;
+        &lt;!-- column:user表的主键对应的列  property：user对象中id属性--&gt;
+        &lt;id column=&quot;user_id&quot; property=&quot;id&quot;/&gt;
+        &lt;result column=&quot;username&quot; property=&quot;username&quot;/&gt;
+        &lt;result column=&quot;address&quot; property=&quot;address&quot;/&gt;
+    &lt;/association&gt;
+&lt;/resultMap&gt;
+&lt;select id=&quot;findOrdersWithUserResultMap&quot; resultMap=&quot;orderUserResultMap&quot;&gt;
+    SELECT
+        o.id,
+        o.user_id,
+        o.number,
+        o.createtime,
+        o.note,
+        u.username,
+        u.address
+    FROM
+        orders o
+    JOIN `user` u ON u.id = o.user_id
+&lt;/select&gt;
+</code></pre><p>这里resultMap指定orderUserResultMap。</p>
+<p>association：表示进行关联查询单条记录</p>
+<p>property：表示关联查询的结果存储在cn.lxm.mybatis.po.Orders的user属性中</p>
+<p>javaType：表示关联查询的结果类型</p>
+<p>&lt; id property=”id” column=”user_id”/&gt;：查询结果的user_id列对应关联对象的id属性，这里是&lt; id /&gt;表示user_id是关联查询对象的唯一标识。</p>
+<p>&lt; result property=”username” column=”username”/&gt;：查询结果的username列对应关联对象的username属性。</p>
+<h4 id="Mapper接口：-1"><a href="#Mapper接口：-1" class="headerlink" title="Mapper接口："></a>Mapper接口：</h4><pre><code>public List&lt;Orders&gt; findOrdersListResultMap() throws Exception;
+</code></pre><h4 id="测试：-1"><a href="#测试：-1" class="headerlink" title="测试："></a>测试：</h4><pre><code>Public void testfindOrdersListResultMap()throws Exception{
+    //获取session
+    SqlSession session = sqlSessionFactory.openSession();
+    //获限mapper接口实例
+    UserMapper userMapper = session.getMapper(UserMapper.class);
+    //查询订单信息
+    List&lt;Orders&gt; list = userMapper.findOrdersList2();
+    System.out.println(list);
+    //关闭session
+    session.close();
+}
+</code></pre><h4 id="小结：-1"><a href="#小结：-1" class="headerlink" title="小结："></a>小结：</h4><p>使用association完成关联查询，将关联查询信息映射到pojo对象中。</p>
+<h2 id="一对多查询"><a href="#一对多查询" class="headerlink" title="一对多查询"></a>一对多查询</h2><p>案例：查询所有用户信息及用户关联的订单信息。</p>
+<p>用户信息和订单信息为一对多关系。</p>
+<p>使用resultMap实现如下：</p>
+<h3 id="Sql语句：-2"><a href="#Sql语句：-2" class="headerlink" title="Sql语句："></a>Sql语句：</h3><pre><code>SELECT
+u.*, o.id oid,
+o.number,
+o.createtime,
+o.note
+FROM
+`user` u
+LEFT JOIN orders o ON u.id = o.user_id
+</code></pre><h3 id="定义po类-2"><a href="#定义po类-2" class="headerlink" title="定义po类"></a>定义po类</h3><p>在User类中加入List&lt; Orders&gt; orders属性</p>
+<pre><code>public class User {
+   private int id;
+   private String username;// 用户姓名
+   private String sex;// 性别
+   private Date birthday;// 生日
+   private String address;// 地址
+   private List&lt;Orders&gt; orders;
+   get/set()...
+</code></pre><h3 id="Mapper-xml-2"><a href="#Mapper-xml-2" class="headerlink" title="Mapper.xml"></a>Mapper.xml</h3><pre><code>&lt;resultMap type=&quot;user&quot; id=&quot;userOrderResultMap&quot;&gt;
+    &lt;!-- 用户信息映射 --&gt;
+    &lt;id property=&quot;id&quot; column=&quot;id&quot;/&gt;
+    &lt;result property=&quot;username&quot; column=&quot;username&quot;/&gt;
+    &lt;result property=&quot;birthday&quot; column=&quot;birthday&quot;/&gt;
+    &lt;result property=&quot;sex&quot; column=&quot;sex&quot;/&gt;
+    &lt;result property=&quot;address&quot; column=&quot;address&quot;/&gt;
+    &lt;!-- 一对多关联映射 --&gt;
+    &lt;collection property=&quot;orders&quot; ofType=&quot;orders&quot;&gt;
+        &lt;id property=&quot;id&quot; column=&quot;oid&quot;/&gt;    
+          &lt;!--用户id已经在user对象中存在，此处可以不设置--&gt;
+        &lt;!-- &lt;result property=&quot;userId&quot; column=&quot;id&quot;/&gt; --&gt;
+        &lt;result property=&quot;number&quot; column=&quot;number&quot;/&gt;
+        &lt;result property=&quot;createtime&quot; column=&quot;createtime&quot;/&gt;
+        &lt;result property=&quot;note&quot; column=&quot;note&quot;/&gt;
+    &lt;/collection&gt;
+&lt;/resultMap&gt;
+&lt;select id=&quot;getUserOrderList&quot; resultMap=&quot;userOrderResultMap&quot;&gt;
+    SELECT
+    u.*, o.id oid,
+    o.number,
+    o.createtime,
+    o.note
+    FROM
+    `user` u
+    LEFT JOIN orders o ON u.id = o.user_id
+&lt;/select&gt;
+</code></pre><p>collection部分定义了用户关联的订单信息。表示关联查询结果集</p>
+<p>property=”orders”：关联查询的结果集存储在User对象的上哪个属性。</p>
+<p>ofType=”orders”：指定关联查询的结果集中的对象类型即List中的对象类型。此处可以使用别名，也可以使用全限定名。</p>
+<p>&lt; id /&gt;及&lt; result/&gt;的意义同一对一查询。</p>
+<h3 id="Mapper接口：-2"><a href="#Mapper接口：-2" class="headerlink" title="Mapper接口："></a>Mapper接口：</h3><pre><code>List&lt;User&gt; getUserOrderList();
+</code></pre><h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><pre><code>@Test
+public void getUserOrderList() {
+    SqlSession session = sqlSessionFactory.openSession();
+    UserMapper userMapper = session.getMapper(UserMapper.class);
+    List&lt;User&gt; result = userMapper.getUserOrderList();
+    for (User user : result) {
         System.out.println(user);
-        //关闭session
-        session.close();
-
     }
-    @Test
-    public void testFindUserByUsername() throws Exception {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        List&lt;User&gt; list = userMapper.findUserByUsername(&quot;张&quot;);
-        System.out.println(list.size());
-
-    }
-    Public void testInsertUser() throws Exception {
-        //获取session
-        SqlSession session = sqlSessionFactory.openSession();
-        //获取mapper接口的代理对象
-        UserMapper userMapper = session.getMapper(UserMapper.class);
-        //要添加的数据
-        User user = new User();
-        user.setUsername(&quot;张三&quot;);
-        user.setBirthday(new Date());
-        user.setSex(&quot;1&quot;);
-        user.setAddress(&quot;北京市&quot;);
-        //通过mapper接口添加用户
-        userMapper.insertUser(user);
-        //提交
-        session.commit();
-        //关闭session
-        session.close();
-    }
-
+    session.close();
 }
-</code></pre><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li><p>selectOne和selectList<br>动态代理对象调用sqlSession.selectOne()和sqlSession.selectList()是根据mapper接口方法的返回值决定，如果返回list则调用selectList方法，如果返回单个对象则调用selectOne方法。</p>
-</li>
-<li><p>namespace<br>mybatis官方推荐使用mapper代理方法开发mapper接口，程序员不用编写mapper接口实现类，使用mapper代理方法时，输入参数可以使用pojo包装对象或map对象，保证dao的通用性。</p>
-</li>
-</ul>
-<h2 id="SqlMapConfig-xml配置文件"><a href="#SqlMapConfig-xml配置文件" class="headerlink" title="SqlMapConfig.xml配置文件"></a>SqlMapConfig.xml配置文件</h2><h3 id="配置内容"><a href="#配置内容" class="headerlink" title="配置内容"></a>配置内容</h3><p>SqlMapConfig.xml中配置的内容和顺序如下：</p>
-<pre><code>properties（属性）
-settings（全局配置参数）
-typeAliases（类型别名）
-typeHandlers（类型处理器）
-objectFactory（对象工厂）
-plugins（插件）
-environments（环境集合属性对象）
-environment（环境子属性对象）
-transactionManager（事务管理）
-dataSource（数据源）
-mappers（映射器）
-</code></pre><h2 id="properties（属性）"><a href="#properties（属性）" class="headerlink" title="properties（属性）"></a>properties（属性）</h2><p>SqlMapConfig.xml可以引用java属性文件中的配置信息如下：</p>
-<p>在classpath下定义db.properties文件</p>
-<pre><code>jdbc.driver=com.mysql.jdbc.Driver
-jdbc.url=jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8
-jdbc.username=root
-jdbc.password=root
-</code></pre><p>SqlMapConfig.xml引用如下：</p>
-<pre><code>&lt;properties resource=&quot;db.properties&quot;/&gt;
-    &lt;environments default=&quot;development&quot;&gt;
-        &lt;environment id=&quot;development&quot;&gt;
-            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
-            &lt;dataSource type=&quot;POOLED&quot;&gt;
-                &lt;property name=&quot;driver&quot; value=&quot;${jdbc.driver}&quot;/&gt;
-                &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot;/&gt;
-                &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot;/&gt;
-                &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
-            &lt;/dataSource&gt;
-        &lt;/environment&gt;
-    &lt;/environments&gt;
-</code></pre><p>注意： MyBatis 将按照下面的顺序来加载属性：</p>
-<ul>
-<li>在 properties 元素体内定义的属性首先被读取。 </li>
-<li>然后会读取properties 元素中resource或 url 加载的属性，它会覆盖已读取的同名属性。 </li>
-</ul>
-<h2 id="typeAliases（类型别名）"><a href="#typeAliases（类型别名）" class="headerlink" title="typeAliases（类型别名）"></a>typeAliases（类型别名）</h2><h3 id="mybatis支持别名："><a href="#mybatis支持别名：" class="headerlink" title="mybatis支持别名："></a>mybatis支持别名：</h3><pre><code>别名    映射的类型
-_byte     byte 
-_long     long 
-_short     short 
-_int     int 
-_integer     int 
-_double     double 
-_float     float 
-_boolean     boolean 
-string     String 
-byte     Byte 
-long     Long 
-short     Short 
-int     Integer 
-integer     Integer 
-double     Double 
-float     Float 
-boolean     Boolean 
-date     Date 
-decimal     BigDecimal 
-bigdecimal     BigDecimal 
-map    Map
-</code></pre><h3 id="自定义别名："><a href="#自定义别名：" class="headerlink" title="自定义别名："></a>自定义别名：</h3><p>在SqlMapConfig.xml中配置：<br>    <typealiases><br>        <!-- 单个别名定义 --><br>        <typealias alias="user" type="cn.lxm.mybatis.po.User"><br>        <!-- 批量别名定义，扫描整个包下的类，别名为类名（首字母大写或小写都可以） --><br>        <package name="cn.lxm.mybatis.po"><br>        <package name="其它包"><br>    </package></package></typealias></typealiases><br>这个<typealiases>标签的位置必须放在<environments>标签前面,dtd的约束</environments></typealiases></p>
-<h2 id="mappers（映射器）"><a href="#mappers（映射器）" class="headerlink" title="mappers（映射器）"></a>mappers（映射器）</h2><p>Mapper配置的几种方法：</p>
-<ul>
-<li>&lt; mapper resource=” “ /&gt;</li>
-</ul>
-<p>使用相对于类路径的资源如：</p>
-<pre><code>&lt;mapper resource=&quot;sqlmap/User.xml&quot; /&gt;
-</code></pre><ul>
-<li>&lt; mapper class=” “ /&gt;</li>
-</ul>
-<p>使用mapper接口类路径如：</p>
-<pre><code>&lt;mapper class=&quot;cn.lxm.mybatis.mapper.UserMapper&quot;/&gt;
-</code></pre><p>注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。</p>
-<ul>
-<li>&lt; package name=””/&gt;</li>
-</ul>
-<p>注册指定包下的所有mapper接口如：</p>
-<pre><code>&lt;package name=&quot;cn.lxm.mybatis.mapper&quot;/&gt;
-</code></pre><p>注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。</p>
-
+</code></pre>
       
     </div>
     
@@ -650,8 +638,8 @@ map    Map
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/24/mybatis入门一/" rel="next" title="mybatis入门一">
-                <i class="fa fa-chevron-left"></i> mybatis入门一
+              <a href="/2018/02/25/mybatis三/" rel="next" title="mybatis三">
+                <i class="fa fa-chevron-left"></i> mybatis三
               </a>
             
           </div>
@@ -660,8 +648,8 @@ map    Map
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/25/mybatis入门三/" rel="prev" title="mybatis入门三">
-                mybatis入门三 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/26/mybatis五/" rel="prev" title="mybatis五">
+                mybatis五 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1022,7 +1010,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mapper动态代理方式"><span class="nav-number">1.</span> <span class="nav-text">Mapper动态代理方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开发规范"><span class="nav-number">1.1.</span> <span class="nav-text">开发规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mapper-xml-映射文件"><span class="nav-number">1.2.</span> <span class="nav-text">Mapper.xml(映射文件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mapper-java-接口文件"><span class="nav-number">1.3.</span> <span class="nav-text">Mapper.java(接口文件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载UserMapper-xml文件"><span class="nav-number">1.4.</span> <span class="nav-text">加载UserMapper.xml文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">1.5.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.6.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SqlMapConfig-xml配置文件"><span class="nav-number">1.7.</span> <span class="nav-text">SqlMapConfig.xml配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置内容"><span class="nav-number">1.7.1.</span> <span class="nav-text">配置内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#properties（属性）"><span class="nav-number">1.8.</span> <span class="nav-text">properties（属性）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typeAliases（类型别名）"><span class="nav-number">1.9.</span> <span class="nav-text">typeAliases（类型别名）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis支持别名："><span class="nav-number">1.9.1.</span> <span class="nav-text">mybatis支持别名：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义别名："><span class="nav-number">1.9.2.</span> <span class="nav-text">自定义别名：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mappers（映射器）"><span class="nav-number">1.10.</span> <span class="nav-text">mappers（映射器）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关联查询"><span class="nav-number">1.</span> <span class="nav-text">关联查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一对一查询"><span class="nav-number">1.1.</span> <span class="nav-text">一对一查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一："><span class="nav-number">1.1.1.</span> <span class="nav-text">方法一：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sql语句："><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Sql语句：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义po类"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">定义po类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mapper-xml"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">Mapper.xml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mapper接口："><span class="nav-number">1.1.1.4.</span> <span class="nav-text">Mapper接口：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试："><span class="nav-number">1.1.1.5.</span> <span class="nav-text">测试：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结："><span class="nav-number">1.1.1.6.</span> <span class="nav-text">小结：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二："><span class="nav-number">1.1.2.</span> <span class="nav-text">方法二：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sql语句：-1"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Sql语句：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义po类-1"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">定义po类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mapper-xml-1"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Mapper.xml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mapper接口：-1"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">Mapper接口：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试：-1"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">测试：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结：-1"><span class="nav-number">1.1.2.6.</span> <span class="nav-text">小结：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一对多查询"><span class="nav-number">1.2.</span> <span class="nav-text">一对多查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sql语句：-2"><span class="nav-number">1.2.1.</span> <span class="nav-text">Sql语句：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义po类-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">定义po类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mapper-xml-2"><span class="nav-number">1.2.3.</span> <span class="nav-text">Mapper.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mapper接口：-2"><span class="nav-number">1.2.4.</span> <span class="nav-text">Mapper接口：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">1.2.5.</span> <span class="nav-text">测试</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

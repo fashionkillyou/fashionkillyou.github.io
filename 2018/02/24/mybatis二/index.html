@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="输入映射和输出映射Mapper.xml映射文件中定义了操作数据库的sql，每个sql是一个statement，映射文件是mybatis的核心。">
+<meta name="description" content="Mapper动态代理方式开发规范Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。 Mapper接口开发需要遵循以下规范：">
 <meta name="keywords" content="mybatis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mybatis入门三">
-<meta property="og:url" content="http://www.fashionkillyou.xyz/2018/02/25/mybatis入门三/index.html">
+<meta property="og:title" content="mybatis二">
+<meta property="og:url" content="http://www.fashionkillyou.xyz/2018/02/24/mybatis二/index.html">
 <meta property="og:site_name" content="Fashionkillyou">
-<meta property="og:description" content="输入映射和输出映射Mapper.xml映射文件中定义了操作数据库的sql，每个sql是一个statement，映射文件是mybatis的核心。">
+<meta property="og:description" content="Mapper动态代理方式开发规范Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。 Mapper接口开发需要遵循以下规范：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-25T12:24:16.165Z">
+<meta property="og:updated_time" content="2018-03-06T01:25:50.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mybatis入门三">
-<meta name="twitter:description" content="输入映射和输出映射Mapper.xml映射文件中定义了操作数据库的sql，每个sql是一个statement，映射文件是mybatis的核心。">
+<meta name="twitter:title" content="mybatis二">
+<meta name="twitter:description" content="Mapper动态代理方式开发规范Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。 Mapper接口开发需要遵循以下规范：">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://www.fashionkillyou.xyz/2018/02/25/mybatis入门三/"/>
+  <link rel="canonical" href="http://www.fashionkillyou.xyz/2018/02/24/mybatis二/"/>
 
 
 
 
 
-  <title>mybatis入门三 | Fashionkillyou</title>
+  <title>mybatis二 | Fashionkillyou</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/02/25/mybatis入门三/">
+    <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/02/24/mybatis二/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuxinming">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mybatis入门三</h1>
+          <h1 class="post-title" itemprop="name headline">mybatis二</h1>
         
 
         <div class="post-meta">
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-25T08:58:28+08:00">
-                2018-02-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-24T17:18:11+08:00">
+                2018-02-24
               </time>
             
 
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,506
+                  1,277
                 </span>
               
 
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  6
                 </span>
               
             </div>
@@ -426,190 +426,192 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="输入映射和输出映射"><a href="#输入映射和输出映射" class="headerlink" title="输入映射和输出映射"></a>输入映射和输出映射</h1><p>Mapper.xml映射文件中定义了操作数据库的sql，每个sql是一个statement，映射文件是mybatis的核心。<br><a id="more"></a></p>
-<h2 id="parameterType-输入类型"><a href="#parameterType-输入类型" class="headerlink" title="parameterType(输入类型)"></a>parameterType(输入类型)</h2><h3 id="传递简单类型"><a href="#传递简单类型" class="headerlink" title="传递简单类型"></a>传递简单类型</h3><p>参考文章 <a href="http://fashionkillyou.xyz/2018/02/24/mybatis入门一/" title="mybatis入门一" target="_blank" rel="noopener">mybatis入门一</a></p>
-<h3 id="传递pojo对象"><a href="#传递pojo对象" class="headerlink" title="传递pojo对象"></a>传递pojo对象</h3><p>Mybatis使用ognl表达式解析对象字段的值，#{}或者${}括号中的值为pojo属性名称。</p>
-<h3 id="传递pojo包装对象"><a href="#传递pojo包装对象" class="headerlink" title="传递pojo包装对象"></a>传递pojo包装对象</h3><p>开发中通过pojo传递查询条件 ，查询条件是综合的查询条件，不仅包括用户查询条件还包括其它的查询条件（比如将用户购买商品信息也作为查询条件），这时可以使用包装对象传递输入参数。<br>Pojo类中包含pojo。</p>
-<p>需求：根据用户名查询用户信息，查询条件放到QueryVo的user属性中。</p>
-<h4 id="QueryVo"><a href="#QueryVo" class="headerlink" title="QueryVo"></a>QueryVo</h4><pre><code>public class QueryVo {
+        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Mapper动态代理方式"><a href="#Mapper动态代理方式" class="headerlink" title="Mapper动态代理方式"></a>Mapper动态代理方式</h1><h2 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h2><p>Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。</p>
+<p>Mapper接口开发需要遵循以下规范：<br><a id="more"></a><br>1、    Mapper.xml文件中的namespace与mapper接口的类路径相同。</p>
+<p>2、    Mapper接口方法名和Mapper.xml中定义的每个statement的id相同</p>
+<p>3、    Mapper接口方法的输入参数类型和mapper.xml中定义的每个sql 的parameterType的类型相同</p>
+<p>4、    Mapper接口方法的输出参数类型和mapper.xml中定义的每个sql的resultType的类型相同</p>
+<h2 id="Mapper-xml-映射文件"><a href="#Mapper-xml-映射文件" class="headerlink" title="Mapper.xml(映射文件)"></a>Mapper.xml(映射文件)</h2><p>定义mapper映射文件UserMapper.xml（内容同Users.xml），需要修改namespace的值为 UserMapper接口路径。将UserMapper.xml放在classpath 下mapper目录 下。</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;cn.lxm.mybatis.mapper.UserMapper&quot;&gt;
+&lt;!-- 根据id获取用户信息 --&gt;
+&lt;select id=&quot;findUserById&quot; parameterType=&quot;int&quot; resultType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
+    select * from user where id = #{id}
+&lt;/select&gt;
+&lt;!-- 自定义条件查询用户列表 --&gt;
+&lt;select id=&quot;findUserByUsername&quot; parameterType=&quot;java.lang.String&quot; 
+        resultType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
+   select * from user where username like &apos;%${value}%&apos; 
+&lt;/select&gt;
+&lt;!-- 添加用户 --&gt;
+&lt;insert id=&quot;insertUser&quot; parameterType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
+&lt;selectKey keyProperty=&quot;id&quot; order=&quot;AFTER&quot; resultType=&quot;java.lang.Integer&quot;&gt;
+    select LAST_INSERT_ID() 
+&lt;/selectKey&gt;
+  insert into user(username,birthday,sex,address) 
+  values(#{username},#{birthday},#{sex},#{address})
+&lt;/insert&gt;
 
-    private User user;
+&lt;/mapper&gt;
+</code></pre><h2 id="Mapper-java-接口文件"><a href="#Mapper-java-接口文件" class="headerlink" title="Mapper.java(接口文件)"></a>Mapper.java(接口文件)</h2><pre><code>/**
+ * 用户管理mapper
+ */
+Public interface UserMapper {
+//根据用户id查询用户信息
+public User findUserById(int id) throws Exception;
+//查询用户列表
+public List&lt;User&gt; findUserByUsername(String username) throws Exception;
+//添加用户信息
+public void insertUser(User user)throws Exception; 
+}
+</code></pre><p>接口定义有如下特点：</p>
+<p>1、    Mapper接口方法名和Mapper.xml中定义的statement的id相同</p>
+<p>2、    Mapper接口方法的输入参数类型和mapper.xml中定义的statement的parameterType的类型相同</p>
+<p>3、    Mapper接口方法的输出参数类型和mapper.xml中定义的statement的resultType的类型相同</p>
+<h2 id="加载UserMapper-xml文件"><a href="#加载UserMapper-xml文件" class="headerlink" title="加载UserMapper.xml文件"></a>加载UserMapper.xml文件</h2><p>修改SqlMapConfig.xml文件：</p>
+<pre><code>&lt;!-- 加载映射文件 --&gt;
+&lt;mappers&gt;
+    &lt;mapper resource=&quot;mapper/UserMapper.xml&quot;/&gt;
+&lt;/mappers&gt;
+</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><pre><code>Public class UserMapperTest extends TestCase {
 
-    public User getUser() {
-        return user;
+    private SqlSessionFactory sqlSessionFactory;
+
+    protected void setUp() throws Exception {
+        //mybatis配置文件
+        String resource = &quot;sqlMapConfig.xml&quot;;
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        //使用SqlSessionFactoryBuilder创建sessionFactory
+        sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     }
 
-    public void setUser(User user) {
-        this.user = user;
+
+    Public void testFindUserById() throws Exception {
+        //获取session
+        SqlSession session = sqlSessionFactory.openSession();
+        //获取mapper接口的代理对象
+        UserMapper userMapper = session.getMapper(UserMapper.class);
+        //调用代理对象方法
+        User user = userMapper.findUserById(1);
+        System.out.println(user);
+        //关闭session
+        session.close();
+
     }
-}
-</code></pre><h4 id="Sql语句"><a href="#Sql语句" class="headerlink" title="Sql语句"></a>Sql语句</h4><p>SELECT * FROM user where username like ‘%刘%’</p>
-<h4 id="Mapper文件"><a href="#Mapper文件" class="headerlink" title="Mapper文件"></a>Mapper文件</h4><pre><code>&lt;!-- 使用包装类型查询用户使用ognl从对象中取属性值，如果是包装对象可以使用.操作符来取内容部的属性--&gt;
-&lt;select id=&quot;findUserByQueryVo&quot; parameterType=&quot;queryvo&quot; resultType=&quot;user&quot;&gt;
-    SELECT * FROM user where username like &apos;%${user.username}%&apos;
-&lt;/select&gt;
-</code></pre><h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><pre><code> public interface UserMapper{
-    User findUserById(int id) throws Exception;
-    void insertUser(User user) throws Exception;
-    List&lt;User&gt; findUserByQueryVo(QueryVo queryVo) throws Exception;
-}
-</code></pre><h4 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h4><pre><code>@Test
-public void testFindUserByQueryVo() throws Exception {
-    SqlSession sqlSession = sessionFactory.openSession();
-    //获得mapper的代理对象
-    UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-    //创建QueryVo对象
-    QueryVo queryVo = new QueryVo();
-    //创建user对象
-    User user = new User();
-    user.setUsername(&quot;刘&quot;);
-    queryVo.setUser(user);
-    //根据queryvo查询用户
-    List&lt;User&gt; list = userMapper.findUserByQueryVo(queryVo);
-    System.out.println(list);
-    sqlSession.close();
-}
-</code></pre><h2 id="resultType-输出类型"><a href="#resultType-输出类型" class="headerlink" title="resultType(输出类型)"></a>resultType(输出类型)</h2><h3 id="输出简单类型"><a href="#输出简单类型" class="headerlink" title="输出简单类型"></a>输出简单类型</h3><p>参考getnow输出日期类型，看下边的例子输出整型：</p>
-<p>Mapper.xml文件</p>
-<pre><code>&lt;!-- 获取用户列表总数 --&gt;
-&lt;select id=&quot;findUserCount&quot; parameterType=&quot;user&quot; resultType=&quot;int&quot;&gt;
-   select count(1) from user
-&lt;/select&gt;
-</code></pre><p>Mapper接口</p>
-<pre><code>public int findUserCount(User user) throws Exception;
-</code></pre><p>调用：</p>
-<pre><code>Public void testFindUserCount() throws Exception{
-    //获取session
-    SqlSession session = sqlSessionFactory.openSession();
-    //获取mapper接口实例
-    UserMapper userMapper = session.getMapper(UserMapper.class);
+    @Test
+    public void testFindUserByUsername() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        List&lt;User&gt; list = userMapper.findUserByUsername(&quot;张&quot;);
+        System.out.println(list.size());
 
-    User user = new User();
-    user.setUsername(&quot;管理员&quot;);
-
-    //传递Hashmap对象查询用户列表
-    int count = userMapper.findUserCount(user);
-
-    //关闭session
-    session.close();
-}
-</code></pre><p>输出简单类型必须查询出来的结果集有一条记录，最终将第一个字段的值转换为输出类型。<br>使用session的selectOne可查询单条记录。</p>
-<h3 id="输出pojo对象"><a href="#输出pojo对象" class="headerlink" title="输出pojo对象"></a>输出pojo对象</h3><p>参考文章 <a href="http://fashionkillyou.xyz/2018/02/24/mybatis入门一/" title="mybatis入门一" target="_blank" rel="noopener">mybatis入门一</a></p>
-<h3 id="输出pojo列表"><a href="#输出pojo列表" class="headerlink" title="输出pojo列表"></a>输出pojo列表</h3><p>参考文章 <a href="http://fashionkillyou.xyz/2018/02/24/mybatis入门一/" title="mybatis入门一" target="_blank" rel="noopener">mybatis入门一</a></p>
-<h2 id="resultMap"><a href="#resultMap" class="headerlink" title="resultMap"></a>resultMap</h2><p>resultType可以指定pojo将查询结果映射为pojo，但需要pojo的属性名和sql查询的列名一致方可映射成功。</p>
-<p>如果sql查询字段名和pojo的属性名不一致，可以通过resultMap将字段名和属性名作一个对应关系 ，resultMap实质上还需要将查询结果映射到pojo对象中。</p>
-<p>resultMap可以实现将查询结果映射为复杂类型的pojo，比如在查询结果映射对象中包括pojo和list实现一对一查询和一对多查询。</p>
-<h3 id="Mapper-xml定义"><a href="#Mapper-xml定义" class="headerlink" title="Mapper.xml定义"></a>Mapper.xml定义</h3><pre><code> &lt;select id=&quot;findUserListResultMap&quot; parameterType=&quot;queryVo&quot; resultMap=&quot;userListResultMap&quot;&gt;
-    select id id_,username username_,birthday birthday_ from user
-&lt;/select&gt;
-</code></pre><p>使用resultMap指定上边定义的personmap。</p>
-<h3 id="定义resultMap"><a href="#定义resultMap" class="headerlink" title="定义resultMap"></a>定义resultMap</h3><p>由于上边的mapper.xml中sql查询列和Users.java类属性不一致，需要定义resultMap：</p>
-<p>userListResultMap将sql查询列和Users.java类属性对应起来</p>
-<pre><code>&lt;!-- type:最终映射的java对象.id:resultMap的唯一标识 --&gt;
-&lt;resultMap type=&quot;user&quot; id=&quot;userListResultMap&quot;&gt;
-&lt;!-- id标签:查询结果集的唯一标识列(主键或唯一标识)
-    column:SQL查询字段名(列名)
-    property:pojo的属性名
-    result标签:普通列
- --&gt;
-    &lt;id property=&quot;id&quot; column=&quot;id_&quot;/&gt;
-    &lt;result property=&quot;username&quot; column=&quot;username_&quot;/&gt;
-    &lt;result property=&quot;birthday&quot; column=&quot;birthday_&quot;/&gt;
-&lt;/resultMap&gt;
-</code></pre><p>&lt; id /&gt;：此属性表示查询结果集的唯一标识，非常重要。如果是多个字段为复合唯一约束则定义多个&lt; id /&gt;。</p>
-<p>Property：表示User类的属性。</p>
-<p>Column：表示sql查询出来的字段名。</p>
-<p>Column和property放在一块儿表示将sql查询出来的字段映射到指定的pojo类属性上。</p>
-<p>&lt; result /&gt;：普通结果，即pojo的属性。</p>
-<h3 id="Mapper接口定义"><a href="#Mapper接口定义" class="headerlink" title="Mapper接口定义"></a>Mapper接口定义</h3><pre><code>public List&lt;User&gt; findUserListResultMap() throws Exception;
-</code></pre><h1 id="动态sql"><a href="#动态sql" class="headerlink" title="动态sql"></a>动态sql</h1><p>通过mybatis提供的各种标签方法实现动态拼接sql。</p>
-<h2 id="If"><a href="#If" class="headerlink" title="If"></a>If</h2><pre><code>&lt;!-- 传递pojo综合查询用户信息 --&gt;
-&lt;select id=&quot;findUserList&quot; parameterType=&quot;user&quot; resultType=&quot;user&quot;&gt;
-    select * from user 
-    where 1=1 
-    &lt;if test=&quot;id!=null and id!=&apos;&apos;&quot;&gt;
-    and id=#{id}
-    &lt;/if&gt;
-    &lt;if test=&quot;username!=null and username!=&apos;&apos;&quot;&gt;
-    and username like &apos;%${username}%&apos;
-    &lt;/if&gt;
-&lt;/select&gt;
-</code></pre><p>注意要做不等于空字符串校验。</p>
-<h2 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h2><p>上边的sql也可以改为：</p>
-<pre><code>&lt;select id=&quot;findUserList&quot; parameterType=&quot;user&quot; resultType=&quot;user&quot;&gt;
-    select * from user 
-    &lt;where&gt;
-    &lt;if test=&quot;id!=null and id!=&apos;&apos;&quot;&gt;
-    and id=#{id}
-    &lt;/if&gt;
-    &lt;if test=&quot;username!=null and username!=&apos;&apos;&quot;&gt;
-    and username like &apos;%${username}%&apos;
-    &lt;/if&gt;
-    &lt;/where&gt;
-&lt;/select&gt;
-</code></pre><p>&lt; where /&gt;可以自动处理第一个and。</p>
-<h2 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h2><p>向sql传递数组或List，mybatis使用foreach解析，如下：</p>
-<p>需求<br>传入多个id查询用户信息，用下边两个sql实现：</p>
-<pre><code>SELECT * FROM USERS WHERE username LIKE &apos;%张%&apos; AND (id =10 OR id =89 OR id=16)
-SELECT * FROM USERS WHERE username LIKE &apos;%张%&apos;  id IN (10,89,16)
-</code></pre><p>在pojo中定义list属性ids存储多个用户id，并添加getter/setter方法</p>
-<pre><code> public class QueryVo {
-    private User user;
-
-    private List&lt;Integer&gt; ids;
-
-    public List&lt;Integer&gt; getIds() {
-        return ids;
+    }
+    Public void testInsertUser() throws Exception {
+        //获取session
+        SqlSession session = sqlSessionFactory.openSession();
+        //获取mapper接口的代理对象
+        UserMapper userMapper = session.getMapper(UserMapper.class);
+        //要添加的数据
+        User user = new User();
+        user.setUsername(&quot;张三&quot;);
+        user.setBirthday(new Date());
+        user.setSex(&quot;1&quot;);
+        user.setAddress(&quot;北京市&quot;);
+        //通过mapper接口添加用户
+        userMapper.insertUser(user);
+        //提交
+        session.commit();
+        //关闭session
+        session.close();
     }
 
-    public void setIds(List&lt;Integer&gt; ids) {
-        this.ids = ids;
-    }
-...
-</code></pre><p>mapper.xml</p>
-<pre><code>&lt;if test=&quot;ids!=null and ids.size&gt;0&quot;&gt;
-        &lt;foreach collection=&quot;ids&quot; open=&quot; and id in(&quot; close=&quot;)&quot; item=&quot;id&quot; separator=&quot;,&quot; &gt;
-            #{id}
-        &lt;/foreach&gt;
-&lt;/if&gt;
-</code></pre><p>测试代码：</p>
-<pre><code>List&lt;Integer&gt; ids = new ArrayList&lt;Integer&gt;();
-    ids.add(1);//查询id为1的用户
-    ids.add(10); //查询id为10的用户
-    queryVo.setIds(ids);
-    List&lt;User&gt; list = userMapper.findUserList(queryVo);
-</code></pre><h2 id="Sql片段"><a href="#Sql片段" class="headerlink" title="Sql片段"></a>Sql片段</h2><p>Sql中可将重复的sql提取出来，使用时用include引用即可，最终达到sql重用的目的，如下：</p>
-<pre><code>&lt;!-- 传递pojo综合查询用户信息 --&gt;
-&lt;select id=&quot;findUserList&quot; parameterType=&quot;user&quot; resultType=&quot;user&quot;&gt;
-    select * from user 
-    &lt;where&gt;
-    &lt;if test=&quot;id!=null and id!=&apos;&apos;&quot;&gt;
-    and id=#{id}
-    &lt;/if&gt;
-    &lt;if test=&quot;username!=null and username!=&apos;&apos;&quot;&gt;
-    and username like &apos;%${username}%&apos;
-    &lt;/if&gt;
-    &lt;/where&gt;
-&lt;/select&gt;
-</code></pre><p>    将where条件抽取出来：</p>
-<pre><code>&lt;sql id=&quot;query_user_where&quot;&gt;
-    &lt;if test=&quot;id!=null and id!=&apos;&apos;&quot;&gt;
-        and id=#{id}
-    &lt;/if&gt;
-    &lt;if test=&quot;username!=null and username!=&apos;&apos;&quot;&gt;
-        and username like &apos;%${username}%&apos;
-    &lt;/if&gt;
-&lt;/sql&gt;
-</code></pre><p>    使用include引用：</p>
-<pre><code>&lt;select id=&quot;findUserList&quot; parameterType=&quot;user&quot; resultType=&quot;user&quot;&gt;
-    select * from user 
-    &lt;where&gt;
-    &lt;include refid=&quot;query_user_where&quot;/&gt;
-    &lt;/where&gt;
-&lt;/select&gt;
-</code></pre><p>注意：如果引用其它mapper.xml的sql片段，则在引用时需要加上namespace，如下：</p>
-<pre><code>&lt;include refid=&quot;namespace.sql片段”/&gt;
-</code></pre><p>如果使用 &gt;或者&lt;符号的时候,因为是在xml文件中这些符号都是有特殊含义的,可以使用CDATA区域 &lt;![CDATA[要写的内容]]&gt;       &lt;![CDATA[&gt;]]&gt;大于   &lt;![CDATA[&lt;]]&gt;</p>
+}
+</code></pre><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li><p>selectOne和selectList<br>动态代理对象调用sqlSession.selectOne()和sqlSession.selectList()是根据mapper接口方法的返回值决定，如果返回list则调用selectList方法，如果返回单个对象则调用selectOne方法。</p>
+</li>
+<li><p>namespace<br>mybatis官方推荐使用mapper代理方法开发mapper接口，程序员不用编写mapper接口实现类，使用mapper代理方法时，输入参数可以使用pojo包装对象或map对象，保证dao的通用性。</p>
+</li>
+</ul>
+<h2 id="SqlMapConfig-xml配置文件"><a href="#SqlMapConfig-xml配置文件" class="headerlink" title="SqlMapConfig.xml配置文件"></a>SqlMapConfig.xml配置文件</h2><h3 id="配置内容"><a href="#配置内容" class="headerlink" title="配置内容"></a>配置内容</h3><p>SqlMapConfig.xml中配置的内容和顺序如下：</p>
+<pre><code>properties（属性）
+settings（全局配置参数）
+typeAliases（类型别名）
+typeHandlers（类型处理器）
+objectFactory（对象工厂）
+plugins（插件）
+environments（环境集合属性对象）
+environment（环境子属性对象）
+transactionManager（事务管理）
+dataSource（数据源）
+mappers（映射器）
+</code></pre><h2 id="properties（属性）"><a href="#properties（属性）" class="headerlink" title="properties（属性）"></a>properties（属性）</h2><p>SqlMapConfig.xml可以引用java属性文件中的配置信息如下：</p>
+<p>在classpath下定义db.properties文件</p>
+<pre><code>jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8
+jdbc.username=root
+jdbc.password=root
+</code></pre><p>SqlMapConfig.xml引用如下：</p>
+<pre><code>&lt;properties resource=&quot;db.properties&quot;/&gt;
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;${jdbc.driver}&quot;/&gt;
+                &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot;/&gt;
+                &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot;/&gt;
+                &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+</code></pre><p>注意： MyBatis 将按照下面的顺序来加载属性：</p>
+<ul>
+<li>在 properties 元素体内定义的属性首先被读取。 </li>
+<li>然后会读取properties 元素中resource或 url 加载的属性，它会覆盖已读取的同名属性。 </li>
+</ul>
+<h2 id="typeAliases（类型别名）"><a href="#typeAliases（类型别名）" class="headerlink" title="typeAliases（类型别名）"></a>typeAliases（类型别名）</h2><h3 id="mybatis支持别名："><a href="#mybatis支持别名：" class="headerlink" title="mybatis支持别名："></a>mybatis支持别名：</h3><pre><code>别名    映射的类型
+_byte     byte 
+_long     long 
+_short     short 
+_int     int 
+_integer     int 
+_double     double 
+_float     float 
+_boolean     boolean 
+string     String 
+byte     Byte 
+long     Long 
+short     Short 
+int     Integer 
+integer     Integer 
+double     Double 
+float     Float 
+boolean     Boolean 
+date     Date 
+decimal     BigDecimal 
+bigdecimal     BigDecimal 
+map    Map
+</code></pre><h3 id="自定义别名："><a href="#自定义别名：" class="headerlink" title="自定义别名："></a>自定义别名：</h3><p>在SqlMapConfig.xml中配置：<br>    <typealiases><br>        <!-- 单个别名定义 --><br>        <typealias alias="user" type="cn.lxm.mybatis.po.User"><br>        <!-- 批量别名定义，扫描整个包下的类，别名为类名（首字母大写或小写都可以） --><br>        <package name="cn.lxm.mybatis.po"><br>        <package name="其它包"><br>    </package></package></typealias></typealiases><br>这个<typealiases>标签的位置必须放在<environments>标签前面,dtd的约束</environments></typealiases></p>
+<h2 id="mappers（映射器）"><a href="#mappers（映射器）" class="headerlink" title="mappers（映射器）"></a>mappers（映射器）</h2><p>Mapper配置的几种方法：</p>
+<ul>
+<li>&lt; mapper resource=” “ /&gt;</li>
+</ul>
+<p>使用相对于类路径的资源如：</p>
+<pre><code>&lt;mapper resource=&quot;sqlmap/User.xml&quot; /&gt;
+</code></pre><ul>
+<li>&lt; mapper class=” “ /&gt;</li>
+</ul>
+<p>使用mapper接口类路径如：</p>
+<pre><code>&lt;mapper class=&quot;cn.lxm.mybatis.mapper.UserMapper&quot;/&gt;
+</code></pre><p>注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。</p>
+<ul>
+<li>&lt; package name=””/&gt;</li>
+</ul>
+<p>注册指定包下的所有mapper接口如：</p>
+<pre><code>&lt;package name=&quot;cn.lxm.mybatis.mapper&quot;/&gt;
+</code></pre><p>注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。</p>
 
       
     </div>
@@ -648,8 +650,8 @@ SELECT * FROM USERS WHERE username LIKE &apos;%张%&apos;  id IN (10,89,16)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/24/mybatis入门二/" rel="next" title="mybatis入门二">
-                <i class="fa fa-chevron-left"></i> mybatis入门二
+              <a href="/2018/02/24/mybatis一/" rel="next" title="mybatis一">
+                <i class="fa fa-chevron-left"></i> mybatis一
               </a>
             
           </div>
@@ -658,8 +660,8 @@ SELECT * FROM USERS WHERE username LIKE &apos;%张%&apos;  id IN (10,89,16)
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/25/mybatis入门四/" rel="prev" title="mybatis入门四">
-                mybatis入门四 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/25/mybatis三/" rel="prev" title="mybatis三">
+                mybatis三 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1020,7 +1022,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#输入映射和输出映射"><span class="nav-number">1.</span> <span class="nav-text">输入映射和输出映射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#parameterType-输入类型"><span class="nav-number">1.1.</span> <span class="nav-text">parameterType(输入类型)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传递简单类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">传递简单类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传递pojo对象"><span class="nav-number">1.1.2.</span> <span class="nav-text">传递pojo对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传递pojo包装对象"><span class="nav-number">1.1.3.</span> <span class="nav-text">传递pojo包装对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#QueryVo"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">QueryVo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sql语句"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Sql语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mapper文件"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">Mapper文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试方法"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">测试方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resultType-输出类型"><span class="nav-number">1.2.</span> <span class="nav-text">resultType(输出类型)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输出简单类型"><span class="nav-number">1.2.1.</span> <span class="nav-text">输出简单类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出pojo对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">输出pojo对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出pojo列表"><span class="nav-number">1.2.3.</span> <span class="nav-text">输出pojo列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resultMap"><span class="nav-number">1.3.</span> <span class="nav-text">resultMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mapper-xml定义"><span class="nav-number">1.3.1.</span> <span class="nav-text">Mapper.xml定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义resultMap"><span class="nav-number">1.3.2.</span> <span class="nav-text">定义resultMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mapper接口定义"><span class="nav-number">1.3.3.</span> <span class="nav-text">Mapper接口定义</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态sql"><span class="nav-number">2.</span> <span class="nav-text">动态sql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#If"><span class="nav-number">2.1.</span> <span class="nav-text">If</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where"><span class="nav-number">2.2.</span> <span class="nav-text">Where</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#foreach"><span class="nav-number">2.3.</span> <span class="nav-text">foreach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sql片段"><span class="nav-number">2.4.</span> <span class="nav-text">Sql片段</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mapper动态代理方式"><span class="nav-number">1.</span> <span class="nav-text">Mapper动态代理方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开发规范"><span class="nav-number">1.1.</span> <span class="nav-text">开发规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mapper-xml-映射文件"><span class="nav-number">1.2.</span> <span class="nav-text">Mapper.xml(映射文件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mapper-java-接口文件"><span class="nav-number">1.3.</span> <span class="nav-text">Mapper.java(接口文件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载UserMapper-xml文件"><span class="nav-number">1.4.</span> <span class="nav-text">加载UserMapper.xml文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">1.5.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.6.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SqlMapConfig-xml配置文件"><span class="nav-number">1.7.</span> <span class="nav-text">SqlMapConfig.xml配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置内容"><span class="nav-number">1.7.1.</span> <span class="nav-text">配置内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#properties（属性）"><span class="nav-number">1.8.</span> <span class="nav-text">properties（属性）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typeAliases（类型别名）"><span class="nav-number">1.9.</span> <span class="nav-text">typeAliases（类型别名）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis支持别名："><span class="nav-number">1.9.1.</span> <span class="nav-text">mybatis支持别名：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义别名："><span class="nav-number">1.9.2.</span> <span class="nav-text">自定义别名：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mappers（映射器）"><span class="nav-number">1.10.</span> <span class="nav-text">mappers（映射器）</span></a></li></ol></li></ol></div>
             
 
           </div>
