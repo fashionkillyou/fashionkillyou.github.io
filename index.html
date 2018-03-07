@@ -480,6 +480,256 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/03/07/使用Mybatis的PageHelper插件进行分页/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuxinming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p57l8frp4.bkt.clouddn.com/lxm.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fashionkillyou">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/07/使用Mybatis的PageHelper插件进行分页/" itemprop="url">使用Mybatis的PageHelper插件进行分页</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T20:39:39+08:00">
+                2018-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  473
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <script src="/assets/js/APlayer.min.js"> </script><h1 id="PageHelper插件进行分页"><a href="#PageHelper插件进行分页" class="headerlink" title="PageHelper插件进行分页"></a>PageHelper插件进行分页</h1><h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><p> <img src="http://p57l8frp4.bkt.clouddn.com/PageHelper.png" alt=""></p>
+<p>##准备内容<br>本文是建立在以下框架之上:</p>
+<ul>
+<li>前端使用的是angularJS框架+BootStrap</li>
+<li>后台是SpringMVC+Spring+Mybatis</li>
+</ul>
+<p>前期的搭建请看(<a href="https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md" title="官方文档" target="_blank" rel="noopener">官方文档</a>)</p>
+<p>推荐博客:</p>
+<p><a href="http://blog.csdn.net/maoyuanming0806/article/details/77720754" target="_blank" rel="noopener">http://blog.csdn.net/maoyuanming0806/article/details/77720754</a></p>
+<p><a href="http://blog.csdn.net/FansUnion/article/details/40304187" target="_blank" rel="noopener">http://blog.csdn.net/FansUnion/article/details/40304187</a></p>
+<h2 id="后端代码"><a href="#后端代码" class="headerlink" title="后端代码"></a>后端代码</h2><h3 id="分页结果封装实体"><a href="#分页结果封装实体" class="headerlink" title="分页结果封装实体"></a>分页结果封装实体</h3><p>创建类PageResult用于在controller中返回分页数据</p>
+<pre><code>package entity;
+import java.util.List;
+/**
+ * 分页结果封装对象
+ * @author Administrator
+ *
+ */
+public class PageResult implements Serializable{
+    private long total;//总记录数
+    private List rows;//当前页结果        
+    public PageResult(long total, List rows) {
+        super();
+        this.total = total;
+        this.rows = rows;
+    }
+     //getter  and setter .....
+}
+</code></pre><h3 id="服务接口层"><a href="#服务接口层" class="headerlink" title="服务接口层"></a>服务接口层</h3><p>在service的接口BrandService.java 增加方法定义</p>
+<pre><code>/**
+ * 返回分页列表
+ * @return
+ */
+public PageResult findPage(int pageNum,int pageSize);
+</code></pre><h3 id="服务实现层"><a href="#服务实现层" class="headerlink" title="服务实现层"></a>服务实现层</h3><p>service的实现类BrandServiceImpl.java中实现该方法</p>
+<pre><code>@Override
+public PageResult findPage(int pageNum, int pageSize) {
+    PageHelper.startPage(pageNum, pageSize);        
+    Page&lt;TbBrand&gt; page=   (Page&lt;TbBrand&gt;) brandMapper.selectByExample(null);
+    return new PageResult(page.getTotal(), page.getResult());
+}
+</code></pre><p>PageHelper为MyBatis分页插件</p>
+<h3 id="控制层"><a href="#控制层" class="headerlink" title="控制层"></a>控制层</h3><p>在控制层BrandController.java新增方法</p>
+<pre><code>/**
+ * 返回全部列表
+ * @return
+ */
+@RequestMapping(&quot;/findPage&quot;)
+public PageResult  findPage(int page,int rows){            
+    return brandService.findPage(page, rows);
+}
+</code></pre><h2 id="前端代码"><a href="#前端代码" class="headerlink" title="前端代码"></a>前端代码</h2><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><p>在brand.html引入分页组件</p>
+<pre><code>&lt;!-- 分页组件开始 --&gt;
+&lt;script src=&quot;../plugins/angularjs/pagination.js&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;../plugins/angularjs/pagination.css&quot;&gt;
+&lt;!-- 分页组件结束 --&gt;
+</code></pre><p>构建app模块时引入pagination模块</p>
+<pre><code>var app=angular.module(&apos;pinyougou&apos;,[&apos;pagination&apos;]);//定义品优购模块
+</code></pre><p>页面的表格下放置分页组件</p>
+<pre><code> &lt;!-- 分页 --&gt;
+&lt;tm-pagination conf=&quot;paginationConf&quot;&gt;&lt;/tm-pagination&gt;
+</code></pre><h3 id="JS代码"><a href="#JS代码" class="headerlink" title="JS代码"></a>JS代码</h3><pre><code>//重新加载列表 数据
+$scope.reloadList=function(){
+     //切换页码  
+    $scope.findPage( $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
+}
+//分页控件配置 
+$scope.paginationConf = {
+         currentPage: 1,
+         totalItems: 10,
+         itemsPerPage: 10,
+         perPageOptions: [10, 20, 30, 40, 50],
+         onChange: function(){
+                     $scope.reloadList();//重新加载
+         }
+}; 
+//分页
+$scope.findPage=function(page,rows){    
+    $http.get(&apos;../brand/findPage.do?page=&apos;+page+&apos;&amp;rows=&apos;+rows).success(
+            function(response){
+                $scope.list=response.rows;    
+                $scope.paginationConf.totalItems=response.total;//更新总记录数
+            }            
+    );
+}
+</code></pre><p>paginationConf 变量各属性的意义：</p>
+<ul>
+<li><p>currentPage：当前页码</p>
+</li>
+<li><p>totalItems:总条数</p>
+</li>
+<li><p>itemsPerPage:</p>
+</li>
+<li><p>perPageOptions：页码选项</p>
+</li>
+<li><p>onChange：更改页面时触发事件</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+	<div>
+	  
+	</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/03/07/AngularJS框架/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1935,185 +2185,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/02/25/mybatis三/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuxinming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p57l8frp4.bkt.clouddn.com/lxm.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fashionkillyou">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/25/mybatis三/" itemprop="url">mybatis三</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-25T08:58:28+08:00">
-                2018-02-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,506
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  7
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="输入映射和输出映射"><a href="#输入映射和输出映射" class="headerlink" title="输入映射和输出映射"></a>输入映射和输出映射</h1><p>Mapper.xml映射文件中定义了操作数据库的sql，每个sql是一个statement，映射文件是mybatis的核心。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/25/mybatis三/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-	<div>
-	  
-	</div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2168,7 +2239,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2190,7 +2261,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2435,7 +2506,7 @@
     
       <span class="post-meta-item-text">网站文字总数&#58;</span>
     
-    <span title="网站文字总数">29.9k</span>
+    <span title="网站文字总数">30.4k</span>
   
 </div>
 
