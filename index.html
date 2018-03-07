@@ -581,107 +581,14 @@
 
       
         
-          
-            <script src="/assets/js/APlayer.min.js"> </script><h1 id="PageHelper插件进行分页"><a href="#PageHelper插件进行分页" class="headerlink" title="PageHelper插件进行分页"></a>PageHelper插件进行分页</h1><h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><p> <img src="http://p57l8frp4.bkt.clouddn.com/PageHelper.png" alt=""></p>
-<p>##准备内容<br>本文是建立在以下框架之上:</p>
-<ul>
-<li>前端使用的是angularJS框架+BootStrap</li>
-<li>后台是SpringMVC+Spring+Mybatis</li>
-</ul>
-<p>前期的搭建请看(<a href="https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md" title="官方文档" target="_blank" rel="noopener">官方文档</a>)</p>
-<p>推荐博客:</p>
-<p><a href="http://blog.csdn.net/maoyuanming0806/article/details/77720754" target="_blank" rel="noopener">http://blog.csdn.net/maoyuanming0806/article/details/77720754</a></p>
-<p><a href="http://blog.csdn.net/FansUnion/article/details/40304187" target="_blank" rel="noopener">http://blog.csdn.net/FansUnion/article/details/40304187</a></p>
-<h2 id="后端代码"><a href="#后端代码" class="headerlink" title="后端代码"></a>后端代码</h2><h3 id="分页结果封装实体"><a href="#分页结果封装实体" class="headerlink" title="分页结果封装实体"></a>分页结果封装实体</h3><p>创建类PageResult用于在controller中返回分页数据</p>
-<pre><code>package entity;
-import java.util.List;
-/**
- * 分页结果封装对象
- * @author Administrator
- *
- */
-public class PageResult implements Serializable{
-    private long total;//总记录数
-    private List rows;//当前页结果        
-    public PageResult(long total, List rows) {
-        super();
-        this.total = total;
-        this.rows = rows;
-    }
-     //getter  and setter .....
-}
-</code></pre><h3 id="服务接口层"><a href="#服务接口层" class="headerlink" title="服务接口层"></a>服务接口层</h3><p>在service的接口BrandService.java 增加方法定义</p>
-<pre><code>/**
- * 返回分页列表
- * @return
- */
-public PageResult findPage(int pageNum,int pageSize);
-</code></pre><h3 id="服务实现层"><a href="#服务实现层" class="headerlink" title="服务实现层"></a>服务实现层</h3><p>service的实现类BrandServiceImpl.java中实现该方法</p>
-<pre><code>@Override
-public PageResult findPage(int pageNum, int pageSize) {
-    PageHelper.startPage(pageNum, pageSize);        
-    Page&lt;TbBrand&gt; page=   (Page&lt;TbBrand&gt;) brandMapper.selectByExample(null);
-    return new PageResult(page.getTotal(), page.getResult());
-}
-</code></pre><p>PageHelper为MyBatis分页插件</p>
-<h3 id="控制层"><a href="#控制层" class="headerlink" title="控制层"></a>控制层</h3><p>在控制层BrandController.java新增方法</p>
-<pre><code>/**
- * 返回全部列表
- * @return
- */
-@RequestMapping(&quot;/findPage&quot;)
-public PageResult  findPage(int page,int rows){            
-    return brandService.findPage(page, rows);
-}
-</code></pre><h2 id="前端代码"><a href="#前端代码" class="headerlink" title="前端代码"></a>前端代码</h2><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><p>在brand.html引入分页组件</p>
-<pre><code>&lt;!-- 分页组件开始 --&gt;
-&lt;script src=&quot;../plugins/angularjs/pagination.js&quot;&gt;&lt;/script&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;../plugins/angularjs/pagination.css&quot;&gt;
-&lt;!-- 分页组件结束 --&gt;
-</code></pre><p>构建app模块时引入pagination模块</p>
-<pre><code>var app=angular.module(&apos;pinyougou&apos;,[&apos;pagination&apos;]);//定义品优购模块
-</code></pre><p>页面的表格下放置分页组件</p>
-<pre><code> &lt;!-- 分页 --&gt;
-&lt;tm-pagination conf=&quot;paginationConf&quot;&gt;&lt;/tm-pagination&gt;
-</code></pre><h3 id="JS代码"><a href="#JS代码" class="headerlink" title="JS代码"></a>JS代码</h3><pre><code>//重新加载列表 数据
-$scope.reloadList=function(){
-     //切换页码  
-    $scope.findPage( $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
-}
-//分页控件配置 
-$scope.paginationConf = {
-         currentPage: 1,
-         totalItems: 10,
-         itemsPerPage: 10,
-         perPageOptions: [10, 20, 30, 40, 50],
-         onChange: function(){
-                     $scope.reloadList();//重新加载
-         }
-}; 
-//分页
-$scope.findPage=function(page,rows){    
-    $http.get(&apos;../brand/findPage.do?page=&apos;+page+&apos;&amp;rows=&apos;+rows).success(
-            function(response){
-                $scope.list=response.rows;    
-                $scope.paginationConf.totalItems=response.total;//更新总记录数
-            }            
-    );
-}
-</code></pre><p>paginationConf 变量各属性的意义：</p>
-<ul>
-<li><p>currentPage：当前页码</p>
-</li>
-<li><p>totalItems:总条数</p>
-</li>
-<li><p>itemsPerPage:</p>
-</li>
-<li><p>perPageOptions：页码选项</p>
-</li>
-<li><p>onChange：更改页面时触发事件</p>
-</li>
-</ul>
-
-          
+          <h1 id="PageHelper插件进行分页"><a href="#PageHelper插件进行分页" class="headerlink" title="PageHelper插件进行分页"></a>PageHelper插件进行分页</h1><h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><p> <img src="http://p57l8frp4.bkt.clouddn.com/PageHelper.png" alt=""><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/07/使用Mybatis的PageHelper插件进行分页/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
