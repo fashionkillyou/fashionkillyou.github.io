@@ -480,6 +480,211 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/03/09/基于angularJS的多选框select2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuxinming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p57l8frp4.bkt.clouddn.com/lxm.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fashionkillyou">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/09/基于angularJS的多选框select2/" itemprop="url">基于angularJS的多选框select2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-09T11:03:38+08:00">
+                2018-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  265
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <script src="/assets/js/APlayer.min.js"> </script><h1 id="基于angularJS框架下的select2插件的使用"><a href="#基于angularJS框架下的select2插件的使用" class="headerlink" title="基于angularJS框架下的select2插件的使用"></a>基于angularJS框架下的select2插件的使用</h1><p><img src="http://p57l8frp4.bkt.clouddn.com/select2.jpg" alt=""></p>
+<h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤:"></a>使用步骤:</h2><h3 id="引入JS文件"><a href="#引入JS文件" class="headerlink" title="引入JS文件"></a>引入JS文件</h3><pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;bootstrap/css/bootstrap.min.css&quot;&gt;
+&lt;script src=&quot;jQuery/jquery-2.2.3.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;bootstrap/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 引入angularJS,分页,controller,service --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;angularjs/angular.min.js&quot;&gt;  &lt;/script&gt;
+
+&lt;!-- 引入select2的插件 --&gt;
+&lt;!-- 这个要在base_pagination.js之后,因为用到了app --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;select2/select2.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;select2/select2-bootstrap.css&quot; /&gt;
+&lt;script src=&quot;select2/select2.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;select2/angular-select2.js&quot;&gt;&lt;/script&gt;
+</code></pre><h3 id="写input的属性"><a href="#写input的属性" class="headerlink" title="写input的属性"></a>写input的属性</h3><pre><code>&lt;input select2 select2-model=&quot;entity.brandIds&quot;  config=&quot;brandList&quot; multiple placeholder=&quot; 选择品牌（可多选） &quot; class=&quot;form-control&quot;&gt;
+</code></pre><h3 id="给定数据源"><a href="#给定数据源" class="headerlink" title="给定数据源"></a>给定数据源</h3><p><strong>注意这个要放置在select插件的前面,因为select2使用到了app</strong></p>
+<pre><code>这里的数据格式默认是{{id:2,text:'华为'}}
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var app = angular.module(&apos;app&apos;,[]);
+    app.controller(&apos;myController&apos;,function($scope){
+        //列表数据
+        $scope.brandList={data:[{id:1,text:&apos;联想&apos;},{id:2,text:&apos;华为&apos;},{id:3,text:&apos;小米&apos;}]};
+    });
+&lt;/script&gt;
+</code></pre><p>资源文件:</p>
+<h3 id="简单多选demo"><a href="#简单多选demo" class="headerlink" title="简单多选demo"></a>简单多选demo</h3><p>链接：<a href="https://pan.baidu.com/s/12xz7kcmZGwcTjMH7MJhmDg" target="_blank" rel="noopener">https://pan.baidu.com/s/12xz7kcmZGwcTjMH7MJhmDg</a> </p>
+<p>密码：0aq2</p>
+<h3 id="完整说明文档"><a href="#完整说明文档" class="headerlink" title="完整说明文档"></a>完整说明文档</h3><p>链接：<a href="https://pan.baidu.com/s/1XSHqbbx3ikZRlkIFgXgMGQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1XSHqbbx3ikZRlkIFgXgMGQ</a> </p>
+<p>密码：66gc</p>
+<h3 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h3><p><a href="https://select2.org/" target="_blank" rel="noopener">https://select2.org</a>/</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+	<div>
+	  
+	</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/03/07/使用Mybatis的PageHelper插件进行分页/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1912,186 +2117,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/02/25/mybatis四/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuxinming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p57l8frp4.bkt.clouddn.com/lxm.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fashionkillyou">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/25/mybatis四/" itemprop="url">mybatis四</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-25T16:07:42+08:00">
-                2018-02-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,130
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="关联查询"><a href="#关联查询" class="headerlink" title="关联查询"></a>关联查询</h1><h2 id="一对一查询"><a href="#一对一查询" class="headerlink" title="一对一查询"></a>一对一查询</h2><p>这里举例是一个订单对应一个用户</p>
-<h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>使用resultType，定义订单信息po类，此po类中包括了订单信息和用户信息：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/25/mybatis四/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-	<div>
-	  
-	</div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2146,7 +2171,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2168,7 +2193,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2413,7 +2438,7 @@
     
       <span class="post-meta-item-text">网站文字总数&#58;</span>
     
-    <span title="网站文字总数">30.4k</span>
+    <span title="网站文字总数">30.6k</span>
   
 </div>
 
