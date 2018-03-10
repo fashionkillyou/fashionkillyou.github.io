@@ -426,7 +426,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="Quartz-入门详解"><a href="#Quartz-入门详解" class="headerlink" title="Quartz 入门详解"></a>Quartz 入门详解</h1><h2 id="入门简介："><a href="#入门简介：" class="headerlink" title="入门简介："></a>入门简介：</h2><p>基本上任何公司都会用到调度这个功能， 比如我们公司需要定期执行调度生成报表， 或者比如博客什么的定时更新之类的，都可以靠Quartz来完成。正如官网所说，小到独立应用大到大型电子商务网站， Quartz都能胜任。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h1 id="Quartz-入门详解"><a href="#Quartz-入门详解" class="headerlink" title="Quartz 入门详解"></a>Quartz 入门详解</h1><h2 id="入门简介："><a href="#入门简介：" class="headerlink" title="入门简介："></a>入门简介：</h2><p>基本上任何公司都会用到调度这个功能， 比如我们公司需要定期执行调度生成报表， 或者比如博客什么的定时更新之类的，都可以靠Quartz来完成。正如官网所说，小到独立应用大到大型电子商务网站， Quartz都能胜任。</p>
 <a id="more"></a>
 <h2 id="Quartz体系结构："><a href="#Quartz体系结构：" class="headerlink" title="Quartz体系结构："></a>Quartz体系结构：</h2><p>明白Quartz怎么用，首先要了解Scheduler(调度器)、Job(任务)和Trigger(触发器)这3个核心的概念。</p>
 <h3 id="1-Job："><a href="#1-Job：" class="headerlink" title="1. Job："></a>1. Job：</h3><p>是一个接口，只定义一个方法execute(JobExecutionContext context)，在实现接口的execute方法中编写所需要定时执行的Job(任务)， JobExecutionContext类提供了调度应用的一些信息。Job运行时的信息保存在JobDataMap实例中；</p>

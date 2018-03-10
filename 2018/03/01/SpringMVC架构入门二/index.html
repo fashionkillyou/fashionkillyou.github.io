@@ -426,7 +426,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><h1 id="高级参数绑定"><a href="#高级参数绑定" class="headerlink" title="高级参数绑定"></a>高级参数绑定</h1><h2 id="绑定数组"><a href="#绑定数组" class="headerlink" title="绑定数组"></a>绑定数组</h2><p>Controller方法中可以用String[]接收，或者pojo的String[]属性接收。两种方式任选其一即可。<br><a id="more"></a><br>使用String[]:</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h1 id="高级参数绑定"><a href="#高级参数绑定" class="headerlink" title="高级参数绑定"></a>高级参数绑定</h1><h2 id="绑定数组"><a href="#绑定数组" class="headerlink" title="绑定数组"></a>绑定数组</h2><p>Controller方法中可以用String[]接收，或者pojo的String[]属性接收。两种方式任选其一即可。<br><a id="more"></a><br>使用String[]:</p>
 <pre><code>@RequestMapping(&quot;/queryitem&quot;)
 public String queryItem(Query queryVo, String[] ids) {
     System.out.println(queryVo.getItems().getName());
