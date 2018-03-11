@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="mybatis," />
+  <meta name="keywords" content="FastDFS,angularJS,HTML5,springMVC," />
 
 
 
@@ -88,18 +88,24 @@
 
 
 
-<meta name="description" content="mybatis整合spring整合思路1、SqlSessionFactory对象应该放到spring容器中作为单例存在。 2、传统dao的开发方式中，应该从spring容器中获得sqlsession对象。 3、Mapper代理形式中，应该从spring容器中直接获得mapper的代理对象。 4、数据库的连接以及数据库连接池事务管理都交给spring容器来完成。">
-<meta name="keywords" content="mybatis">
+<meta name="description" content="分布式文件服务器FastDFS什么是FastDFSFastDFS 是用 c 语言编写的一款开源的分布式文件系统。FastDFS 为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用 FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。">
+<meta name="keywords" content="FastDFS,angularJS,HTML5,springMVC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mybatis五">
-<meta property="og:url" content="http://www.fashionkillyou.xyz/2018/02/26/mybatis五/index.html">
+<meta property="og:title" content="使用FastDFS+angularJS+HTML5+springMVC进行文件上传">
+<meta property="og:url" content="http://www.fashionkillyou.xyz/2018/03/12/使用FastDFS-angularJS-HTML5-springMVC进行文件上传/index.html">
 <meta property="og:site_name" content="Fashionkillyou">
-<meta property="og:description" content="mybatis整合spring整合思路1、SqlSessionFactory对象应该放到spring容器中作为单例存在。 2、传统dao的开发方式中，应该从spring容器中获得sqlsession对象。 3、Mapper代理形式中，应该从spring容器中直接获得mapper的代理对象。 4、数据库的连接以及数据库连接池事务管理都交给spring容器来完成。">
+<meta property="og:description" content="分布式文件服务器FastDFS什么是FastDFSFastDFS 是用 c 语言编写的一款开源的分布式文件系统。FastDFS 为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用 FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-06T01:25:16.347Z">
+<meta property="og:image" content="http://p57l8frp4.bkt.clouddn.com/FastDFS1.png">
+<meta property="og:image" content="http://p57l8frp4.bkt.clouddn.com/FastDFS2.png">
+<meta property="og:image" content="http://p57l8frp4.bkt.clouddn.com/FastDFS3.png">
+<meta property="og:image" content="http://p57l8frp4.bkt.clouddn.com/FastDFS4.png">
+<meta property="og:image" content="http://p57l8frp4.bkt.clouddn.com/FastDFS5.png">
+<meta property="og:updated_time" content="2018-03-11T18:01:34.932Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mybatis五">
-<meta name="twitter:description" content="mybatis整合spring整合思路1、SqlSessionFactory对象应该放到spring容器中作为单例存在。 2、传统dao的开发方式中，应该从spring容器中获得sqlsession对象。 3、Mapper代理形式中，应该从spring容器中直接获得mapper的代理对象。 4、数据库的连接以及数据库连接池事务管理都交给spring容器来完成。">
+<meta name="twitter:title" content="使用FastDFS+angularJS+HTML5+springMVC进行文件上传">
+<meta name="twitter:description" content="分布式文件服务器FastDFS什么是FastDFSFastDFS 是用 c 语言编写的一款开源的分布式文件系统。FastDFS 为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用 FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。">
+<meta name="twitter:image" content="http://p57l8frp4.bkt.clouddn.com/FastDFS1.png">
 
 
 
@@ -129,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://www.fashionkillyou.xyz/2018/02/26/mybatis五/"/>
+  <link rel="canonical" href="http://www.fashionkillyou.xyz/2018/03/12/使用FastDFS-angularJS-HTML5-springMVC进行文件上传/"/>
 
 
 
 
 
-  <title>mybatis五 | Fashionkillyou</title>
+  <title>使用FastDFS+angularJS+HTML5+springMVC进行文件上传 | Fashionkillyou</title>
   
 
 
@@ -306,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/02/26/mybatis五/">
+    <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/03/12/使用FastDFS-angularJS-HTML5-springMVC进行文件上传/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuxinming">
@@ -323,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mybatis五</h1>
+          <h1 class="post-title" itemprop="name headline">使用FastDFS+angularJS+HTML5+springMVC进行文件上传</h1>
         
 
         <div class="post-meta">
@@ -335,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-26T16:21:09+08:00">
-                2018-02-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T01:14:11+08:00">
+                2018-03-12
               </time>
             
 
@@ -358,8 +364,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -389,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,258
+                  1,626
                 </span>
               
 
@@ -405,7 +411,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  8
                 </span>
               
             </div>
@@ -426,187 +432,274 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><h1 id="mybatis整合spring"><a href="#mybatis整合spring" class="headerlink" title="mybatis整合spring"></a>mybatis整合spring</h1><h2 id="整合思路"><a href="#整合思路" class="headerlink" title="整合思路"></a>整合思路</h2><p>1、SqlSessionFactory对象应该放到spring容器中作为单例存在。</p>
-<p>2、传统dao的开发方式中，应该从spring容器中获得sqlsession对象。</p>
-<p>3、Mapper代理形式中，应该从spring容器中直接获得mapper的代理对象。</p>
-<p>4、数据库的连接以及数据库连接池事务管理都交给spring容器来完成。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h1 id="分布式文件服务器FastDFS"><a href="#分布式文件服务器FastDFS" class="headerlink" title="分布式文件服务器FastDFS"></a>分布式文件服务器FastDFS</h1><h2 id="什么是FastDFS"><a href="#什么是FastDFS" class="headerlink" title="什么是FastDFS"></a>什么是FastDFS</h2><p>FastDFS 是用 c 语言编写的一款开源的分布式文件系统。FastDFS 为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用 FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。</p>
 <a id="more"></a>
-<h2 id="整合需要的jar包"><a href="#整合需要的jar包" class="headerlink" title="整合需要的jar包"></a>整合需要的jar包</h2><p>1、spring的jar包<br>2、Mybatis的jar包<br>3、Spring+mybatis的整合包。<br>4、Mysql的数据库驱动jar包。<br>5、数据库连接池的jar包。</p>
-<h2 id="整合的步骤"><a href="#整合的步骤" class="headerlink" title="整合的步骤"></a>整合的步骤</h2><p>第一步：创建一个java工程。</p>
-<p>第二步：导入jar包。（上面提到的jar包）</p>
-<p>第三步：mybatis的配置文件SqlMapConfig.xml</p>
-<p>第四步：编写Spring的配置文件</p>
-<pre><code>1、数据库连接及连接池
+<p>FastDFS 架构包括 Tracker server 和 Storage server。客户端请求 Tracker server 进行文件上传、下载，通过 Tracker server 调度最终由 Storage server 完成文件上传和下载。</p>
+<p>Tracker server 作用是负载均衡和调度，通过 Tracker server 在文件上传时可以根据一些策略找到 Storage server 提供文件上传服务。可以将 tracker 称为追踪服务器或调度服务器。</p>
+<p>Storage server 作用是文件存储，客户端上传的文件最终存储在 Storage 服务器上，Storageserver 没有实现自己的文件系统而是利用操作系统 的文件系统来管理文件。可以将storage称为存储服务器。</p>
+<p><img src="http://p57l8frp4.bkt.clouddn.com/FastDFS1.png" alt=""></p>
+<p>服务端两个角色：</p>
+<ul>
+<li><p>Tracker：管理集群，tracker 也可以实现集群。每个 tracker 节点地位平等。收集 Storage 集群的状态。</p>
+</li>
+<li><p>Storage：实际保存文件   Storage 分为多个组，每个组之间保存的文件是不同的。每个组内部可以有多个成员，组成员内部保存的内容是一样的，组成员的地位是一致的，没有主从的概念。</p>
+<h2 id="文件上传及下载的流程"><a href="#文件上传及下载的流程" class="headerlink" title="文件上传及下载的流程"></a>文件上传及下载的流程</h2><h3 id="文件上传流程"><a href="#文件上传流程" class="headerlink" title="文件上传流程"></a>文件上传流程</h3></li>
+</ul>
+<p><img src="http://p57l8frp4.bkt.clouddn.com/FastDFS2.png" alt=""></p>
+<p>客户端上传文件后存储服务器将文件 ID 返回给客户端，此文件 ID 用于以后访问该文件的索引信息。文件索引信息包括：组名，虚拟磁盘路径，数据两级目录，文件名。</p>
+<p><img src="http://p57l8frp4.bkt.clouddn.com/FastDFS3.png" alt=""></p>
+<p>组名：文件上传后所在的 storage 组名称，在文件上传成功后有 storage 服务器返回，需要客户端自行保存。</p>
+<ul>
+<li><p>虚拟磁盘路径：storage 配置的虚拟路径，与磁盘选项 store_path*对应。如果配置了<br>store_path0 则是 M00，如果配置了 store_path1 则是 M01，以此类推。</p>
+</li>
+<li><p>数据两级目录：storage 服务器在每个虚拟磁盘路径下创建的两级目录，用于存储数据<br>文件。</p>
+</li>
+<li><p>文件名：与文件上传时不同。是由存储服务器根据特定信息生成，文件名包含：源存储<br>服务器 IP 地址、文件创建时间戳、文件大小、随机数和文件拓展名等信息。</p>
+</li>
+</ul>
+<h3 id="文件下载流程"><a href="#文件下载流程" class="headerlink" title="文件下载流程"></a>文件下载流程</h3><p><img src="http://p57l8frp4.bkt.clouddn.com/FastDFS4.png" alt=""></p>
+<h3 id="最简单的-FastDFS-架构"><a href="#最简单的-FastDFS-架构" class="headerlink" title="最简单的 FastDFS 架构"></a>最简单的 FastDFS 架构</h3><p><img src="http://p57l8frp4.bkt.clouddn.com/FastDFS5.png" alt=""></p>
+<h3 id="FastDFS安装"><a href="#FastDFS安装" class="headerlink" title="FastDFS安装"></a>FastDFS安装</h3><p>请参考一下博客:</p>
+<p><a href="https://www.cnblogs.com/fishbay/archive/2017/09/24/7586772.html" target="_blank" rel="noopener">https://www.cnblogs.com/fishbay/archive/2017/09/24/7586772.html</a></p>
+<p><a href="http://blog.csdn.net/XingJames/article/details/52759876" target="_blank" rel="noopener">http://blog.csdn.net/XingJames/article/details/52759876</a></p>
+<p><a href="https://www.cnblogs.com/jym-sunshine/p/6397470.html" target="_blank" rel="noopener">FastDFS安装全过程记录</a></p>
+<h2 id="代码案例"><a href="#代码案例" class="headerlink" title="代码案例"></a>代码案例</h2><h3 id="依赖的jar包"><a href="#依赖的jar包" class="headerlink" title="依赖的jar包:"></a>依赖的jar包:</h3><pre><code>&lt;!-- 文件上传组件 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.csource.fastdfs&lt;/groupId&gt;
+        &lt;artifactId&gt;fastdfs&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;
+        &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+</code></pre><h3 id="使用的工具类"><a href="#使用的工具类" class="headerlink" title="使用的工具类:"></a>使用的工具类:</h3><pre><code>package util;
 
-2、事务管理（暂时可以不配置）
+import org.csource.common.NameValuePair;
+import org.csource.fastdfs.ClientGlobal;
+import org.csource.fastdfs.StorageClient1;
+import org.csource.fastdfs.StorageServer;
+import org.csource.fastdfs.TrackerClient;
+import org.csource.fastdfs.TrackerServer;
 
-3、sqlsessionFactory对象，配置到spring容器中
+public class FastDFSClient {
 
-4、mapeer代理对象或者是dao实现类配置到spring容器中。
-</code></pre><p>第五步：编写dao或者mapper文件</p>
-<p>第六步：测试。</p>
-<h3 id="SqlMapConfig-xml"><a href="#SqlMapConfig-xml" class="headerlink" title="SqlMapConfig.xml"></a>SqlMapConfig.xml</h3><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;!DOCTYPE configuration
-PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
-&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
-&lt;configuration&gt;
-    &lt;typeAliases&gt;
-        &lt;package name=&quot;cn.lxm.mybatis.pojo&quot;/&gt;
-    &lt;/typeAliases&gt;
-    &lt;mappers&gt;
-        &lt;!-- 使用包扫描扫描mapper.xml
-            如果在ApplicationContext.xml中配置了扫描包之后,就 不需要此配置
-         --&gt;
-        &lt;package name=&quot;cn.lxm.mybatis.mapper&quot;/&gt;
-    &lt;/mappers&gt;
-&lt;/configuration&gt;
-</code></pre><h3 id="applicationContext-xml"><a href="#applicationContext-xml" class="headerlink" title="applicationContext.xml"></a>applicationContext.xml</h3><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-    xmlns:context=&quot;http://www.springframework.org/schema/context&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
-    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
-    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
-    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
-    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd&quot;&gt;
+    private TrackerClient trackerClient = null;
+    private TrackerServer trackerServer = null;
+    private StorageServer storageServer = null;
+    private StorageClient1 storageClient = null;
 
-    &lt;!-- 加载配置文件 --&gt;
-    &lt;context:property-placeholder location=&quot;classpath:db.properties&quot; /&gt;
-    &lt;!-- 数据库连接池 --&gt;
-    &lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot;
-        destroy-method=&quot;close&quot;&gt;
-        &lt;property name=&quot;driverClassName&quot; value=&quot;${jdbc.driver}&quot; /&gt;
-        &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot; /&gt;
-        &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot; /&gt;
-        &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot; /&gt;
-        &lt;property name=&quot;maxActive&quot; value=&quot;10&quot; /&gt;
-        &lt;property name=&quot;maxIdle&quot; value=&quot;5&quot; /&gt;
-    &lt;/bean&gt;
-    &lt;!-- mapper配置 --&gt;
-    &lt;!-- 让spring管理sqlsessionfactory 使用mybatis和spring整合包中的 --&gt;
-    &lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
-        &lt;!-- 数据库连接池 --&gt;
-        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;
-        &lt;!-- 加载mybatis的全局配置文件 --&gt;
-        &lt;property name=&quot;configLocation&quot; value=&quot;classpath:mybatis/SqlMapConfig.xml&quot; /&gt;
-    &lt;/bean&gt;
-
-&lt;/beans&gt;
-</code></pre><h3 id="db-properties"><a href="#db-properties" class="headerlink" title="db.properties"></a>db.properties</h3><pre><code>jdbc.driver=com.mysql.jdbc.Driver
-jdbc.url=jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8
-jdbc.username=root
-jdbc.password=root
-</code></pre><h2 id="Dao的开发"><a href="#Dao的开发" class="headerlink" title="Dao的开发"></a>Dao的开发</h2><p>三种dao的实现方式：</p>
-<pre><code>1、传统dao的开发方式
-
-2、使用mapper代理形式开发方式
-
-3、使用扫描包配置mapper代理。
-</code></pre><p>这里只介绍第二种和第三种</p>
-<h3 id="Mapper代理形式开发dao"><a href="#Mapper代理形式开发dao" class="headerlink" title="Mapper代理形式开发dao"></a>Mapper代理形式开发dao</h3><h4 id="开发mapper接口"><a href="#开发mapper接口" class="headerlink" title="开发mapper接口"></a>开发mapper接口</h4><p>开发mapper文件</p>
-<p>创建UserMapper.java</p>
-<pre><code>public interface UserMapper {
-    User findUserById(Integer id) throws Exception;
-}
-</code></pre><p>并且在同一目录下创建UserMapper.xml</p>
-<pre><code> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;!DOCTYPE mapper
-PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
-&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
-&lt;mapper namespace=&quot;cn.lxm.mybatis.mapper.UserMapper&quot;&gt;
-    &lt;!-- 根据id获取用户信息 --&gt;
-    &lt;select id=&quot;findUserById&quot; parameterType=&quot;int&quot; resultType=&quot;cn.lxm.mybatis.po.User&quot;&gt;
-        select * from user where id = #{id}
-    &lt;/select&gt;
-&lt;/mapper&gt;
-</code></pre><h4 id="配置mapper代理"><a href="#配置mapper代理" class="headerlink" title="配置mapper代理"></a>配置mapper代理</h4><pre><code>&lt;!-- 配置mapper代理对象 --&gt;
-&lt;bean class=&quot;org.mybatis.spring.mapper.MapperFactoryBean&quot;&gt;
-    &lt;property name=&quot;mapperInterface&quot; value=&quot;cn.lxm.mybatis.mapper.UserMapper&quot;/&gt;
-    &lt;property name=&quot;sqlSessionFactory&quot; ref=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;
-</code></pre><h4 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h4><pre><code>public class UserMapperTest {
-
-    private ApplicationContext applicationContext;
-    @Before
-    public void setUp() throws Exception {
-        applicationContext = new ClassPathXmlApplicationContext(&quot;classpath:spring/applicationContext.xml&quot;);
+    public FastDFSClient(String conf) throws Exception {
+        if (conf.contains(&quot;classpath:&quot;)) {
+            conf = conf.replace(&quot;classpath:&quot;, this.getClass().getResource(&quot;/&quot;).getPath());
+        }
+        ClientGlobal.init(conf);
+        trackerClient = new TrackerClient();
+        trackerServer = trackerClient.getConnection();
+        storageServer = null;
+        storageClient = new StorageClient1(trackerServer, storageServer);
     }
 
-    @Test
-    public void testGetUserById() {
-        UserMapper userMapper = applicationContext.getBean(UserMapper.class);
-        User user = userMapper.getUserById(1);
-        System.out.println(user);
+    /**
+     * 上传文件方法
+     * &lt;p&gt;Title: uploadFile&lt;/p&gt;
+     * &lt;p&gt;Description: &lt;/p&gt;
+     * @param fileName 文件全路径
+     * @param extName 文件扩展名，不包含（.）
+     * @param metas 文件扩展信息
+     * @return
+     * @throws Exception
+     */
+    public String uploadFile(String fileName, String extName, NameValuePair[] metas) throws Exception {
+        String result = storageClient.upload_file1(fileName, extName, metas);
+        return result;
     }
 
+    public String uploadFile(String fileName) throws Exception {
+        return uploadFile(fileName, null, null);
+    }
+
+    public String uploadFile(String fileName, String extName) throws Exception {
+        return uploadFile(fileName, extName, null);
+    }
+
+    /**
+     * 上传文件方法
+     * &lt;p&gt;Title: uploadFile&lt;/p&gt;
+     * &lt;p&gt;Description: &lt;/p&gt;
+     * @param fileContent 文件的内容，字节数组
+     * @param extName 文件扩展名
+     * @param metas 文件扩展信息
+     * @return
+     * @throws Exception
+     */
+    public String uploadFile(byte[] fileContent, String extName, NameValuePair[] metas) throws Exception {
+
+        String result = storageClient.upload_file1(fileContent, extName, metas);
+        return result;
+    }
+
+    public String uploadFile(byte[] fileContent) throws Exception {
+        return uploadFile(fileContent, null, null);
+    }
+
+    public String uploadFile(byte[] fileContent, String extName) throws Exception {
+        return uploadFile(fileContent, extName, null);
+    }
 }
-</code></pre><h3 id="扫描包形式配置mapper"><a href="#扫描包形式配置mapper" class="headerlink" title="扫描包形式配置mapper"></a>扫描包形式配置mapper</h3><pre><code>&lt;!-- 使用扫描包的形式来创建mapper代理对象 --&gt;
-&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
-    &lt;property name=&quot;basePackage&quot; value=&quot;cn.lxm.mybatis.mapper&quot;&gt;&lt;/property&gt;
+</code></pre><h3 id="config下的配置文件-fdfs-client-conf"><a href="#config下的配置文件-fdfs-client-conf" class="headerlink" title="config下的配置文件(fdfs_client.conf):"></a>config下的配置文件(fdfs_client.conf):</h3><p>注意修改</p>
+<p>tracker_server=192.168.25.133:22122为tracker服务器地址</p>
+<pre><code># connect timeout in seconds
+# default value is 30s
+connect_timeout=30
+
+# network timeout in seconds
+# default value is 30s
+network_timeout=60
+
+# the base path to store log files
+base_path=/home/fastdfs
+
+# tracker_server can ocur more than once, and tracker_server format is
+#  &quot;host:port&quot;, host can be hostname or ip address
+tracker_server=192.168.25.133:22122
+
+
+#standard log level as syslog, case insensitive, value list:
+### emerg for emergency
+### alert
+### crit for critical
+### error
+### warn for warning
+### notice
+### info
+### debug
+log_level=info
+
+# if use connection pool
+# default value is false
+# since V4.05
+use_connection_pool = false
+
+# connections whose the idle time exceeds this time will be closed
+# unit: second
+# default value is 3600
+# since V4.05
+connection_pool_max_idle_time = 3600
+
+# if load FastDFS parameters from tracker server
+# since V4.05
+# default value is false
+load_fdfs_parameters_from_tracker=false
+
+# if use storage ID instead of IP address
+# same as tracker.conf
+# valid only when load_fdfs_parameters_from_tracker is false
+# default value is false
+# since V4.05
+use_storage_id = false
+
+# specify storage ids filename, can use relative or absolute path
+# same as tracker.conf
+# valid only when load_fdfs_parameters_from_tracker is false
+# since V4.05
+storage_ids_filename = storage_ids.conf
+
+
+#HTTP settings
+http.tracker_server_port=80
+
+#use &quot;#include&quot; directive to include HTTP other settiongs
+##include http.conf
+</code></pre><h3 id="springmvc-xml中添加配置"><a href="#springmvc-xml中添加配置" class="headerlink" title="springmvc.xml中添加配置"></a>springmvc.xml中添加配置</h3><pre><code>&lt;!-- 配置多媒体解析器 --&gt;
+&lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;
+    &lt;property name=&quot;defaultEncoding&quot; value=&quot;UTF-8&quot;&gt;&lt;/property&gt;
+    &lt;!-- 设定文件上传的最大值5MB，5*1024*1024 --&gt;
+    &lt;property name=&quot;maxUploadSize&quot; value=&quot;5242880&quot;&gt;&lt;/property&gt;
 &lt;/bean&gt;
-</code></pre><p>如果配置了这个后 ,在SQLMapConfig.xml中的包扫描配置就不需要了</p>
-<h2 id="逆向工程生成代码"><a href="#逆向工程生成代码" class="headerlink" title="逆向工程生成代码"></a>逆向工程生成代码</h2><p>步骤:</p>
-<p>1.导入逆向工程代码,然后修改配置文件generatorConfig.xml</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE generatorConfiguration
-  PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;
-  &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;
+</code></pre><h3 id="controller控制层代码"><a href="#controller控制层代码" class="headerlink" title="controller控制层代码:"></a>controller控制层代码:</h3><pre><code>/**
+ * 文件上传Controller
+ * @author Administrator
+ *
+ */
+@RestController
+public class UploadController {
 
-&lt;generatorConfiguration&gt;
-    &lt;context id=&quot;testTables&quot; targetRuntime=&quot;MyBatis3&quot;&gt;
-        &lt;commentGenerator&gt;
-            &lt;!-- 是否去除自动生成的注释 true：是 ： false:否 --&gt;
-            &lt;property name=&quot;suppressAllComments&quot; value=&quot;true&quot; /&gt;
-        &lt;/commentGenerator&gt;
-        &lt;!--数据库连接的信息：驱动类、连接地址、用户名、密码 --&gt;
-        &lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot;
-            connectionURL=&quot;jdbc:mysql://localhost:3306/mybatis&quot; userId=&quot;root&quot;
-            password=&quot;root&quot;&gt;
-        &lt;/jdbcConnection&gt;
-        &lt;!-- &lt;jdbcConnection driverClass=&quot;oracle.jdbc.OracleDriver&quot;
-            connectionURL=&quot;jdbc:oracle:thin:@127.0.0.1:1521:yycg&quot; 
-            userId=&quot;yycg&quot;
-            password=&quot;yycg&quot;&gt;
-        &lt;/jdbcConnection&gt; --&gt;
+@RequestMapping(&quot;/upload&quot;)
+public Result upload( MultipartFile file){                
+    //1、取文件的扩展名
+    String originalFilename = file.getOriginalFilename();
+    String extName = originalFilename.substring(originalFilename.lastIndexOf(&quot;.&quot;) + 1);
+    try {
+    //2、创建一个 FastDFS 的客户端
+            FastDFSClient fastDFSClient  
+    = new FastDFSClient(&quot;classpath:config/fdfs_client.conf&quot;);
+            //3、执行上传处理
+            String path = fastDFSClient.uploadFile(file.getBytes(), extName);
+            //4、拼接返回的 url 和 ip 地址，拼装成完整的 url
+            String url = &quot;文件服务器地址&quot; + path;            
+            return new Result(true,url);            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false, &quot;上传失败&quot;);
+        }        
+    }    
+}
+</code></pre><h3 id="前端Service-js代码"><a href="#前端Service-js代码" class="headerlink" title="前端Service.js代码"></a>前端Service.js代码</h3><pre><code>//文件上传服务层
+app.service(&quot;uploadService&quot;,function($http){
+    this.uploadFile=function(){
+        var formData=new FormData();
+        formData.append(&quot;file&quot;,file.files[0]);   
+        return $http({
+            method:&apos;POST&apos;,
+            url:&quot;../upload.do&quot;,
+            data: formData,
+            headers: {&apos;Content-Type&apos;:undefined},
+            transformRequest: angular.identity
+        });        
+    }    
+});
+</code></pre><p>anjularjs对于post和get请求默认的Content-Type header 是application/json。通过设置‘Content-Type’: undefined，这样浏览器会帮我们把Content-Type 设置为 multipart/form-data.</p>
+<p>通过设置 transformRequest: angular.identity ，anjularjs transformRequest function 将序列化我们的formdata object.</p>
+<h3 id="前端controller-js代码"><a href="#前端controller-js代码" class="headerlink" title="前端controller.js代码"></a>前端controller.js代码</h3><pre><code>app.controller(&apos;myController&apos; ,function($scope,$controller,goodsService,itemCatService,uploadService){
 
-        &lt;!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 
-            NUMERIC 类型解析为java.math.BigDecimal --&gt;
-        &lt;javaTypeResolver&gt;
-            &lt;property name=&quot;forceBigDecimals&quot; value=&quot;false&quot; /&gt;
-        &lt;/javaTypeResolver&gt;
+/**
+ * 上传图片
+ */
+$scope.uploadFile=function(){      
+    uploadService.uploadFile().success(function(response) {            
+        if(response.success){//如果上传成功，取出url
+            $scope.image_entity.url=response.message;//设置文件地址
+        }else{
+            alert(response.message);
+        }
+    }).error(function() {           
+             alert(&quot;上传发生错误&quot;);
+    });        
+}; 
 
-        &lt;!-- targetProject:生成PO类的位置 --&gt;
-        &lt;javaModelGenerator targetPackage=&quot;cn.lxm.mybatis.po&quot;
-            targetProject=&quot;.\src&quot;&gt;
-            &lt;!-- enableSubPackages:是否让schema作为包的后缀 --&gt;
-            &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot; /&gt;
-            &lt;!-- 从数据库返回的值被清理前后的空格 --&gt;
-            &lt;property name=&quot;trimStrings&quot; value=&quot;true&quot; /&gt;
-        &lt;/javaModelGenerator&gt;
-        &lt;!-- targetProject:mapper映射文件生成的位置 --&gt;
-        &lt;sqlMapGenerator targetPackage=&quot;cn.lxm.mybatis.mapper&quot; 
-            targetProject=&quot;.\src&quot;&gt;
-            &lt;!-- enableSubPackages:是否让schema作为包的后缀 --&gt;
-            &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot; /&gt;
-        &lt;/sqlMapGenerator&gt;
-        &lt;!-- targetPackage：mapper接口生成的位置 --&gt;
-        &lt;javaClientGenerator type=&quot;XMLMAPPER&quot;
-            targetPackage=&quot;cn.lxm.mybatis.mapper&quot; 
-            targetProject=&quot;.\src&quot;&gt;
-            &lt;!-- enableSubPackages:是否让schema作为包的后缀 --&gt;
-            &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot; /&gt;
-        &lt;/javaClientGenerator&gt;
-        &lt;!-- 指定数据库表 --&gt;
-        &lt;table schema=&quot;&quot; tableName=&quot;user&quot;&gt;&lt;/table&gt;
-        &lt;table schema=&quot;&quot; tableName=&quot;orders&quot;&gt;&lt;/table&gt;
-
-
-        &lt;!-- 有些表的字段需要指定java类型
-         &lt;table schema=&quot;&quot; tableName=&quot;&quot;&gt;
-            &lt;columnOverride column=&quot;&quot; javaType=&quot;&quot; /&gt;
-        &lt;/table&gt; --&gt;
-    &lt;/context&gt;
-&lt;/generatorConfiguration&gt;
+}
+</code></pre><h3 id="页面显示"><a href="#页面显示" class="headerlink" title="页面显示"></a>页面显示</h3><pre><code>&lt;div class=&quot;modal-body&quot;&gt;            
+        &lt;table class=&quot;table table-bordered table-striped&quot;&gt;
+              &lt;tr&gt;
+                  &lt;td&gt;图片&lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;table&gt;
+                        &lt;tr&gt;
+                            &lt;td&gt;
+                            &lt;input type=&quot;file&quot; id=&quot;file&quot; /&gt;                                
+                                &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; ng-click=&quot;uploadFile()&quot;&gt;
+                                       上传
+                                &lt;/button&gt;    
+                            &lt;/td&gt;
+                            &lt;td&gt;
+                                &lt;img  src=&quot;{{image_entity.url}}&quot; width=&quot;200px&quot; height=&quot;200px&quot;&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;                        
+                    &lt;/table&gt;
+                  &lt;/td&gt;
+              &lt;/tr&gt;                  
+         &lt;/table&gt;            
+    &lt;/div&gt;
 </code></pre>
       
     </div>
@@ -632,7 +725,13 @@ PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
       
         <div class="post-tags">
           
-            <a href="/tags/mybatis/" rel="tag"># mybatis</a>
+            <a href="/tags/FastDFS/" rel="tag"># FastDFS</a>
+          
+            <a href="/tags/angularJS/" rel="tag"># angularJS</a>
+          
+            <a href="/tags/HTML5/" rel="tag"># HTML5</a>
+          
+            <a href="/tags/springMVC/" rel="tag"># springMVC</a>
           
         </div>
       
@@ -645,8 +744,8 @@ PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/25/mybatis四/" rel="next" title="mybatis四">
-                <i class="fa fa-chevron-left"></i> mybatis四
+              <a href="/2018/03/09/基于angularJS的多选框select2/" rel="next" title="基于angularJS的多选框select2">
+                <i class="fa fa-chevron-left"></i> 基于angularJS的多选框select2
               </a>
             
           </div>
@@ -654,10 +753,6 @@ PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/27/SpringMVC架构入门一/" rel="prev" title="SpringMVC架构入门一">
-                SpringMVC架构入门一 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1017,7 +1112,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mybatis整合spring"><span class="nav-number">1.</span> <span class="nav-text">mybatis整合spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整合思路"><span class="nav-number">1.1.</span> <span class="nav-text">整合思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整合需要的jar包"><span class="nav-number">1.2.</span> <span class="nav-text">整合需要的jar包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整合的步骤"><span class="nav-number">1.3.</span> <span class="nav-text">整合的步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SqlMapConfig-xml"><span class="nav-number">1.3.1.</span> <span class="nav-text">SqlMapConfig.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applicationContext-xml"><span class="nav-number">1.3.2.</span> <span class="nav-text">applicationContext.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#db-properties"><span class="nav-number">1.3.3.</span> <span class="nav-text">db.properties</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dao的开发"><span class="nav-number">1.4.</span> <span class="nav-text">Dao的开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mapper代理形式开发dao"><span class="nav-number">1.4.1.</span> <span class="nav-text">Mapper代理形式开发dao</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开发mapper接口"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">开发mapper接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置mapper代理"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">配置mapper代理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试方法"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">测试方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扫描包形式配置mapper"><span class="nav-number">1.4.2.</span> <span class="nav-text">扫描包形式配置mapper</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逆向工程生成代码"><span class="nav-number">1.5.</span> <span class="nav-text">逆向工程生成代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式文件服务器FastDFS"><span class="nav-number">1.</span> <span class="nav-text">分布式文件服务器FastDFS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是FastDFS"><span class="nav-number">1.1.</span> <span class="nav-text">什么是FastDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件上传及下载的流程"><span class="nav-number">1.2.</span> <span class="nav-text">文件上传及下载的流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传流程"><span class="nav-number">1.2.1.</span> <span class="nav-text">文件上传流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件下载流程"><span class="nav-number">1.2.2.</span> <span class="nav-text">文件下载流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最简单的-FastDFS-架构"><span class="nav-number">1.2.3.</span> <span class="nav-text">最简单的 FastDFS 架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FastDFS安装"><span class="nav-number">1.2.4.</span> <span class="nav-text">FastDFS安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码案例"><span class="nav-number">1.3.</span> <span class="nav-text">代码案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖的jar包"><span class="nav-number">1.3.1.</span> <span class="nav-text">依赖的jar包:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用的工具类"><span class="nav-number">1.3.2.</span> <span class="nav-text">使用的工具类:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config下的配置文件-fdfs-client-conf"><span class="nav-number">1.3.3.</span> <span class="nav-text">config下的配置文件(fdfs_client.conf):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#springmvc-xml中添加配置"><span class="nav-number">1.3.4.</span> <span class="nav-text">springmvc.xml中添加配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#controller控制层代码"><span class="nav-number">1.3.5.</span> <span class="nav-text">controller控制层代码:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端Service-js代码"><span class="nav-number">1.3.6.</span> <span class="nav-text">前端Service.js代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端controller-js代码"><span class="nav-number">1.3.7.</span> <span class="nav-text">前端controller.js代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面显示"><span class="nav-number">1.3.8.</span> <span class="nav-text">页面显示</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
