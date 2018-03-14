@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>http://www.fashionkillyou.xyz/2018/03/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1/</loc>
+    <lastmod>2018-03-14T09:06:53.178Z</lastmod>
+    <data>
+        <display>
+        <title>数据库的事务</title>
+        <pubTime>2018-03-14T08:32:27.000Z</pubTime>
+        
+        <tag>事务管理</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://www.fashionkillyou.xyz/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fashionkillyou.xyz/2018/03/09/%E5%9F%BA%E4%BA%8EangularJS%E7%9A%84%E5%A4%9A%E9%80%89%E6%A1%86select2/</loc>
+    <lastmod>2018-03-14T00:48:14.410Z</lastmod>
+    <data>
+        <display>
+        <title>基于angularJS的多选框select2</title>
+        <pubTime>2018-03-09T03:03:38.000Z</pubTime>
+        
+        <tag>angularJS</tag>
+         
+        <tag>select2</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://www.fashionkillyou.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.fashionkillyou.xyz/2018/03/12/%E4%BD%BF%E7%94%A8FastDFS-angularJS-HTML5-springMVC%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</loc>
     <lastmod>2018-03-11T18:01:34.932Z</lastmod>
     <data>
@@ -38,28 +80,6 @@
         <pubTime>2018-03-07T04:45:07.000Z</pubTime>
         
         <tag>AngularJS</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="http://www.fashionkillyou.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fashionkillyou.xyz/2018/03/09/%E5%9F%BA%E4%BA%8EangularJS%E7%9A%84%E5%A4%9A%E9%80%89%E6%A1%86select2/</loc>
-    <lastmod>2018-03-11T17:17:39.701Z</lastmod>
-    <data>
-        <display>
-        <title>基于angularJS的多选框select2</title>
-        <pubTime>2018-03-09T03:03:38.000Z</pubTime>
-        
-        <tag>angularJS</tag>
-         
-        <tag>select2</tag>
          
          
            
