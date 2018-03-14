@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.fashionkillyou.xyz/"/>
-  <updated>2018-03-14T09:06:53.178Z</updated>
+  <updated>2018-03-14T09:18:08.599Z</updated>
   <id>http://www.fashionkillyou.xyz/</id>
   
   <author>
@@ -21,16 +21,13 @@
     <link href="http://www.fashionkillyou.xyz/2018/03/14/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1/"/>
     <id>http://www.fashionkillyou.xyz/2018/03/14/数据库的事务/</id>
     <published>2018-03-14T08:32:27.000Z</published>
-    <updated>2018-03-14T09:06:53.178Z</updated>
+    <updated>2018-03-14T09:18:08.599Z</updated>
     
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="【事务的概述】"><a href="#【事务的概述】" class="headerlink" title="【事务的概述】"></a>【事务的概述】</h1><h2 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务:"></a>什么是事务:</h2><p>事务指的是逻辑上的一组操作,组成这组操作的各个逻辑单元要么一起成功,要么一起失败.</p><p>MYSQL的事务管理有两种方式:(MYSQL数据库事务默认是自动提交的.Oracle数据库事务默认是不自动提交.)</p><p>1.手动开启事务</p><ul><li>start transaction; – 开启事务</li><li>多条sql;</li><li>commit/rollback;</li></ul><p>2.设置一个自动提交参数</p><ul><li>show variables like ‘%commit%’; – 查看与commit相关参数.</li><li>set autocommit = 0; – 将autocommit参数设置为OFF.</li></ul><h1 id="【JDBC中的事务管理】"><a href="#【JDBC中的事务管理】" class="headerlink" title="【JDBC中的事务管理】"></a>【JDBC中的事务管理】</h1><h2 id="JDBC的事务的管理的API"><a href="#JDBC的事务的管理的API" class="headerlink" title="JDBC的事务的管理的API:"></a>JDBC的事务的管理的API:</h2><p>同一个事务 连接必须得是同一个对象(就是提交和设置的connection必须得是同一个),要加在业务层</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><h3 id="事务特性"><a href="#事务特性" class="headerlink" title="事务特性:"></a>事务特性:</h3><ul><li>原子性：强调事务的不可分割.(要么一起成功,要么一起失败)</li><li>一致性：强调的是事务的执行的前后，数据的完整性要保持一致.(转账前总和2000,转完后总和也得是2000)</li><li>隔离性：一个事务的执行不应该受到其他事务的干扰.</li><li>持久性：事务一旦结束(提交/回滚)数据就持久保持到了数据库.</li><li>如果不考虑事务的隔离性,引发一些安全性问题:</li></ul><p>一类是  读问题:</p><ul><li>不可重复读    :一个事务读到了另一个事务已经提交的update的数据,导致在当前的事务中多次查询结果不一致.</li><li>虚读/幻读    :一个事务读到另一个事务已经提交的insert的数据,导致在</li><li>当前的事务中多次的查询结果不一致.</li></ul><p>一类是  写问题:</p><p>引发两类丢失更新:</p><h3 id="解决引发的读问题"><a href="#解决引发的读问题" class="headerlink" title="解决引发的读问题:"></a>解决引发的读问题:</h3><p>设置事务的隔离级别:</p><ul><li>read uncommitted        :未提交读.脏读，不可重复读，虚读都可能发生.(安全性低,但是效率高)</li><li>read committed        :已提交读.避免脏读.但是不可重复读和虚读有可能发生.</li><li>repeatable read        :可重复读.避免脏读,不可重复读.但是虚读有可能发生.</li><li>serializable            :串行化的.避免脏读，不可重复读，虚读的发生.(安全性高,但是效率低)</li></ul><p><strong>*</strong> MYSQL隔离级别：repeatable read  Oracle隔离级别:read committed</p>]]></content>
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="【事务的概述】"><a href="#【事务的概述】" class="headerlink" title="【事务的概述】"></a>【事务的概述】</h1><h2 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务:"></a>什么是事务:</h2><p>事务指的是逻辑上的一组操作,组成这组操作的各个逻辑单元要么一起成功,要么一起失败.<br><a id="more"></a><br>MYSQL的事务管理有两种方式:(MYSQL数据库事务默认是自动提交的.Oracle数据库事务默认是不自动提交.)</p><p>1.手动开启事务</p><ul><li>start transaction; – 开启事务</li><li>多条sql;</li><li>commit/rollback;</li></ul><p>2.设置一个自动提交参数</p><ul><li>show variables like ‘%commit%’; – 查看与commit相关参数.</li><li>set autocommit = 0; – 将autocommit参数设置为OFF.</li></ul><h1 id="【JDBC中的事务管理】"><a href="#【JDBC中的事务管理】" class="headerlink" title="【JDBC中的事务管理】"></a>【JDBC中的事务管理】</h1><h2 id="JDBC的事务的管理的API"><a href="#JDBC的事务的管理的API" class="headerlink" title="JDBC的事务的管理的API:"></a>JDBC的事务的管理的API:</h2><p>同一个事务 连接必须得是同一个对象(就是提交和设置的connection必须得是同一个),要加在业务层</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><h3 id="事务特性"><a href="#事务特性" class="headerlink" title="事务特性:"></a>事务特性:</h3><ul><li>原子性：强调事务的不可分割.(要么一起成功,要么一起失败)</li><li>一致性：强调的是事务的执行的前后，数据的完整性要保持一致.(转账前总和2000,转完后总和也得是2000)</li><li>隔离性：一个事务的执行不应该受到其他事务的干扰.</li><li>持久性：事务一旦结束(提交/回滚)数据就持久保持到了数据库.</li><li>如果不考虑事务的隔离性,引发一些安全性问题:</li></ul><p>一类是  读问题:</p><ul><li>不可重复读    :一个事务读到了另一个事务已经提交的update的数据,导致在当前的事务中多次查询结果不一致.</li><li>虚读/幻读    :一个事务读到另一个事务已经提交的insert的数据,导致在</li><li>当前的事务中多次的查询结果不一致.</li></ul><p>一类是  写问题:</p><p>引发两类丢失更新:</p><h3 id="解决引发的读问题"><a href="#解决引发的读问题" class="headerlink" title="解决引发的读问题:"></a>解决引发的读问题:</h3><p>设置事务的隔离级别:</p><ul><li>read uncommitted        :未提交读.脏读，不可重复读，虚读都可能发生.(安全性低,但是效率高)</li><li>read committed        :已提交读.避免脏读.但是不可重复读和虚读有可能发生.</li><li>repeatable read        :可重复读.避免脏读,不可重复读.但是虚读有可能发生.</li><li>serializable            :串行化的.避免脏读，不可重复读，虚读的发生.(安全性高,但是效率低)</li></ul><p><strong>*</strong> MYSQL隔离级别：repeatable read  Oracle隔离级别:read committed</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;script src=&quot;\assets\js\APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h1 id=&quot;【事务的概述】&quot;&gt;&lt;a href=&quot;#【事务的概述】&quot; class=&quot;headerlink&quot; title=&quot;【事务的概述】&quot;&gt;&lt;/a&gt;【事务的概述】&lt;/h1&gt;&lt;h2
-      
+      &lt;h1 id=&quot;【事务的概述】&quot;&gt;&lt;a href=&quot;#【事务的概述】&quot; class=&quot;headerlink&quot; title=&quot;【事务的概述】&quot;&gt;&lt;/a&gt;【事务的概述】&lt;/h1&gt;&lt;h2 id=&quot;什么是事务&quot;&gt;&lt;a href=&quot;#什么是事务&quot; class=&quot;headerlink&quot; title=&quot;什么是事务:&quot;&gt;&lt;/a&gt;什么是事务:&lt;/h2&gt;&lt;p&gt;事务指的是逻辑上的一组操作,组成这组操作的各个逻辑单元要么一起成功,要么一起失败.&lt;br&gt;
     
     </summary>
     
