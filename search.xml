@@ -32,8 +32,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>angularJS</tag>
         <tag>FastDFS</tag>
+        <tag>angularJS</tag>
         <tag>HTML5</tag>
         <tag>springMVC</tag>
       </tags>
@@ -231,22 +231,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[第一篇播客]]></title>
-    <url>%2F2018%2F02%2F10%2F%E7%AC%AC%E4%B8%80%E7%AF%87%E6%92%AD%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[我的第一篇博客, 这是我的第一篇博客,哈哈,今后开启我的博客生涯,写了很多的东西笔记什么的终于可以发到网上了,我很激动很开心,yes! One world, a search. A sigh, a life for a person.]]></content>
-      <categories>
-        <category>杂七杂八</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[写文章的步骤]]></title>
     <url>%2F2018%2F02%2F10%2Fhello-world%2F</url>
     <content type="text"><![CDATA[创建步骤:1、写一篇文章:1$ hexo new "My New Post" 2、运行服务:1$ hexo server 3、生成静态页面:1$ hexo generate 4、发布到服务器:1$ hexo deploy 5、开启播客旅程 next主题优化设置:1、显示网易云的音乐:在C:\lxm\MyBlog\themes\next\layout_macro\sidebar.swig里面137行加上网易云的外链]]></content>
       <categories>
         <category>杂七杂八</category>
       </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[第一篇播客]]></title>
+    <url>%2F2017%2F11%2F10%2F%E7%AC%AC%E4%B8%80%E7%AF%87%E6%92%AD%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[我的第一篇博客, 这是我的第一篇博客,哈哈,今后开启我的博客生涯,写了很多的东西笔记什么的终于可以发到网上了,我很激动很开心,yes!]]></content>
+      <categories>
+        <category>杂七杂八</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
   </entry>
 </search>
