@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Fashionkillyou">
 <meta property="og:description" content="Solr安装与配置什么是Solr大多数搜索引擎应用都必须具有某种搜索功能，问题是搜索功能往往是巨大的资源消耗并且它们由于沉重的数据库加载而拖垮你的应用的性能。这就是为什么转移负载到一个外部的搜索服务器是一个不错的主意，Apache Solr是一个流行的开源搜索服务器，它通过使用类似REST的HTTP API，这就确保你能从几乎任何编程语言来使用solr。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-18T14:35:18.494Z">
+<meta property="og:updated_time" content="2018-03-18T15:18:44.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Solr搜索平台">
 <meta name="twitter:description" content="Solr安装与配置什么是Solr大多数搜索引擎应用都必须具有某种搜索功能，问题是搜索功能往往是巨大的资源消耗并且它们由于沉重的数据库加载而拖垮你的应用的性能。这就是为什么转移负载到一个外部的搜索服务器是一个不错的主意，Apache Solr是一个流行的开源搜索服务器，它通过使用类似REST的HTTP API，这就确保你能从几乎任何编程语言来使用solr。">
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,349
+                  2,374
                 </span>
               
 
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  11
                 </span>
               
             </div>
@@ -436,9 +436,9 @@ Lucene是一个全文检索工具包都是一些类库,只能java调用
 solr是个Apache开源顶级项目,一个服务平台,供不同的语言调用
 Lucene不支持数值范围的查询语法price:[100 To 200]
 solr支持数值范围的查询语法price:[100 To 200]
-</code></pre><h2 id="Solr安装"><a href="#Solr安装" class="headerlink" title="Solr安装"></a>Solr安装</h2><p>准备资料:</p>
-<p>链接：<a href="https://pan.baidu.com/s/14nZ-Uq07QwPrLDeyNWGpMQ" target="_blank" rel="noopener">https://pan.baidu.com/s/14nZ-Uq07QwPrLDeyNWGpMQ</a> </p>
-<p>密码：5n10</p>
+</code></pre><h2 id="Solr安装"><a href="#Solr安装" class="headerlink" title="Solr安装"></a>Solr安装</h2><p>准备资料(包含solr、分词器、案例代码):</p>
+<p>链接：<a href="https://pan.baidu.com/s/1JdTBbDyX9mWT2rWvatDdQg" target="_blank" rel="noopener">https://pan.baidu.com/s/1JdTBbDyX9mWT2rWvatDdQg</a> </p>
+<p>密码：rcme</p>
 <p>1：安装 Tomcat，解压缩即可。</p>
 <p>2：解压 solr。</p>
 <p>3：把 solr 下的dist目录solr-4.10.3.war部署到 Tomcat\webapps下(为了访问方便,去掉版本号)。</p>
@@ -492,7 +492,8 @@ mydict.dic)
 <p>配置：</p>
 <pre><code>&lt;dynamicField name=&quot;item_spec_*&quot; type=&quot;string&quot; indexed=&quot;true&quot; stored=&quot;true&quot; /&gt;    
 </code></pre><h1 id="Spring-Data-Solr入门"><a href="#Spring-Data-Solr入门" class="headerlink" title="Spring Data Solr入门"></a>Spring Data Solr入门</h1><h2 id="Spring-Data-Solr简介"><a href="#Spring-Data-Solr简介" class="headerlink" title="Spring Data Solr简介"></a>Spring Data Solr简介</h2><p>虽然支持任何编程语言的能力具有很大的市场价值，你可能感兴趣的问题是：我如何将Solr的应用集成到Spring中？可以，Spring Data Solr就是为了方便Solr的开发所研制的一个框架，其底层是对SolrJ（官方API）的封装。</p>
-<h2 id="Spring-Data-Solr入门小Demo"><a href="#Spring-Data-Solr入门小Demo" class="headerlink" title="Spring Data Solr入门小Demo"></a>Spring Data Solr入门小Demo</h2><h3 id="搭建工程"><a href="#搭建工程" class="headerlink" title="搭建工程"></a>搭建工程</h3><p>（1）创建maven工程，pom.xml中引入依赖</p>
+<h2 id="Spring-Data-Solr入门小Demo"><a href="#Spring-Data-Solr入门小Demo" class="headerlink" title="Spring Data Solr入门小Demo"></a>Spring Data Solr入门小Demo</h2><p>(<strong>完整项目程序在上面的准备资料里面</strong>)</p>
+<h3 id="搭建工程"><a href="#搭建工程" class="headerlink" title="搭建工程"></a>搭建工程</h3><p>（1）创建maven工程，pom.xml中引入依赖</p>
 <pre><code> &lt;dependencies&gt;
   &lt;dependency&gt;
       &lt;groupId&gt;org.springframework.data&lt;/groupId&gt;
