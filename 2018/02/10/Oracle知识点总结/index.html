@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="ORACLE  01.单表查询-简单条件和去重  Oracle 的简单查询和去重（1）–精确查询–需求：查询水表编号为 30408 的业主记录select  from T_OWNERS where watermeter = ‘30408’;（2）–模糊查询–需求：查询业主名称包含“刘”的业主记录select  from T_OWNERS where name like ‘%刘%’;">
+<meta name="description" content="ORACLE01.单表查询-简单条件和去重Oracle 的简单查询和去重（1）–精确查询 –需求：查询水表编号为 30408 的业主记录select * from T_OWNERS where watermeter = ‘30408’; （2）–模糊查询 –需求：查询业主名称包含“刘”的业主记录select * from T_OWNERS where name like ‘%刘%’;">
 <meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oracle知识点总结">
 <meta property="og:url" content="http://www.fashionkillyou.xyz/2018/02/10/Oracle知识点总结/index.html">
 <meta property="og:site_name" content="Fashionkillyou">
-<meta property="og:description" content="ORACLE  01.单表查询-简单条件和去重  Oracle 的简单查询和去重（1）–精确查询–需求：查询水表编号为 30408 的业主记录select  from T_OWNERS where watermeter = ‘30408’;（2）–模糊查询–需求：查询业主名称包含“刘”的业主记录select  from T_OWNERS where name like ‘%刘%’;">
+<meta property="og:description" content="ORACLE01.单表查询-简单条件和去重Oracle 的简单查询和去重（1）–精确查询 –需求：查询水表编号为 30408 的业主记录select * from T_OWNERS where watermeter = ‘30408’; （2）–模糊查询 –需求：查询业主名称包含“刘”的业主记录select * from T_OWNERS where name like ‘%刘%’;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-24T01:33:16.315Z">
+<meta property="og:updated_time" content="2018-03-16T17:47:50.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Oracle知识点总结">
-<meta name="twitter:description" content="ORACLE  01.单表查询-简单条件和去重  Oracle 的简单查询和去重（1）–精确查询–需求：查询水表编号为 30408 的业主记录select  from T_OWNERS where watermeter = ‘30408’;（2）–模糊查询–需求：查询业主名称包含“刘”的业主记录select  from T_OWNERS where name like ‘%刘%’;">
+<meta name="twitter:description" content="ORACLE01.单表查询-简单条件和去重Oracle 的简单查询和去重（1）–精确查询 –需求：查询水表编号为 30408 的业主记录select * from T_OWNERS where watermeter = ‘30408’; （2）–模糊查询 –需求：查询业主名称包含“刘”的业主记录select * from T_OWNERS where name like ‘%刘%’;">
 
 
 
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  9,720
+                  9,578
                 </span>
               
 
@@ -426,37 +426,55 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><p>ORACLE</p>
-<ol>
-<li>01.单表查询-简单条件和去重</li>
-</ol>
-<p>Oracle 的简单查询和去重<br>（1）–精确查询<br>–需求：查询水表编号为 30408 的业主记录<br>select <em> from T_OWNERS where watermeter = ‘30408’;<br>（2）–模糊查询<br>–需求：查询业主名称包含“刘”的业主记录<br>select </em> from T_OWNERS where name like ‘%刘%’;<br><a id="more"></a><br>（3）–and 运算符<br>–需求：查询业主名称包含“刘”的并且门牌号包含 5 的业主记录<br>select <em> from T_OWNERS where name like ‘%刘%’ and housenumber like ‘%5%’;<br>（4）–or 运算符<br>–需求：查询业主名称包含“刘”的或者门牌号包含 5 的业主记录<br>select </em> from T_OWNERS where name like ‘%刘%’ or housenumber like ‘%5%’;<br>（5）–and 与 or 运算符混合使用<br>–需求：查询业主名称包含“刘”的或者门牌号包含 5 的业主记录，并且地址编号为 3 的记录。<br>select <em> from T_OWNERS where (name like ‘%刘%’ or housenumber like ‘%5%’) and addressid = 3<br>（6）–范围查询<br>–需求：查询台账记录中用水字数大于等于 10000，并且小于等于 20000 的记录我们可以用&gt;= 和&lt;=来实现，语句<br>select </em> from T_ACCOUNT where usenum&gt;=10000 and usenum &lt;=20000<br>select <em> from T_ACCOUNT where usenum between 10000 and 20000<br>（7）–空值查询<br>–需求：查询 T_PRICETABLE 表中 MAXNUM 为空的记录<br>select </em> from T_PRICETABLE where maxnum is null<br>–不为空<br>select * from T_PRICETABLE where maxnum is not null<br>（8）–去掉重复记录<br>–需求：查询业主表中的地址 ID,不重复显示<br>select distinct addressid from T_OWNERS  </p>
-<ol>
-<li><p>02.单表查询-排序和基于伪列查询（开发中经常用到必须掌握）<br>要点：排序和伪列<br>（1）–排序查询<br>–需求：对 T_ACCOUNT 表按使用量进行升序排序(由小到大)<br>select <em> from T_ACCOUNT order by usenum asc –asc可以省略<br>–降序排序<br>–需求：对 T_ACCOUNT 表按使用量进行降序排序（由大到小）<br>select </em> from T_ACCOUNT order by usenum desc</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h1 id="ORACLE"><a href="#ORACLE" class="headerlink" title="ORACLE"></a>ORACLE</h1><h2 id="01-单表查询-简单条件和去重"><a href="#01-单表查询-简单条件和去重" class="headerlink" title="01.单表查询-简单条件和去重"></a>01.单表查询-简单条件和去重</h2><h3 id="Oracle-的简单查询和去重"><a href="#Oracle-的简单查询和去重" class="headerlink" title="Oracle 的简单查询和去重"></a>Oracle 的简单查询和去重</h3><p>（1）–精确查询</p>
+<p>–需求：查询水表编号为 30408 的业主记录<br>select * from T_OWNERS where watermeter = ‘30408’;</p>
+<p>（2）–模糊查询</p>
+<p>–需求：查询业主名称包含“刘”的业主记录<br>select * from T_OWNERS where name like ‘%刘%’;<br><a id="more"></a>  </p>
+<p>（3）–and 运算符</p>
+<p>–需求：查询业主名称包含“刘”的并且门牌号包含 5 的业主记录<br>select * from T_OWNERS where name like ‘%刘%’ and housenumber like ‘%5%’;</p>
+<p>（4）–or 运算符</p>
+<p>–需求：查询业主名称包含“刘”的或者门牌号包含 5 的业主记录<br>select * from T_OWNERS where name like ‘%刘%’ or housenumber like ‘%5%’;</p>
+<p>（5）–and 与 or 运算符混合使用</p>
+<p>–需求：查询业主名称包含“刘”的或者门牌号包含 5 的业主记录，并且地址编号为 3 的记录。<br>select * from T_OWNERS where (name like ‘%刘%’ or housenumber like ‘%5%’) and addressid = 3</p>
+<p>（6）–范围查询</p>
+<p>–需求：查询台账记录中用水字数大于等于 10000，并且小于等于 20000 的记录我们可以用&gt;= 和&lt;=来实现，语句<br>select <em> from T_ACCOUNT where usenum&gt;=10000 and usenum &lt;=20000<br>select </em> from T_ACCOUNT where usenum between 10000 and 20000</p>
+<p>（7）–空值查询</p>
+<p>–需求：查询 T_PRICETABLE 表中 MAXNUM 为空的记录<br>select <em> from T_PRICETABLE where maxnum is null<br>–不为空<br>select </em> from T_PRICETABLE where maxnum is not null</p>
+<p>（8）–去掉重复记录</p>
+<p>–需求：查询业主表中的地址 ID,不重复显示<br>select distinct addressid from T_OWNERS  </p>
+<h2 id="02-单表查询-排序和基于伪列查询（开发中经常用到必须掌握）"><a href="#02-单表查询-排序和基于伪列查询（开发中经常用到必须掌握）" class="headerlink" title="02.单表查询-排序和基于伪列查询（开发中经常用到必须掌握）"></a>02.单表查询-排序和基于伪列查询（开发中经常用到必须掌握）</h2><p>   要点：排序和伪列</p>
+<p>（1）–排序查询</p>
+<p>–需求：对 T_ACCOUNT 表按使用量进行升序排序(由小到大)<br>select <em> from T_ACCOUNT order by usenum asc –asc可以省略<br>–降序排序<br>–需求：对 T_ACCOUNT 表按使用量进行降序排序（由大到小）<br>select </em> from T_ACCOUNT order by usenum desc</p>
 <p>可以通过数据库表中的多个字段来排序，要求：根据排序的前面字段，有重复，按照书写的顺序来进行排序的。例如： 对业主表，按照地址ID降序排列，地址一样，按照ID升序排列：<br>select * from T_OWNERS t order by t.addressid desc, t.id asc</p>
-</li>
-</ol>
 <p>（2）伪列：Oracle对每张表自动加上两列rowid和rownum成为伪列</p>
 <p>rowid：存储的是物理地址，值是不重复的查询速度比较快<br>–伪列 rowid<br>select rowid,t.<em> from T_OWNERS t –如果想跟其他字段一起显示<br>select rowid from T_OWNERS –可以单独查询rowid<br>select rowid,t.</em> from T_OWNERS t where t.rowid = ‘AAAM1VAAGAAAABNAAA’     –可以根据条件查询</p>
 <p>rownum：每张表Oracle自动给加上的一个序号。<br>–伪列rownum<br>select rownum,t.* from T_OWNERS t –如果想跟其他字段一起显示<br>select rownum from T_OWNERS –可以单独查询rownum</p>
-<ol>
-<li>03.单表查询-聚合统计<br>要点：聚合统计</li>
-</ol>
-<p>–聚合统计<br>（1）–求和 sum<br>–需求：统计 2012 年所有用户的用水量总和<br>select sum(usenum) from T_ACCOUNT where year = ‘2012’<br>（2）–求平均 avg<br>–需求：统计 2012 年所有用水量（字数）的平均值<br>select avg(usenum) from T_ACCOUNT where year = ‘2012’<br>（3）–求最大值 max<br>–需求：统计 2012 年最高用水量（字数）<br>select max(usenum) from T_ACCOUNT where year = ‘2012’<br>（4）–求最小值 min<br>–需求：统计 2012 年最低用水量（字数）<br>select min(usenum) from T_ACCOUNT where year = ‘2012’<br>（5）–统计记录个数 count<br>–需求：统计业主类型 ID 为 1 的业主数量<br>select count(*) from T_OWNERS where ownertypeid = 1<br>（6）– 分组聚合 Group by (select 后面一定是分组聚合的条件或者是聚合函数)<br>–需求：按区域分组统计水费合计数<br>select areaid,sum(money) from T_ACCOUNT group by areaid；<br>（7）– 分组后条件查询 having<br>–需求：查询水费合计大于 16900 的区域及水费合计<br>select areaid,sum(money) from T_ACCOUNT group by areaid having sum(money)&gt;169000<br>    where和having区别？（面试和笔试会遇到）<br>     1.where 不能放在GROUP BY 后面<br>2.HAVING 是跟GROUP BY 连在一起用的，放在GROUP BY 后面，此时的作用相当于WHERE<br>3.WHERE 后面的条件中不能有聚集函数，比如SUM(),AVG()等，而HAVING 可以</p>
-<ol>
-<li>04.内连接<br>要点：内连接查询如果接到一个很复杂的查询需求，这里介绍的是如果分析一个复杂的查询需求。（重点要学习思路）<br>第一步: 找到所需信息所在的所有表<br>第二步: 描述各个表之间的关系(外键 = 主键)<br>（1）–多表内连接查询<br>–（1）需求：查询显示业主编号，业主名称，业主类型名称<br>select os.id 业主编号,os.name 业主名称,ot.name 业主类型<br>from T_OWNERS os,T_OWNERTYPE ot<br>where os.ownertypeid = ot.id</li>
-</ol>
+<h1 id="03-单表查询-聚合统计"><a href="#03-单表查询-聚合统计" class="headerlink" title="03.单表查询-聚合统计"></a>03.单表查询-聚合统计</h1><p>要点：聚合统计</p>
+<p>–聚合统计</p>
+<p>（1）–求和 sum</p>
+<p>–需求：统计 2012 年所有用户的用水量总和<br>select sum(usenum) from T_ACCOUNT where year = ‘2012’</p>
+<p>（2）–求平均 avg</p>
+<p>–需求：统计 2012 年所有用水量（字数）的平均值<br>select avg(usenum) from T_ACCOUNT where year = ‘2012’</p>
+<p>（3）–求最大值 max</p>
+<p>–需求：统计 2012 年最高用水量（字数）<br>select max(usenum) from T_ACCOUNT where year = ‘2012’</p>
+<p>（4）–求最小值 min</p>
+<p>–需求：统计 2012 年最低用水量（字数）<br>select min(usenum) from T_ACCOUNT where year = ‘2012’</p>
+<p>（5）–统计记录个数 count</p>
+<p>–需求：统计业主类型 ID 为 1 的业主数量<br>select count(*) from T_OWNERS where ownertypeid = 1</p>
+<p>（6）– 分组聚合 Group by (select 后面一定是分组聚合的条件或者是聚合函数)</p>
+<p>–需求：按区域分组统计水费合计数<br>select areaid,sum(money) from T_ACCOUNT group by areaid；</p>
+<p>（7）– 分组后条件查询 having</p>
+<p>–需求：查询水费合计大于 16900 的区域及水费合计<br>select areaid,sum(money) from T_ACCOUNT group by areaid having sum(money)&gt;169000<br>where和having区别？<br>    1.where 不能放在GROUP BY 后面<br>2.HAVING 是跟GROUP BY 连在一起用的，放在GROUP BY 后面，此时的作用相当于WHERE<br>3.WHERE 后面的条件中不能有聚集函数，比如SUM(),AVG()等，而HAVING 可以</p>
+<h1 id="04-内连接"><a href="#04-内连接" class="headerlink" title="04.内连接"></a>04.内连接</h1><p>要点：内连接查询如果接到一个很复杂的查询需求，这里介绍的是如果分析一个复杂的查询需求。（重点要学习思路）<br>第一步: 找到所需信息所在的所有表<br>第二步: 描述各个表之间的关系(外键 = 主键)</p>
+<p>（1）–多表内连接查询</p>
+<p>–（1）需求：查询显示业主编号，业主名称，业主类型名称<br>select os.id 业主编号,os.name 业主名称,ot.name 业主类型<br>from T_OWNERS os,T_OWNERTYPE ot<br>where os.ownertypeid = ot.id</p>
 <p>（2）–（2）需求：查询显示业主编号，业主名称、地址和业主类型<br>select ow.id 业主编号,ow.name 业主名称,ad.name 地址,ot.name 业主类型<br>from t_owners ow, t_ownertype ot,t_address ad<br>where ow.addressid = ad.id and ow.ownertypeid = ot.id</p>
 <p>（3）–（3）需求：查询显示业主编号、业主名称、地址、所属区域、业主分类<br>select ow.id 业主编号,ow.name 业主名称,ad.name 地址,ar.name 所属区域,ot.name 业主类型<br>from t_owners ow, t_ownertype ot,t_address ad,t_area ar<br>where ow.addressid = ad.id and ow.ownertypeid = ot.id and ad.areaid = ar.id</p>
 <p>（4）–（4）需求：查询显示业主编号、业主名称、地址、所属区域、收费员、业主分类<br>select ow.id 业主编号,ow.name 业主名称,ad.name 地址,ar.name 所属区域,op.name 收费员,ot.name 业主类型<br>from t_owners ow, t_ownertype ot,t_address ad,t_area ar,t_operator op<br>where ow.addressid = ad.id and ow.ownertypeid = ot.id and ad.areaid = ar.id and ad.operatorid = op.id</p>
-<ol>
-<li>05.外连接<br>要点：使用sql1999用法  xxx join  … on… 。<br>使用（+）这种写法，oracle数据库专用,移植到其他数据库中会报错。</li>
-</ol>
+<h1 id="05-外连接"><a href="#05-外连接" class="headerlink" title="05.外连接"></a>05.外连接</h1><p>要点：使用sql1999用法  xxx join  … on… 。<br>使用（+）这种写法，oracle数据库专用,移植到其他数据库中会报错。</p>
 <p>（1）–左外连接查询：左边表所有数据全部查出来，右边的表没有匹配的数据显示空。<br>–需求：查询业主的账务记录，显示业主编号、名称、年、月、金额。如果此业主没有账务记录也要列出姓名。<br>–sql1999<br>select ow.id 业主编号,ow.name 业主名称,ac.year 年,ac.month 月,ac.money 金额<br>from t_owners ow left join  t_account ac<br>on ac.owneruuid= ow.id</p>
 <p>–oracle的语法<br>select ow.id 业主编号,ow.name 业主名称,ac.year 年,ac.month 月,ac.money 金额<br>from t_owners ow , t_account ac<br>where ow.id=ac.owneruuid(+);<br>（2）–右外连接查询：右边表所有数据全部查出来，左边的表没有匹配的数据显示空。<br>–需求：查询业主的账务记录，显示业主编号、名称、年、月、金额。如果账务记录没有对应的业主信息，也要列出记录。<br>–sql1999<br>select ow.id 业主编号,ow.name 业主名称,ac.year 年,ac.month 月,ac.money 金额<br>from t_owners ow right join  t_account ac<br>on ac.ownerid = ow.id<br>–oracle的语法<br>select ow.id 业主编号,ow.name 业主名称,ac.year 年,ac.month 月,ac.money 金额<br>from t_owners ow , t_account ac<br>where ow.id(+) = ac.owneruuid;</p>
-<ol>
-<li>06.where子句中的子查询<br>要点：单行子查询where条件后查询的结果只有一行适用于大于，小于，等于等等<br>多行子查询 where条件后查询的结果为多条或者一条，最常用的是in包含的意思。（现实开发经常遇到）</li>
-</ol>
+<h1 id="06-where子句中的子查询"><a href="#06-where子句中的子查询" class="headerlink" title="06.where子句中的子查询"></a>06.where子句中的子查询</h1><p>要点：单行子查询where条件后查询的结果只有一行适用于大于，小于，等于等等<br>多行子查询 where条件后查询的结果为多条或者一条，最常用的是in包含的意思。（现实开发经常遇到）</p>
 <p>1、单行子查询<br>（1）–where 子句中的子查询<br>–需求：查询 2012 年 1 月用水量大于平均值的台账记录<br>–查询2012年1月平均用水量<br>select avg(usenum) from t_account  where year=’2012’ and month=’01’;</p>
 <p>（2）–查询2012年1月用水量大于20009.5<br>select * from t_account  where year=’2012’ and month=’01’ and usenum&gt;20009.5;</p>
 <p>（3）–需求：查询 2012 年 1 月用水量大于平均值的台账记录<br>select * from t_account  where year=’2012’ and month=’01’<br>and usenum&gt;(select avg(usenum) from t_account  where year=’2012’ and month=’01’)</p>
@@ -465,61 +483,37 @@
 <p>–（2）需求：查询地址含有“花园”的业主的信息<br>–查询地址含有“花园”的地址编号<br>select id from t_address where name like ‘%花园%’</p>
 <p>–最终结果<br>select * from t_owners where addressid in(select id from t_address where name like ‘%花园%’)</p>
 <p>–（3）需求：查询地址不含有“花园”的业主的信息<br>select * from t_owners where addressid not in(select id from t_address where name like ‘%花园%’)</p>
-<ol>
-<li>07.from子句的子查询<br>要点：from后边的子查询当成一个表使用即可。</li>
-</ol>
+<h1 id="07-from子句的子查询"><a href="#07-from子句的子查询" class="headerlink" title="07.from子句的子查询"></a>07.from子句的子查询</h1><p>要点：from后边的子查询当成一个表使用即可。</p>
 <p>（1）–from 子句的子查询为多行子查询<br>–需求：查询显示业主编号，业主名称，业主类型名称，条件为业主类型为”居民”，使用子查询实现。<br>–内连接写法<br>select ow.id 业主编号,ow.name 业主名称,ot.name 业主类型<br>from t_owners ow,t_ownertype ot<br>where ow.ownertypeid = ot.id and ot.name = ‘居民’<br>（2）–子查询写法<br>select * from (<br>select ow.id 业主编号,ow.name 业主名称,ot.name 业主类型<br>from t_owners ow,t_ownertype ot<br>where ow.ownertypeid = ot.id<br>) where 业主类型 = ‘居民’</p>
-<ol>
-<li>08.select子句子查询（实际开发中经常遇到）<br>要点：select子查询后边必须是查询单一字段。因为select后边都是单一的字段<br>（1）–select 子句中的子查询<br>–（1）需求：列出业主信息，包括 ID，名称，所属地址。<br>–内关联写法<br>1、如果只查询id、业主名称那只需要从业主表中进行查询。<br>2、现在我们想得到地址表的名称，那么我们就要到地址表中把名称查询出来。<br>画个表<br>select o.id,o.name,ad.name<br>from t_owners o,t_address ad<br>where o.addressid= ad.id</li>
-</ol>
+<h1 id="08-select子句子查询（实际开发中经常遇到）"><a href="#08-select子句子查询（实际开发中经常遇到）" class="headerlink" title="08.select子句子查询（实际开发中经常遇到）"></a>08.select子句子查询（实际开发中经常遇到）</h1><p>要点：select子查询后边必须是查询单一字段。因为select后边都是单一的字段<br>（1）–select 子句中的子查询<br>–（1）需求：列出业主信息，包括 ID，名称，所属地址。<br>–内关联写法<br>1、如果只查询id、业主名称那只需要从业主表中进行查询。<br>2、现在我们想得到地址表的名称，那么我们就要到地址表中把名称查询出来。<br>画个表<br>select o.id,o.name,ad.name<br>from t_owners o,t_address ad<br>where o.addressid= ad.id</p>
 <p>（2）–select子查询写法<br>select id,name,(select name from t_address where id=addressid) addressname<br>from t_owners</p>
 <p>–（2）需求：列出业主信息，包括 ID，名称，所属地址，所属区域。<br>–内连接写法<br>select ow.id,ow.name 名称,ad.name 所属地址,ar.name 所属区域<br>from t_owners ow,t_address ad,t_area ar<br>where ow.addressid = ad.id and ad.areaid = ar.id<br>–select子查询写法<br>select id,name,<br>(select name from t_address where id=addressid) addressname,<br>(select (select name from t_area where id=areaid) from t_address where id=addressid) areaname<br>from t_owners;</p>
-<ol>
-<li>09.分页查询<br>要点：</li>
-</ol>
+<h1 id="09-分页查询"><a href="#09-分页查询" class="headerlink" title="09.分页查询"></a>09.分页查询</h1><p>要点：</p>
 <p>面试要点：oracle 和mysql分页<br>回答：oracle 用ruwnum三层嵌套，mysql 用limit进行分页。</p>
 <p>（1）–需求：分页查询台账表 T_ACCOUNT，每页 10 条记录<br>–分析：我们在 ORACLE 进行分页查询，需要用到伪列 ROWNUM 和嵌套查询<br>–我们首先显示前 10 条记录<br>select rownum,t.* from t_account t where rownum&lt;=10</p>
 <p>（2）–显示第二页10条内容<br>select <em> from (select rownum r,t.</em> from t_account t)<br>where r&gt;10 and r &lt;=20</p>
 <p>（3）–需求：分页查询台账表 T_ACCOUNT，每页 10 条记录，按使用字数降序排序。<br>–我们查询第 2 页数据，如果基于上边的语句添加排序<br>select <em> from ( select rownum r,t.</em> from (select * from t_account  order by usenum desc) t )<br>where r&gt;10 and r &lt;=20</p>
-<ol>
-<li>10.字符函数<br>要点：伪表dual：Oracle提供用来测试函数的表<br>（1）–（1）求字符串长度 LENGTH<br>select length(‘ABCD’) from dual;<br>（2）–求字符串子串(原字符串，从第几位截取，截取字符数)<br>select substr(‘ABCDEF’,2,2) from dual;</li>
-</ol>
+<h1 id="10-字符函数"><a href="#10-字符函数" class="headerlink" title="10.字符函数"></a>10.字符函数</h1><pre><code>要点：伪表dual：Oracle提供用来测试函数的表
+</code></pre><p>（1）–（1）求字符串长度 LENGTH<br>select length(‘ABCD’) from dual;<br>（2）–求字符串子串(原字符串，从第几位截取，截取字符数)<br>select substr(‘ABCDEF’,2,2) from dual;</p>
 <p>（3）–字符串拼接<br>select concat(‘ABC’,’D’) from dual;<br>–如果想继续拼接（不推荐使用）<br>select concat(concat(‘ABC’,’D’),’EF’) from dual;<br>–如果想继续拼接（推荐使用）<br>select ‘ABC’||’D’||’EF’ from dual;</p>
 <p>–拼接查询的内容<br>select ow.name||’住在’||ad.name 信息 from t_owners ow,t_address ad where ow.addressid = ad.id;</p>
-<ol>
-<li>11.数值函数<br>要点：数值函数常用的四舍五入（round），数字截取（trunc），求模（mod）<br>根据个人编程习惯采用数值函数。<br>（1）–四舍五入<br>select round(100.567,2) from dual;</li>
-</ol>
+<h1 id="11-数值函数"><a href="#11-数值函数" class="headerlink" title="11.数值函数"></a>11.数值函数</h1><p>要点：数值函数常用的四舍五入（round），数字截取（trunc），求模（mod）<br>根据个人编程习惯采用数值函数。<br>（1）–四舍五入<br>select round(100.567,2) from dual;</p>
 <p>（2）–数字截取<br>select trunc(100.567,2) from dual;<br>（3）–取模<br>select mod(10,3) from dual;</p>
-<ol>
-<li><p>12.日期函数</p>
-<p>要点：日期函数实际开发中只有在特定的需求里会遇到。<br>（1）–取系统当前日期<br>select sysdate from dual;<br>（2）–加月<br>select add_months(sysdate,2) from dual;<br>–减月<br>select add_months(sysdate,-2) from dual;<br>（3）–求当月最后一天<br>select last_day(sysdate) from dual;<br>select last_day(sysdate-4) from dual;<br>（4）–日期截取<br>select trunc(sysdate) from dual;–按日截取（把时间截掉）</p>
-</li>
-</ol>
+<h1 id="12-日期函数"><a href="#12-日期函数" class="headerlink" title="12.日期函数"></a>12.日期函数</h1><pre><code>要点：日期函数实际开发中只有在特定的需求里会遇到。
+</code></pre><p>（1）–取系统当前日期<br>select sysdate from dual;<br>（2）–加月<br>select add_months(sysdate,2) from dual;<br>–减月<br>select add_months(sysdate,-2) from dual;<br>（3）–求当月最后一天<br>select last_day(sysdate) from dual;<br>select last_day(sysdate-4) from dual;<br>（4）–日期截取<br>select trunc(sysdate) from dual;–按日截取（把时间截掉）</p>
 <p>select trunc(sysdate,’mm’) from dual;–按月截取（把日截掉）</p>
 <p>select trunc(sysdate,’yyyy’) from dual;–按年截取</p>
 <p>select trunc(sysdate,’hh’) from dual;–按小时截取</p>
 <p>select trunc(sysdate,’mi’) from dual;–按分钟截取</p>
 <p>–没有按秒截取</p>
-<ol>
-<li><p>13.转换函数<br>要点：类似于Java语言的类型转换，特定需求下会使用数据库转换函数。<br>（1）–转换函数<br>–数字转换字符串<br>select to_char(100)||’分’ from dual;<br>select 100||’’ from dual;<br>（2）–日期转字符串<br>select to_char(sysdate,’yyyy-mm-dd’) from dual;<br>select to_char(sysdate,’yyyy’)||’年’||to_char(sysdate,’mm’)||’月’||to_char(sysdate,’dd’)||’日’ from dual;<br>select to_char(sysdate,’yyyy-mm-dd hh:mi:ss’) from dual;<br>（3）–字符串转日期<br>select to_date(‘2017-03-10’,’yyyy-mm-dd’) from dual;<br>（4）–字符串转数字<br>select to_number(‘100’)+10 from dual;<br>select ‘100’+0 from dual;<br>select ‘100’||0 from dual;–拼接后就变成字符串了</p>
-</li>
-<li><p>14.其它函数<br>要点：空值处理nvl对空值进行处理，nvl2可以转换类型。<br>条件判断decode可以根据检测的值不同，取得不同的结果。<br>case when then sql1999标准必须掌握实际开发会经常遇到。</p>
-</li>
-</ol>
+<h1 id="13-转换函数"><a href="#13-转换函数" class="headerlink" title="13.转换函数"></a>13.转换函数</h1><p>要点：类似于Java语言的类型转换，特定需求下会使用数据库转换函数。<br>（1）–转换函数<br>–数字转换字符串<br>select to_char(100)||’分’ from dual;<br>select 100||’’ from dual;<br>（2）–日期转字符串<br>select to_char(sysdate,’yyyy-mm-dd’) from dual;<br>select to_char(sysdate,’yyyy’)||’年’||to_char(sysdate,’mm’)||’月’||to_char(sysdate,’dd’)||’日’ from dual;<br>select to_char(sysdate,’yyyy-mm-dd hh:mi:ss’) from dual;<br>（3）–字符串转日期<br>select to_date(‘2017-03-10’,’yyyy-mm-dd’) from dual;<br>（4）–字符串转数字<br>select to_number(‘100’)+10 from dual;<br>select ‘100’+0 from dual;<br>select ‘100’||0 from dual;–拼接后就变成字符串了</p>
+<h1 id="14-其它函数"><a href="#14-其它函数" class="headerlink" title="14.其它函数"></a>14.其它函数</h1><p>要点：空值处理nvl对空值进行处理，nvl2可以转换类型。<br>条件判断decode可以根据检测的值不同，取得不同的结果。<br>case when then sql1999标准必须掌握实际开发会经常遇到。</p>
 <p>–其他函数<br>（1）–空值处理<br>select nvl(null,0) from dual;<br>–显示价格表中业主类型ID为1的价格记录，如果上限值为NULL,则显示9999999<br>select nvl(maxnum,9999999) from t_pricetable where ownertypeid=1;<br>（2）–NVL2（检测的值，如果不为 null 的值，如果为 null 的值）；<br>select nvl2(null,0,100) from dual;–结果为100<br>select nvl2(20,0,100) from dual;–结果为0<br>–需求：显示价格表中业主类型 ID 为 1 的价格记录，如果上限值为 NULL,显示“不限”.<br>select nvl2(maxnum,to_char(maxnum),’不限’) from t_pricetable where ownertypeid=1;</p>
 <p>（3）–（3）条件判断 decode<br>select decode(100,1,2,3,4,100,200,300,400) from dual;<br>–需求：显示下列信息（不要关联查询业主类型表，直接判断 1 2 3 的值）<br>select name,decode(ownertypeid,1,’居民’,2,’行政事业单位’,3,’商业’,’其他’) from t_owners;<br>（4）–case when then第一种写法 sql1999<br>select name,(case ownertypeid<br>                  when 1 then ‘居民’<br>                  when 2 then ‘行政事业’<br>                  when 3 then ‘商业’<br>                  else ‘其他’<br>             end )from t_owners;<br>–case when then第二种写法 sql1999（灵活）<br>select name,(case<br>                  when ownertypeid=1 then ‘居民’<br>                  when ownertypeid=2 then ‘行政事业’<br>                  when ownertypeid=3 then ‘商业’<br>                  else ‘其他’<br>             end )from t_owners;</p>
-<ol>
-<li>15.行列转换<br>（1）–行列转换<br>–需求：按月份统计 2012 年各个地区的水费<br>select (select name from t_area where id=areaid) 区域,<br>sum(case when month = ‘01’ then money else 0 end) 一月,<br>sum(case when month = ‘02’ then money else 0 end) 二月,<br>sum(case when month = ‘03’ then money else 0 end) 三月,<br>sum(case when month = ‘04’ then money else 0 end) 四月,<br>sum(case when month = ‘05’ then money else 0 end) 五月,<br>sum(case when month = ‘06’ then money else 0 end) 六月,<br>sum(case when month = ‘07’ then money else 0 end) 七月,<br>sum(case when month = ‘08’ then money else 0 end) 八月,<br>sum(case when month = ‘09’ then money else 0 end) 九月,<br>sum(case when month = ‘10’ then money else 0 end) 十月,<br>sum(case when month = ‘11’ then money else 0 end) 十一月,<br>sum(case when month = ‘12’ then money else 0 end) 十二月<br>from t_account where year=’2012’ group by areaid;</li>
-</ol>
+<h1 id="15-行列转换"><a href="#15-行列转换" class="headerlink" title="15.行列转换"></a>15.行列转换</h1><p>（1）–行列转换<br>–需求：按月份统计 2012 年各个地区的水费<br>select (select name from t_area where id=areaid) 区域,<br>     sum(case when month = ‘01’ then money else 0 end) 一月,<br>     sum(case when month = ‘02’ then money else 0 end) 二月,<br>     sum(case when month = ‘03’ then money else 0 end) 三月,<br>     sum(case when month = ‘04’ then money else 0 end) 四月,<br>     sum(case when month = ‘05’ then money else 0 end) 五月,<br>     sum(case when month = ‘06’ then money else 0 end) 六月,<br>     sum(case when month = ‘07’ then money else 0 end) 七月,<br>     sum(case when month = ‘08’ then money else 0 end) 八月,<br>     sum(case when month = ‘09’ then money else 0 end) 九月,<br>     sum(case when month = ‘10’ then money else 0 end) 十月,<br>     sum(case when month = ‘11’ then money else 0 end) 十一月,<br>     sum(case when month = ‘12’ then money else 0 end) 十二月<br>from t_account where year=’2012’ group by areaid;</p>
 <p>（2）–需求：按季度统计 2012 年各个地区的水费<br>select (select name from t_area where id=areaid) 区域,<br>     sum(case when month &gt;= ‘01’ and month&lt;=’03’ then money else 0 end) 第一季度,<br>     sum(case when month &gt;= ‘04’ and month&lt;=’06’ then money else 0 end) 第二季度,<br>     sum(case when month &gt;= ‘07’ and month&lt;=’09’ then money else 0 end) 第三季度,<br>     sum(case when month &gt;= ‘10’ and month&lt;=’12’ then money else 0 end) 第四季度<br>from t_account where year=’2012’ group by areaid;</p>
-<ol>
-<li>16.分析函数</li>
-</ol>
-<p>（1）–分析函数<br>–值相同，排名相同，序号跳跃<br>select rank() over(order by usenum desc) 排名,t.<em> from t_account t<br>（2）–值相同，排名相同，序号连续<br>select dense_rank() over(order by usenum desc) 排名,t.</em> from t_account t<br>（3）–序号连续，不管值是否相同<br>select row_number() over(order by usenum desc) 排名,t.<em> from t_account t<br>（4）–用分析函数来实现分页<br>select </em> from<br>   (select row_number() over(order by usenum desc) rownumber,t.* from t_account t)<br>where rownumber&gt;10 and rownumber&lt;=20;</p>
-<ol>
-<li>17.集合运算</li>
-</ol>
-<p>（1）–集合运算<br>–并集（包括重复记录）</p>
+<h1 id="16-分析函数"><a href="#16-分析函数" class="headerlink" title="16.分析函数"></a>16.分析函数</h1><p>（1）–分析函数<br>–值相同，排名相同，序号跳跃<br>select rank() over(order by usenum desc) 排名,t.<em> from t_account t<br>（2）–值相同，排名相同，序号连续<br>select dense_rank() over(order by usenum desc) 排名,t.</em> from t_account t<br>（3）–序号连续，不管值是否相同<br>select row_number() over(order by usenum desc) 排名,t.<em> from t_account t<br>（4）–用分析函数来实现分页<br>select </em> from<br>   (select row_number() over(order by usenum desc) rownumber,t.* from t_account t)<br>where rownumber&gt;10 and rownumber&lt;=20;</p>
+<h1 id="17-集合运算"><a href="#17-集合运算" class="headerlink" title="17.集合运算"></a>17.集合运算</h1><p>（1）–集合运算<br>–并集（包括重复记录）</p>
 <p>select <em> from t_owners where id&gt;5<br>union all<br>select </em> from t_owners where id&lt;8</p>
 <p>（2）–并集（去掉重复记录）<br>select <em> from t_owners where id&gt;5<br>union<br>select </em> from t_owners where id&lt;8<br>（3）–交集（两个结果集的重复部分）</p>
 <p>select <em> from t_owners where id&gt;5<br>intersect<br>select </em> from t_owners where id&lt;8</p>
@@ -527,142 +521,75 @@
 <p>select <em> from t_owners where id&gt;5<br>minus<br>select </em> from t_owners where id&lt;8</p>
 <p>select <em> from t_owners where id&lt;8<br>minus<br>select </em> from t_owners where id&gt;5</p>
 <p>（5）–差集分页<br>select rownum,t.<em> from t_account t where rownum&lt;=20<br>minus<br>select rownum,t.</em> from t_account t where rownum&lt;=10<br>总结<br>1、    oracle单表查询。<br>2、    oracle的多表连接查询。<br>3、    oracle的嵌套查询。<br>4、    oracle的基本函数。</p>
-<p>41第七阶段day3 ORACLE</p>
-<p>今天主要学习内容：</p>
-<ol>
-<li>Oracle的视图。</li>
-<li>Oracle的序列。</li>
-<li>Oracle的同义词。</li>
-<li><p>Oracle的索引。</p>
-</li>
-<li><p>01.什么是视图<br>1、    要点：对sql语句的一种封装，它是一个虚拟的表。<br>2、    使用场景：对经常需要查询的数据，进行封装。<br>3、    优点：提高工作效率。     </p>
-</li>
-<li>02.创建修改删除视图语法<br>要点：创建视图的基本语法和删除视图。<br>1、CREATE [OR REPLACE] [FORCE] VIEW view_name<br>AS subquery<br>[WITH CHECK OPTION ]<br>[WITH READ ONLY]<br>REPLACE：删除已有视图，重新创建视图。<br>FORCE：不管基表是否存在，都会创建视图。<br>WITH CHECK OPTION：插入或修改的数据行必须满足视图定义的约束。<br>WITH READ ONLY：只读。</li>
-</ol>
+<h1 id="01-什么是视图"><a href="#01-什么是视图" class="headerlink" title="01.什么是视图"></a>01.什么是视图</h1><p>1、    要点：对sql语句的一种封装，它是一个虚拟的表。<br>2、    使用场景：对经常需要查询的数据，进行封装。<br>3、    优点：提高工作效率。     </p>
+<h1 id="02-创建修改删除视图语法"><a href="#02-创建修改删除视图语法" class="headerlink" title="02.创建修改删除视图语法"></a>02.创建修改删除视图语法</h1><p>要点：创建视图的基本语法和删除视图。<br>1、CREATE [OR REPLACE] [FORCE] VIEW view_name<br>AS subquery<br>[WITH CHECK OPTION ]<br>[WITH READ ONLY]<br>REPLACE：删除已有视图，重新创建视图。<br>FORCE：不管基表是否存在，都会创建视图。<br>WITH CHECK OPTION：插入或修改的数据行必须满足视图定义的约束。<br>WITH READ ONLY：只读。</p>
 <p>2、删除视图：DROP VIEW view_name</p>
-<ol>
-<li>03.视图案例-简单视图<br>要点：视图中查询的表称之为基表，修改视图实际就是在修改基表中的数据。视图在数据库中实际上就是一条sql语句，查询视图的数据实际就是在查询基表的数据。<br>1、–需求：创建视图 ：业主类型为 1 的业主信息<br>create view view_owners1 as<br>select <em> from t_owners where ownertypeid = 1;<br>2、–查询简单视图<br>select </em> from view_owners1 where addressid = 1;<br>3、–修改视图数据<br>update view_owners1 set name=’范小冰’ where id=1;<br>commit;<br>4、–查询表<br>select * from t_owners where ownertypeid = 1;</li>
-</ol>
-<ol>
-<li>04.视图案例-检查约束的视图<br>要点：视图中添加with check option选项，无法修改视图中基表的条件字段。<br>1、–带检查约束的视图<br>–需求：根据地址表（T_ADDRESS）创建视图 VIEW_ADDRESS2 ,内容为区域 ID为 2 的记录。<br>create view view_address2 as<br>select * from t_address where areaid=2<br>with check option<br>2、–无法修改成功的语句，因为该视图的条件是areaid=2<br>update view_address2 set areaid=3 where id=4;<br>3、–可以修改成功的语句，因为条件不是areaid<br>update view_address2 set name=’河畔花园1’ where id=4;<br>commit;</li>
-<li>05.视图案例-只读视图<br>要点： 视图中添加or replace删除原有视图，重新创建视图，添加with read only视图只能查看不能修改。<br>1、–需求：将上边的视图修改为只读视图<br>create or replace view view_owners1 as<br>select * from t_owners where ownertypeid=1<br>with read only<br>2、–修改只读视图数据<br>update view_owners1 set name=’aaa’ where id=1;</li>
-<li>06.视图案例-带错误的视图<br>要点：视图中添加 force选项可以创建数据库中没有的表。<br>–创建带错误的视图<br>create force view view_test as<br>select * from t_test</li>
-<li>07.视图案例-多表关联的视图<br>要点：复杂视图：视图的 SQL 语句中，有聚合函数或多表关联查询。<br>  键保留表：把主键保留下来的那个表。<br>1、–创建视图，查询显示业主编号，业主名称，业主类型名称<br>create or replace view view_owners as<br>select ow.id 业主编号,ow.name 业主名称,ot.name 业主类型 from t_owners ow,t_ownertype ot<br>where ow.ownertypeid=ot.id<br>2、–查询复杂视图（多表关联）<br>select * from view_owners where 业主类型=’居民’;<br>3、–修改键保留表复杂视图（多表关联）的数据<br>update view_owners set 业主名称=’林玲玲’ where 业主编号=4;<br>commit;<br>4、–修改非键保留表复杂视图（多表关联）的数据<br>update view_owners set 业主类型=’商业’ where 业主编号=4;<br>–键保留表：把主键保留下来的那个表，并且能作为视图的主键</li>
-</ol>
+<h1 id="03-视图案例-简单视图"><a href="#03-视图案例-简单视图" class="headerlink" title="03.视图案例-简单视图"></a>03.视图案例-简单视图</h1><p>要点：视图中查询的表称之为基表，修改视图实际就是在修改基表中的数据。视图在数据库中实际上就是一条sql语句，查询视图的数据实际就是在查询基表的数据。<br>1、–需求：创建视图 ：业主类型为 1 的业主信息<br>create view view_owners1 as<br>select <em> from t_owners where ownertypeid = 1;<br>2、–查询简单视图<br>select </em> from view_owners1 where addressid = 1;<br>3、–修改视图数据<br>update view_owners1 set name=’范小冰’ where id=1;<br>commit;<br>4、–查询表<br>select * from t_owners where ownertypeid = 1;</p>
+<h1 id="04-视图案例-检查约束的视图"><a href="#04-视图案例-检查约束的视图" class="headerlink" title="04.视图案例-检查约束的视图"></a>04.视图案例-检查约束的视图</h1><p>要点：视图中添加with check option选项，无法修改视图中基表的条件字段。<br>1、–带检查约束的视图<br>–需求：根据地址表（T_ADDRESS）创建视图 VIEW_ADDRESS2 ,内容为区域 ID为 2 的记录。<br>create view view_address2 as<br>select * from t_address where areaid=2<br>with check option<br>2、–无法修改成功的语句，因为该视图的条件是areaid=2<br>update view_address2 set areaid=3 where id=4;<br>3、–可以修改成功的语句，因为条件不是areaid<br>update view_address2 set name=’河畔花园1’ where id=4;<br>commit;</p>
+<h1 id="05-视图案例-只读视图"><a href="#05-视图案例-只读视图" class="headerlink" title="05.视图案例-只读视图"></a>05.视图案例-只读视图</h1><p>要点： 视图中添加or replace删除原有视图，重新创建视图，添加with read only视图只能查看不能修改。<br>1、–需求：将上边的视图修改为只读视图<br>create or replace view view_owners1 as<br>select * from t_owners where ownertypeid=1<br>with read only<br>2、–修改只读视图数据<br>update view_owners1 set name=’aaa’ where id=1;</p>
+<h1 id="06-视图案例-带错误的视图"><a href="#06-视图案例-带错误的视图" class="headerlink" title="06.视图案例-带错误的视图"></a>06.视图案例-带错误的视图</h1><p>要点：视图中添加 force选项可以创建数据库中没有的表。<br>–创建带错误的视图<br>create force view view_test as<br>select * from t_test</p>
+<h1 id="07-视图案例-多表关联的视图"><a href="#07-视图案例-多表关联的视图" class="headerlink" title="07.视图案例-多表关联的视图"></a>07.视图案例-多表关联的视图</h1><p>要点：复杂视图：视图的 SQL 语句中，有聚合函数或多表关联查询。<br>键保留表：把主键保留下来的那个表。<br>1、–创建视图，查询显示业主编号，业主名称，业主类型名称<br>create or replace view view_owners as<br>select ow.id 业主编号,ow.name 业主名称,ot.name 业主类型 from t_owners ow,t_ownertype ot<br>where ow.ownertypeid=ot.id<br>2、–查询复杂视图（多表关联）<br>select * from view_owners where 业主类型=’居民’;<br>3、–修改键保留表复杂视图（多表关联）的数据<br>update view_owners set 业主名称=’林玲玲’ where 业主编号=4;<br>commit;<br>4、–修改非键保留表复杂视图（多表关联）的数据<br>update view_owners set 业主类型=’商业’ where 业主编号=4;<br>–键保留表：把主键保留下来的那个表，并且能作为视图的主键</p>
 <p>复杂视图(多表关联) 修改语句只能修改包含外键的表(t_owners-外键:t_ownertypeid)不管视图中是否包含T_owners的主键,都可以修改.提供外键的表t_ownertype不能修改.</p>
-<ol>
-<li>08.视图案例-聚合统计的视图<br>要点：聚合统计视图默认是只读，无法修改数据。<br>1、–需求：创建视图，按年月统计水费金额<br>create view view_accountsum as<br>select year,month,sum(money) money<br>from t_account<br>group by year,month<br>order by year,month<br>2、–查询视图<br>select * from view_accountsum where year=’2012’ and month=’03’<br>3、–不能修改<br>update view_accountsum set money=10000 where year=’2012’ and month=’03’</li>
-<li><p>09.物化视图-概念及语法<br>要点：1、物化视图概念：将视图中查询出来的数据存储到一张表中。<br>2、优点：查询速度比视图要快。<br>3、缺点：占用资源，并且要时时更新数据。<br>4、创建物化视图<br>CREATE METERIALIZED VIEW view_name<br>[BUILD IMMEDIATE | BUILD DEFERRED ]<br>REFRESH [FAST|COMPLETE|FORCE]<br>[<br>ON [COMMIT |DEMAND ] | START WITH (start_time) NEXT<br>(next_time)<br>]<br>AS<br>Subquery<br>METERIALIZED:实体化。<br>BUILD IMMEDIATE: 创建物化视图的时候就生成数据。<br>BUILD DEFERRED: 创建物化视图的时候不生成数据。<br>默认为 BUILD IMMEDIATE<br>FAST：快速刷新，增量刷新。<br>COMPLETE：基表更新，删除物化视图数据，重新生成数据。<br>FORCE：自动选择，能增量刷新就增量，不能增量就完全刷新。<br>默认为FORCE<br>ON COMMIT：基表变化，物化视图就刷新。<br>ON DEMAND：手动刷新<br>默认：ON DEMAND</p>
-</li>
-<li><p>10.物化视图案例-手动刷新的物化视图<br>要点：创建物化视图默认为手动刷新ON DEMAND，基表如果数据发生变化，物化视图中的表不会发生变化，需要手动进行刷新。<br>1、–需求：查询地址 ID,地址名称和所属区域名称<br>create materialized view view_address1 as<br>select ad.id,ad.name,ar.name arname<br>from t_address ad,t_area ar<br>where ad.areaid=ar.id<br>–删除物化视图<br>drop materialized view view_address1;<br>2、–物化视图一般以mv开头<br>create materialized view mv_address1 as<br>select ad.id,ad.name,ar.name arname<br>from t_address ad,t_area ar<br>where ad.areaid=ar.id<br>–查询物化视图<br>select <em> from mv_address1;<br>3、–向基表插入数据<br>insert into t_address values(8,’西三旗’,2,2);<br>commit;<br>–查询t_address<br>select </em> from t_address;<br>4、–执行刷新语句<br>begin<br>DBMS_MVIEW.refresh(‘MV_ADDRESS1’,’C’);<br>end;<br>5、–向基表插入数据<br>insert into t_address values(9,’西四旗’,2,2);<br>commit;<br>6、命令窗口更新刷新数据<br>EXEC DBMS_MVIEW.refresh(‘MV_ADDRESS1’,’C’);</p>
-</li>
-</ol>
-<ol>
-<li>11.物化视图案例-自动刷新的物化视图<br>1、–创建自动刷新的物化视图 -基表发生commit操作，自动刷新物化视图<br>create materialized view mv_address2<br>refresh<br>on commit<br>as<br>select ad.id,ad.name,ar.name arname<br>from t_address ad,t_area ar<br>where ad.areaid=ar.id<br>2、–向基表插入数据<br>insert into t_address values(10,’西5旗’,2,2);<br>commit;<br>3、–查询物化视图<br>select * from mv_address2;</li>
-<li>12.物化视图案例-创建时不生成数据的物化视图<br>要点：增加build deferred创建物化视图时，视图表中不产生数据，需要手动刷新，如果增加on commit那么以后基表进行commit操作，物化视图为自动刷新。<br>1、–创建时不生成数据的物化视图<br>create materialized view mv_address3<br>build deferred<br>refresh<br>on commit<br>as<br>select ad.id,ad.name,ar.name arname<br>from t_address ad,t_area ar<br>where ad.areaid=ar.id<br>2、–查询物化视图<br>select * from mv_address3;<br>3、–向基表插入数据<br>insert into t_address values(11,’西6旗’,2,2);<br>commit;<br>4、–执行刷新语句(第一次必须手动执行刷新)<br>begin<br>DBMS_MVIEW.refresh(‘MV_ADDRESS3’,’C’);<br>end;<br>5、–向基表插入数据<br>insert into t_address values(12,’西7旗’,2,2);<br>commit;</li>
-<li>13.物化视图案例-增量刷新的物化视图（了解）<br>1、–创建增量刷新的物化视图<br>–前提是必须创建物化视图日志：记录基表发生了哪些变化，用这些记录去更新物化视图<br>create materialized view log on t_address with rowid<br>create materialized view log on t_area with rowid<br>–创建物化视图中的语句，必须有基表的rowid<br>create materialized view mv_address4<br>refresh fast<br>as<br>select ad.rowid adrowid,ar.rowid arrowid,ad.id,ad.name,ar.name arname<br>from t_address ad,t_area ar<br>where ad.areaid=ar.id<br>2、–查询物化视图<br>select * from mv_address4;<br>–向基表插入数据<br>insert into t_address values(13,’西8旗’,2,2);<br>commit;<br>–向基表插入数据<br>insert into t_address values(14,’西9旗’,2,2);<br>commit;<br>–删除数据<br>delete from t_address where id=14;<br>commit;<br>3、–执行刷新语句<br>begin<br>DBMS_MVIEW.refresh(‘MV_ADDRESS4’,’C’);<br>end;</li>
-<li>14.序列-什么是序列<br>–创建简单序列<br>create sequence seq_test;<br>–查询序列的下一个值<br>select seq_test.nextval from dual;<br>–查询序列的当前值<br>select seq_test.currval from dual;</li>
-<li><p>15.序列-语法</p>
-</li>
-<li><p>16.序列-案例<br>–有最大值的非循环序列<br>create sequence seq_test1<br>maxvalue 20;<br>–查询序列<br>select seq_test1.nextval from dual;<br>–自定义增长值<br>create sequence seq_test2<br>increment by 10<br>start with 10<br>maxvalue 100<br>–查询序列<br>select seq_test2.nextval from dual;</p>
-</li>
-</ol>
+<h1 id="08-视图案例-聚合统计的视图"><a href="#08-视图案例-聚合统计的视图" class="headerlink" title="08.视图案例-聚合统计的视图"></a>08.视图案例-聚合统计的视图</h1><p>要点：聚合统计视图默认是只读，无法修改数据。<br>1、–需求：创建视图，按年月统计水费金额<br>create view view_accountsum as<br>select year,month,sum(money) money<br>from t_account<br>group by year,month<br>order by year,month<br>2、–查询视图<br>select * from view_accountsum where year=’2012’ and month=’03’<br>3、–不能修改<br>update view_accountsum set money=10000 where year=’2012’ and month=’03’</p>
+<h1 id="09-物化视图-概念及语法"><a href="#09-物化视图-概念及语法" class="headerlink" title="09.物化视图-概念及语法"></a>09.物化视图-概念及语法</h1><p>要点：1、物化视图概念：将视图中查询出来的数据存储到一张表中。<br>2、优点：查询速度比视图要快。<br>3、缺点：占用资源，并且要时时更新数据。<br>4、创建物化视图<br>CREATE METERIALIZED VIEW view_name<br>[BUILD IMMEDIATE | BUILD DEFERRED ]<br>REFRESH [FAST|COMPLETE|FORCE]<br>[<br>ON [COMMIT |DEMAND ] | START WITH (start_time) NEXT<br>(next_time)<br>]<br>AS<br>Subquery<br>METERIALIZED:实体化。<br>BUILD IMMEDIATE: 创建物化视图的时候就生成数据。<br>BUILD DEFERRED: 创建物化视图的时候不生成数据。<br>默认为 BUILD IMMEDIATE<br>FAST：快速刷新，增量刷新。<br>COMPLETE：基表更新，删除物化视图数据，重新生成数据。<br>FORCE：自动选择，能增量刷新就增量，不能增量就完全刷新。<br>默认为FORCE<br>ON COMMIT：基表变化，物化视图就刷新。<br>ON DEMAND：手动刷新<br>默认：ON DEMAND</p>
+<h1 id="10-物化视图案例-手动刷新的物化视图"><a href="#10-物化视图案例-手动刷新的物化视图" class="headerlink" title="10.物化视图案例-手动刷新的物化视图"></a>10.物化视图案例-手动刷新的物化视图</h1><p>要点：创建物化视图默认为手动刷新ON DEMAND，基表如果数据发生变化，物化视图中的表不会发生变化，需要手动进行刷新。<br>1、–需求：查询地址 ID,地址名称和所属区域名称<br>create materialized view view_address1 as<br>select ad.id,ad.name,ar.name arname<br>from t_address ad,t_area ar<br>where ad.areaid=ar.id<br>–删除物化视图<br>drop materialized view view_address1;<br>2、–物化视图一般以mv开头<br>create materialized view mv_address1 as<br>select ad.id,ad.name,ar.name arname<br>from t_address ad,t_area ar<br>where ad.areaid=ar.id<br>–查询物化视图<br>select <em> from mv_address1;<br>3、–向基表插入数据<br>insert into t_address values(8,’西三旗’,2,2);<br>commit;<br>–查询t_address<br>select </em> from t_address;<br>4、–执行刷新语句<br>begin<br>  DBMS_MVIEW.refresh(‘MV_ADDRESS1’,’C’);<br>end;<br>5、–向基表插入数据<br>insert into t_address values(9,’西四旗’,2,2);<br>commit;<br>6、命令窗口更新刷新数据<br>EXEC DBMS_MVIEW.refresh(‘MV_ADDRESS1’,’C’);</p>
+<h1 id="11-物化视图案例-自动刷新的物化视图"><a href="#11-物化视图案例-自动刷新的物化视图" class="headerlink" title="11.物化视图案例-自动刷新的物化视图"></a>11.物化视图案例-自动刷新的物化视图</h1><p>1、–创建自动刷新的物化视图 -基表发生commit操作，自动刷新物化视图<br>create materialized view mv_address2<br>refresh<br>on commit<br>as<br>select ad.id,ad.name,ar.name arname<br>from t_address ad,t_area ar<br>where ad.areaid=ar.id<br>2、–向基表插入数据<br>insert into t_address values(10,’西5旗’,2,2);<br>commit;<br>3、–查询物化视图<br>select * from mv_address2;</p>
+<h1 id="12-物化视图案例-创建时不生成数据的物化视图"><a href="#12-物化视图案例-创建时不生成数据的物化视图" class="headerlink" title="12.物化视图案例-创建时不生成数据的物化视图"></a>12.物化视图案例-创建时不生成数据的物化视图</h1><p>要点：增加build deferred创建物化视图时，视图表中不产生数据，需要手动刷新，如果增加on commit那么以后基表进行commit操作，物化视图为自动刷新。<br>1、–创建时不生成数据的物化视图<br>create materialized view mv_address3<br>build deferred<br>refresh<br>on commit<br>as<br>select ad.id,ad.name,ar.name arname<br>from t_address ad,t_area ar<br>where ad.areaid=ar.id<br>2、–查询物化视图<br>select * from mv_address3;<br>3、–向基表插入数据<br>insert into t_address values(11,’西6旗’,2,2);<br>commit;<br>4、–执行刷新语句(第一次必须手动执行刷新)<br>begin<br>  DBMS_MVIEW.refresh(‘MV_ADDRESS3’,’C’);<br>end;<br>5、–向基表插入数据<br>insert into t_address values(12,’西7旗’,2,2);<br>commit;</p>
+<h1 id="13-物化视图案例-增量刷新的物化视图（了解）"><a href="#13-物化视图案例-增量刷新的物化视图（了解）" class="headerlink" title="13.物化视图案例-增量刷新的物化视图（了解）"></a>13.物化视图案例-增量刷新的物化视图（了解）</h1><p>1、–创建增量刷新的物化视图<br>–前提是必须创建物化视图日志：记录基表发生了哪些变化，用这些记录去更新物化视图<br>create materialized view log on t_address with rowid<br>create materialized view log on t_area with rowid<br>–创建物化视图中的语句，必须有基表的rowid<br>create materialized view mv_address4<br>refresh fast<br>as<br>select ad.rowid adrowid,ar.rowid arrowid,ad.id,ad.name,ar.name arname<br>from t_address ad,t_area ar<br>where ad.areaid=ar.id<br>2、–查询物化视图<br>select * from mv_address4;<br>–向基表插入数据<br>insert into t_address values(13,’西8旗’,2,2);<br>commit;<br>–向基表插入数据<br>insert into t_address values(14,’西9旗’,2,2);<br>commit;<br>–删除数据<br>delete from t_address where id=14;<br>commit;<br>3、–执行刷新语句<br>begin<br>  DBMS_MVIEW.refresh(‘MV_ADDRESS4’,’C’);<br>end;</p>
+<h1 id="14-序列-什么是序列"><a href="#14-序列-什么是序列" class="headerlink" title="14.序列-什么是序列"></a>14.序列-什么是序列</h1><p>–创建简单序列<br>create sequence seq_test;<br>–查询序列的下一个值<br>select seq_test.nextval from dual;<br>–查询序列的当前值<br>select seq_test.currval from dual;</p>
+<h1 id="15-序列-语法"><a href="#15-序列-语法" class="headerlink" title="15.序列-语法"></a>15.序列-语法</h1><h1 id="16-序列-案例"><a href="#16-序列-案例" class="headerlink" title="16.序列-案例"></a>16.序列-案例</h1><p>–有最大值的非循环序列<br>create sequence seq_test1<br>maxvalue 20;<br>–查询序列<br>select seq_test1.nextval from dual;<br>–自定义增长值<br>create sequence seq_test2<br>increment by 10<br>start with 10<br>maxvalue 100<br>–查询序列<br>select seq_test2.nextval from dual;</p>
 <p>create sequence seq_test3<br>increment by 10<br>start with 10<br>minvalue 5<br>maxvalue 100<br>–查询序列<br>select seq_test3.nextval from dual;<br>–循环的序列<br>create sequence seq_test4<br>increment by 10<br>start with 10<br>minvalue 10<br>maxvalue 210<br>cycle</p>
 <p>create sequence seq_test5<br>increment by 10<br>start with 10<br>minvalue 10<br>maxvalue 201<br>cycle<br>–查询序列<br>select seq_test4.nextval from dual;<br>select seq_test5.nextval from dual;</p>
 <p>create sequence seq_test5<br>increment by 10<br>start with 10<br>minvalue 10<br>maxvalue 201<br>cycle<br>cache 5<br>–一次缓存数有多少 cache值*增长值   缓存的默认值是20,不设置的话cache为20<br>–一次循环的值不能小于 一次缓存的数<br>–开始值不能小于最小值</p>
-<ol>
-<li><p>17.同义词-概念<br>2、语法：create [public] SYNONYM synooym for object;<br>加上public，数据库所有用户都可以访问别名。<br>不加public，只针对当前用户可以访问。</p>
-</li>
-<li><p>18.同义词-案例<br>–创建私有同义词<br>create synonym owner for t_owners;<br>select <em> from owner;<br>–dba超级管理员身份可以用system用户直接访问<br>select </em> from wateruser.t_owners;<br>–创建共有同义词<br>create public synonym owner2 for t_owners;<br>select * from owner2;</p>
-</li>
-<li>19.索引-什么是索引<br>要点：1、索引是用于加速数据存取的数据对象。<br>2、适用于百万以上数据。<br>3、优点：查询速度比较快。<br>4、缺点：占用资源比较大。</li>
-<li>20.索引-普通索引<br>要点：创建一个普通索引。<br>1、–创建普通索引<br>create index index_owners_name on t_owners(name);<br>select * from t_owners where name=’张哲’;<br>2、–性能测试 创建一个表，向表中插入100万条记录<br>create table t_indextest(id number,name varchar2(30));<br>begin<br>for x in 1..1000000<br>loop<br>insert into t_indextest values(x,’aa’||x);<br>end loop;<br>commit;<br>end;<br>3、–创建索引<br>create index index_test on t_indextest(name);</li>
-</ol>
+<h1 id="17-同义词-概念"><a href="#17-同义词-概念" class="headerlink" title="17.同义词-概念"></a>17.同义词-概念</h1><p>2、语法：create [public] SYNONYM synooym for object;<br>加上public，数据库所有用户都可以访问别名。<br>不加public，只针对当前用户可以访问。</p>
+<h1 id="18-同义词-案例"><a href="#18-同义词-案例" class="headerlink" title="18.同义词-案例"></a>18.同义词-案例</h1><p>–创建私有同义词<br>create synonym owner for t_owners;<br>select <em> from owner;<br>–dba超级管理员身份可以用system用户直接访问<br>select </em> from wateruser.t_owners;<br>–创建共有同义词<br>create public synonym owner2 for t_owners;<br>select * from owner2;</p>
+<h1 id="19-索引-什么是索引"><a href="#19-索引-什么是索引" class="headerlink" title="19.索引-什么是索引"></a>19.索引-什么是索引</h1><p>要点：1、索引是用于加速数据存取的数据对象。<br>2、适用于百万以上数据。<br>3、优点：查询速度比较快。<br>4、缺点：占用资源比较大。</p>
+<h1 id="20-索引-普通索引"><a href="#20-索引-普通索引" class="headerlink" title="20.索引-普通索引"></a>20.索引-普通索引</h1><p>要点：创建一个普通索引。<br>1、–创建普通索引<br>create index index_owners_name on t_owners(name);<br>select * from t_owners where name=’张哲’;<br>2、–性能测试 创建一个表，向表中插入100万条记录<br>create table t_indextest(id number,name varchar2(30));<br>begin<br>  for x in 1..1000000<br>    loop<br>      insert into t_indextest values(x,’aa’||x);<br>      end loop;<br>      commit;<br>end;<br>3、–创建索引<br>create index index_test on t_indextest(name);</p>
 <p>select * from t_indextest where id=777777;</p>
 <p>select t.rowid,t.* from t_indextest t where name=’aa777777’;</p>
 <p>select * from t_indextest where rowid=’AAAM3NAAGAAAAkNACz’;</p>
-<ol>
-<li>21.索引-唯一索引和复合索引<br>要点：1、创建唯一索引：此列不能有重复字段。<br>2、复合索引要注意where条件的顺序是什么，创建复合索引的顺序就是什么。<br>–创建唯一索引<br>create unique index index_owners_meter on t_owners(watermeter);</li>
-</ol>
+<h1 id="21-索引-唯一索引和复合索引"><a href="#21-索引-唯一索引和复合索引" class="headerlink" title="21.索引-唯一索引和复合索引"></a>21.索引-唯一索引和复合索引</h1><p>要点：1、创建唯一索引：此列不能有重复字段。<br>2、复合索引要注意where条件的顺序是什么，创建复合索引的顺序就是什么。<br>–创建唯一索引<br>create unique index index_owners_meter on t_owners(watermeter);</p>
 <p>select * from t_owners where addressid=1 and housenumber=’1-3’;<br>–创建复合索引<br>create index index_owners_ah on t_owners(addressid,housenumber);</p>
-<ol>
-<li>22.索引-反向键索引<br>要点：当某个字段为连续增长的值，适合用反向键索引。<br>create index 索引名称 on 表名(列名) reverse;</li>
-</ol>
+<h1 id="22-索引-反向键索引"><a href="#22-索引-反向键索引" class="headerlink" title="22.索引-反向键索引"></a>22.索引-反向键索引</h1><p>要点：当某个字段为连续增长的值，适合用反向键索引。<br>create index 索引名称 on 表名(列名) reverse;</p>
 <p>普通索引和反向建索引统称b-tree-*索引</p>
-<ol>
-<li>23.索引-位图索引<br>要点：1、位图索引适合创建在低基数列上，比方说男、女或者颜色、56个民族等等。</li>
-</ol>
+<h1 id="23-索引-位图索引"><a href="#23-索引-位图索引" class="headerlink" title="23.索引-位图索引"></a>23.索引-位图索引</h1><p>要点：1、位图索引适合创建在低基数列上，比方说男、女或者颜色、56个民族等等。</p>
 <p>2、语法：create bitmap index 索引名称 on 表名(列名);<br>3、需求：我们在T_owners表的ownertypeid列上建立位图索引。</p>
-<p>   create bitmap index index_owners_typeid on t_owners(ownertypeid)<br>总结<br>（1）    Oracle的视图和物化视图。<br>（2）    Oracle的序列。<br>（3）    Oracle的同义词。<br>（4）    Oracle的索引。<br>42第七阶段day4 ORACLE</p>
-<p>今天主要学习内容：</p>
-<ol>
-<li>Oracle的pl/sql。</li>
-<li>Oracle的存储函数。</li>
-<li>Oracle的存储过程。</li>
-<li>Oracle的触发器。</li>
-</ol>
-<ol>
-<li>01.什么是PLSQL<br>要点：1、plsql就是Oracle的一种编程语言。<br>2、语法：[declare<br>– 声明变量<br>]<br>begin<br>– 代码逻辑<br>[exception<br>– 异常处理<br>]<br>end;          </li>
-<li>02.变量声明与赋值<br>要点：1、如何声明变量。<br>2、如何赋值变量。<br>–声明变量水费单价、水费字数、吨数、金额。<br>–对水费单价、字数、进行赋值 。吨数根据水费字数换算，规则为水费字数除以<br>–1000，并且四舍五入，保留两位小数。计算金额，金额=单价<em>吨数。<br>–输出单价 、数量和金额。<br>declare<br>v_price number(10,2);–单价<br>v_usenum number;–水费字数<br>v_usenum2 number(10,2);–吨数<br>v_money number(10,2);–金额<br>begin<br>v_price:=2.45;–单价赋值<br>v_usenum:=9999;–水费字数<br>v_usenum:=round(v_usenum/1000,2);–吨数<br>v_money:=v_usenum</em>v_price;–金额<br>dbms_output.put_line(‘金额：’||v_money);<br>–DBMS.OUTPUT.put_line(‘金额：’||v_money);<br>end;</li>
-</ol>
-<ol>
-<li>03.变量select into赋值<br>要点：通过select into 将表中的数据赋值给变量，注意查询结果只能是一条记录。<br>declare<br>v_price number(10,2);–单价<br>v_usenum number;–水费字数<br>v_usenum2 number(10,2);–吨数<br>v_money number(10,2);–金额<br>v_num0 number;–上月水表数<br>v_num1 number;–本月水表数<br>begin<br>v_price:=2.45;–单价赋值<br>– v_usenum:=9999;–水费字数<br>select usenum,num0,num1 into v_usenum,v_num0,v_num1 from t_account<br>where year=’2012’ and month=’01’ and owneruuid=1;<br>v_usenum2:=round(v_usenum/1000,2);–吨数<br>v_money:=v_usenum2*v_price;–金额<br>dbms_output.put_line(‘水费字数：’||v_usenum||’金额：’||v_money);<br>–DBMS.OUTPUT.put_line(‘金额：’||v_money);<br>end;</li>
-<li>04.属性类型<br>要点：1、在变量较少的情况下，定义的变量是某个表的某列字段，可以采用 表名.字段名%type。<br>2、在变量较多的情况下，可以采用纪录型，把表名定义成变量 表名%rowtype。<br>–引用某表某列的字段类型<br>declare<br>v_price number(10,2);–单价<br>v_usenum t_account.usenum%type;–水费字数<br>v_usenum2 number(10,2);–吨数<br>v_money number(10,2);–金额<br>v_num0 t_account.num0%type;–上月水表数<br>v_num1 t_account.num1%type;–本月水表数<br>begin<br>v_price:=2.45;–单价赋值<br>– v_usenum:=9999;–水费字数<br>select usenum,num0,num1 into v_usenum,v_num0,v_num1 from t_account<br>where year=’2012’ and month=’01’ and ownerid=1;<br>v_usenum2:=round(v_usenum/1000,2);–吨数<br>v_money:=v_usenum2*v_price;–金额<br>dbms_output.put_line(‘水费字数：’||v_usenum||’金额：’||v_money);<br>–DBMS.OUTPUT.put_line(‘金额：’||v_money);<br>end;<br>–属性类型（记录型 表名%rowtype）</li>
-</ol>
+<p>   create bitmap index index_owners_typeid on t_owners(ownertypeid)<br>总结<br>（1）    Oracle的视图和物化视图。<br>（2）    Oracle的序列。<br>（3）    Oracle的同义词。<br>（4）    Oracle的索引。</p>
+<h1 id="01-什么是PLSQL"><a href="#01-什么是PLSQL" class="headerlink" title="01.什么是PLSQL"></a>01.什么是PLSQL</h1><p>要点：1、plsql就是Oracle的一种编程语言。<br>2、语法：[declare<br>– 声明变量<br>]<br>begin<br>– 代码逻辑<br>[exception<br>– 异常处理<br>]<br>end;          </p>
+<h1 id="02-变量声明与赋值"><a href="#02-变量声明与赋值" class="headerlink" title="02.变量声明与赋值"></a>02.变量声明与赋值</h1><p>  要点：1、如何声明变量。<br>2、如何赋值变量。<br>–声明变量水费单价、水费字数、吨数、金额。<br>–对水费单价、字数、进行赋值 。吨数根据水费字数换算，规则为水费字数除以<br>–1000，并且四舍五入，保留两位小数。计算金额，金额=单价<em>吨数。<br>–输出单价 、数量和金额。<br>declare<br> v_price number(10,2);–单价<br> v_usenum number;–水费字数<br> v_usenum2 number(10,2);–吨数<br> v_money number(10,2);–金额<br>begin<br>  v_price:=2.45;–单价赋值<br>  v_usenum:=9999;–水费字数<br>  v_usenum:=round(v_usenum/1000,2);–吨数<br>  v_money:=v_usenum</em>v_price;–金额<br>  dbms_output.put_line(‘金额：’||v_money);<br>  –DBMS.OUTPUT.put_line(‘金额：’||v_money);<br>end;</p>
+<h1 id="03-变量select-into赋值"><a href="#03-变量select-into赋值" class="headerlink" title="03.变量select into赋值"></a>03.变量select into赋值</h1><p>要点：通过select into 将表中的数据赋值给变量，注意查询结果只能是一条记录。<br>declare<br> v_price number(10,2);–单价<br> v_usenum number;–水费字数<br> v_usenum2 number(10,2);–吨数<br> v_money number(10,2);–金额<br> v_num0 number;–上月水表数<br> v_num1 number;–本月水表数<br>begin<br>  v_price:=2.45;–单价赋值<br> – v_usenum:=9999;–水费字数<br> select usenum,num0,num1 into v_usenum,v_num0,v_num1 from t_account<br> where year=’2012’ and month=’01’ and owneruuid=1;<br>  v_usenum2:=round(v_usenum/1000,2);–吨数<br>  v_money:=v_usenum2*v_price;–金额<br>  dbms_output.put_line(‘水费字数：’||v_usenum||’金额：’||v_money);<br>  –DBMS.OUTPUT.put_line(‘金额：’||v_money);<br>end;</p>
+<h1 id="04-属性类型"><a href="#04-属性类型" class="headerlink" title="04.属性类型"></a>04.属性类型</h1><p>要点：1、在变量较少的情况下，定义的变量是某个表的某列字段，可以采用 表名.字段名%type。<br>2、在变量较多的情况下，可以采用纪录型，把表名定义成变量 表名%rowtype。<br>–引用某表某列的字段类型<br>declare<br> v_price number(10,2);–单价<br> v_usenum t_account.usenum%type;–水费字数<br> v_usenum2 number(10,2);–吨数<br> v_money number(10,2);–金额<br> v_num0 t_account.num0%type;–上月水表数<br> v_num1 t_account.num1%type;–本月水表数<br>begin<br>  v_price:=2.45;–单价赋值<br> – v_usenum:=9999;–水费字数<br> select usenum,num0,num1 into v_usenum,v_num0,v_num1 from t_account<br> where year=’2012’ and month=’01’ and ownerid=1;<br>  v_usenum2:=round(v_usenum/1000,2);–吨数<br>  v_money:=v_usenum2*v_price;–金额<br>  dbms_output.put_line(‘水费字数：’||v_usenum||’金额：’||v_money);<br>  –DBMS.OUTPUT.put_line(‘金额：’||v_money);<br>end;<br>–属性类型（记录型 表名%rowtype）</p>
 <p>declare<br> v_price number(10,2);–单价</p>
 <p> v_usenum2 number(10,2);–吨数<br> v_money number(10,2);–金额<br> v_account t_account%rowtype;–台帐行记录类型<br>begin<br>  v_price:=2.45;–单价赋值<br> – v_usenum:=9999;–水费字数<br> select <em> into v_account from t_account<br> where year=’2012’ and month=’01’ and ownerid=1;<br>  v_usenum2:=round(v_account.usenum/1000,2);–吨数<br>  v_money:=v_usenum2</em>v_price;–金额<br>  dbms_output.put_line(‘水费字数：’||v_account.usenum||’金额：’||v_money);<br>  –DBMS.OUTPUT.put_line(‘金额：’||v_money);<br>end;</p>
-<ol>
-<li>05.异常<br>要点：了解预定义异常用法即可。<br>–异常处理1<br>declare<br>v_price number(10,2);–单价<br>v_usenum2 number(10,2);–吨数<br>v_money number(10,2);–金额<br>v_account t_account%rowtype;–台帐行记录类型<br>begin<br>v_price:=2.45;–单价赋值<br>– v_usenum:=9999;–水费字数<br>select <em> into v_account from t_account<br>where year=’2012’ and month=’01’ and ownerid=200;<br>v_usenum2:=round(v_account.usenum/1000,2);–吨数<br>v_money:=v_usenum2</em>v_price;–金额<br>dbms_output.put_line(‘水费字数：’||v_account.usenum||’金额：’||v_money);<br>exception<br>when no_data_found then<br>DBMS_OUTPUT.put_line(‘没有数据’);<br>end;<br>–异常处理2<br>declare<br>v_price number(10,2);–单价<br>v_usenum2 number(10,2);–吨数<br>v_money number(10,2);–金额<br>v_account t_account%rowtype;–台帐行记录类型<br>begin<br>v_price:=2.45;–单价赋值<br>select <em> into v_account from t_account<br>where year=’2012’ ;<br>v_usenum2:=round(v_account.usenum/1000,2);–吨数<br>v_money:=v_usenum2</em>v_price;–金额<br>dbms_output.put_line(‘水费字数：’||v_account.usenum||’金额：’||v_money);<br>exception<br>when no_data_found then<br>DBMS_OUTPUT.put_line(‘没有数据’);<br>when too_many_rows then<br>DBMS_OUTPUT.put_line(‘返回多行’);<br>end;</li>
-<li>06.条件判断<br>要点：了解plsql中的if、else判断语法。</li>
-</ol>
+<h1 id="05-异常"><a href="#05-异常" class="headerlink" title="05.异常"></a>05.异常</h1><p>要点：了解预定义异常用法即可。<br>–异常处理1<br>declare<br> v_price number(10,2);–单价<br> v_usenum2 number(10,2);–吨数<br> v_money number(10,2);–金额<br> v_account t_account%rowtype;–台帐行记录类型<br>begin<br>  v_price:=2.45;–单价赋值<br> – v_usenum:=9999;–水费字数<br> select <em> into v_account from t_account<br> where year=’2012’ and month=’01’ and ownerid=200;<br>  v_usenum2:=round(v_account.usenum/1000,2);–吨数<br>  v_money:=v_usenum2</em>v_price;–金额<br>  dbms_output.put_line(‘水费字数：’||v_account.usenum||’金额：’||v_money);<br>  exception<br>    when no_data_found then<br>      DBMS_OUTPUT.put_line(‘没有数据’);<br>end;<br>–异常处理2<br>declare<br> v_price number(10,2);–单价<br> v_usenum2 number(10,2);–吨数<br> v_money number(10,2);–金额<br> v_account t_account%rowtype;–台帐行记录类型<br>begin<br>  v_price:=2.45;–单价赋值<br> select <em> into v_account from t_account<br> where year=’2012’ ;<br>  v_usenum2:=round(v_account.usenum/1000,2);–吨数<br>  v_money:=v_usenum2</em>v_price;–金额<br>  dbms_output.put_line(‘水费字数：’||v_account.usenum||’金额：’||v_money);<br>  exception<br>    when no_data_found then<br>      DBMS_OUTPUT.put_line(‘没有数据’);<br>    when too_many_rows then<br>      DBMS_OUTPUT.put_line(‘返回多行’);<br>end;</p>
+<h1 id="06-条件判断"><a href="#06-条件判断" class="headerlink" title="06.条件判断"></a>06.条件判断</h1><p>要点：了解plsql中的if、else判断语法。</p>
 <p>declare<br> v_price1 number(10,2);–单价<br> v_price2 number(10,2);–单价<br> v_price3 number(10,2);–单价<br> v_usenum2 number(10,2);–吨数<br> v_money number(10,2);–金额<br> v_account t_account%rowtype;–台帐行记录类型<br>begin<br>  v_price1:=2.45;–单价赋值（5吨以下）<br>  v_price2:=3.45;–单价赋值（5-10吨）<br>  v_price3:=4.45;–单价赋值（超过10吨）<br> select <em> into v_account from t_account<br> where year=’2012’ and month=’01’ and ownerid=1;<br>  v_usenum2:=round(v_account.usenum/1000,2);–吨数<br>  –v_money:=v_usenum2</em>v_price;–金额<br>  –阶梯水费计算<br>  if v_usenum2&lt;=5 then<br>    v_money:=v_price1<em>v_usenum2;<br>  elsif v_usenum2&gt;5 and v_usenum2&lt;=10 then<br>    v_money:=v_price1</em>5+v_price2<em>(v_usenum2-5);<br>  else<br>    v_money:=v_price1</em>5+v_price2<em>5 + v_price3</em>(v_usenum2-10);<br>  end if;</p>
 <p>  dbms_output.put_line(‘水费字数：’||v_account.usenum||’金额：’||v_money);<br>  exception<br>    when no_data_found then<br>      DBMS_OUTPUT.put_line(‘没有数据’);<br>    when too_many_rows then<br>      DBMS_OUTPUT.put_line(‘返回多行’);<br>end;</p>
-<ol>
-<li>07.循环<br>要点：循环有三种无条件循环、有条件循环、和for循环。<br>–无条件循环：1到100<br>declare<br>v_num number;<br>begin<br>v_num:=1;<br>loop<br>dbms_output.put_line(v_num);<br>v_num:=v_num+1;<br>if v_num&gt;100 then<br>exit;<br>end if;<br>end loop;<br>end;<br>–有条件循环1到100<br>declare<br>v_num number;<br>begin<br>v_num:=1;<br>while v_num &lt;= 100<br>loop<br>dbms_output.put_line(v_num);<br>v_num:=v_num+1;<br>end loop;<br>end;<br>–for循环1到100<br>begin<br>for v_num in 1 .. 100<br>loop<br>dbms_output.put_line(v_num);<br>end loop;<br>end;</li>
-<li><p>08.游标语法<br>要点：游标是系统为用户开设的一个数据缓冲区,存放 SQL 语句的执行结果。我们可以把游标理解为 PL/SQL 中的结果集。</p>
-</li>
-<li><p>09.游标案例<br>要点：创建游标后面跟着sql语句，然后打开游标循环游标的内容直到游标内容循环结束。关闭游标。<br>–需求：打印业主类型为 1 的价格表<br>declare<br>cursor cur_pricetable is select * from t_pricetable where ownertypeid=1;–声明游标<br>v_pricetable t_pricetable%rowtype;<br>begin<br>open cur_pricetable;–打开游标<br>loop<br>fetch cur_pricetable into v_pricetable;–提取游标<br>exit when cur_pricetable%notfound;–退出循环游标<br>dbms_output.put_line(‘价格：’||v_pricetable.price||<br>‘ 吨位：’||v_pricetable.minnum||’-‘||v_pricetable.maxnum);<br>end loop;<br>close cur_pricetable;–关闭游标<br>end;</p>
-</li>
-</ol>
-<ol>
-<li><p>10.带参数的游标<br>要点：与Java方法相似可以传递参数，声明游标在游标名称后面定义参数，sql语句中使用参数，打开游标时传递参数。<br>–带参数的游标<br>declare<br>cursor cur_pricetable(v_ownertype number) is select * from t_pricetable where ownertypeid=v_ownertype;–声明游标<br>v_pricetable t_pricetable%rowtype;<br>begin<br>open cur_pricetable(1);–打开游标<br>loop<br>fetch cur_pricetable into v_pricetable;–提取游标<br>exit when cur_pricetable%notfound;–退出循环游标<br>dbms_output.put_line(‘价格：’||v_pricetable.price||<br>‘ 吨位：’||v_pricetable.minnum||’-‘||v_pricetable.maxnum);<br>end loop;<br>close cur_pricetable;–关闭游标<br>end;         </p>
-</li>
-<li><p>11.for循环游标<br>要点：for循环可以自动打开关闭游标，自动提取游标，而且还可以自动声明变量。<br>–for循环 带参数的游标<br>declare<br>cursor cur_pricetable(v_ownertype number) is select * from t_pricetable where ownertypeid=v_ownertype;–声明游标<br>begin<br>for v_pricetable in cur_pricetable(1)<br>loop<br>dbms_output.put_line(‘价格：’||v_pricetable.price||<br>‘ 吨位：’||v_pricetable.minnum||’-‘||v_pricetable.maxnum);<br>end loop;<br>end;</p>
-</li>
-<li><p>12.存储函数<br>要点：存储函数也叫自定义函数，可以接收一个或者多个参数，返回一个结果。类似于Java中的方法。<br>1、语法<br>函数名称后面的参数类型不需要写长度大小<br>return 后面的参数也不需要写长度</p>
-</li>
-</ol>
+<h1 id="07-循环"><a href="#07-循环" class="headerlink" title="07.循环"></a>07.循环</h1><p>要点：循环有三种无条件循环、有条件循环、和for循环。<br>–无条件循环：1到100<br>declare<br>   v_num number;<br>begin<br>  v_num:=1;<br>  loop<br>    dbms_output.put_line(v_num);<br>    v_num:=v_num+1;<br>    if v_num&gt;100 then<br>      exit;<br>      end if;<br>  end loop;<br>end;<br>–有条件循环1到100<br>declare<br>   v_num number;<br>begin<br>   v_num:=1;<br>   while v_num &lt;= 100<br>   loop<br>    dbms_output.put_line(v_num);<br>    v_num:=v_num+1;<br>   end loop;<br>end;<br>–for循环1到100<br>begin<br>  for v_num in 1 .. 100<br>  loop<br>    dbms_output.put_line(v_num);<br>  end loop;<br>end;</p>
+<h1 id="08-游标语法"><a href="#08-游标语法" class="headerlink" title="08.游标语法"></a>08.游标语法</h1><p>要点：游标是系统为用户开设的一个数据缓冲区,存放 SQL 语句的执行结果。我们可以把游标理解为 PL/SQL 中的结果集。</p>
+<h1 id="09-游标案例"><a href="#09-游标案例" class="headerlink" title="09.游标案例"></a>09.游标案例</h1><p>要点：创建游标后面跟着sql语句，然后打开游标循环游标的内容直到游标内容循环结束。关闭游标。<br>–需求：打印业主类型为 1 的价格表<br>declare<br>  cursor cur_pricetable is select * from t_pricetable where ownertypeid=1;–声明游标<br>  v_pricetable t_pricetable%rowtype;<br>begin<br>  open cur_pricetable;–打开游标<br>  loop<br>    fetch cur_pricetable into v_pricetable;–提取游标<br>    exit when cur_pricetable%notfound;–退出循环游标<br>    dbms_output.put_line(‘价格：’||v_pricetable.price||<br>    ‘ 吨位：’||v_pricetable.minnum||’-‘||v_pricetable.maxnum);<br>  end loop;<br>  close cur_pricetable;–关闭游标<br>end;</p>
+<h1 id="10-带参数的游标"><a href="#10-带参数的游标" class="headerlink" title="10.带参数的游标"></a>10.带参数的游标</h1><pre><code>要点：与Java方法相似可以传递参数，声明游标在游标名称后面定义参数，sql语句中使用参数，打开游标时传递参数。
+</code></pre><p>–带参数的游标<br>declare<br>  cursor cur_pricetable(v_ownertype number) is select * from t_pricetable where ownertypeid=v_ownertype;–声明游标<br>  v_pricetable t_pricetable%rowtype;<br>begin<br>  open cur_pricetable(1);–打开游标<br>  loop<br>    fetch cur_pricetable into v_pricetable;–提取游标<br>    exit when cur_pricetable%notfound;–退出循环游标<br>    dbms_output.put_line(‘价格：’||v_pricetable.price||<br>    ‘ 吨位：’||v_pricetable.minnum||’-‘||v_pricetable.maxnum);<br>  end loop;<br>  close cur_pricetable;–关闭游标<br>end;         </p>
+<h1 id="11-for循环游标"><a href="#11-for循环游标" class="headerlink" title="11.for循环游标"></a>11.for循环游标</h1><p>要点：for循环可以自动打开关闭游标，自动提取游标，而且还可以自动声明变量。<br>–for循环 带参数的游标<br>declare<br>  cursor cur_pricetable(v_ownertype number) is select * from t_pricetable where ownertypeid=v_ownertype;–声明游标<br>begin<br>  for v_pricetable in cur_pricetable(1)<br>  loop<br>    dbms_output.put_line(‘价格：’||v_pricetable.price||<br>    ‘ 吨位：’||v_pricetable.minnum||’-‘||v_pricetable.maxnum);<br>  end loop;<br>end;</p>
+<h1 id="12-存储函数"><a href="#12-存储函数" class="headerlink" title="12.存储函数"></a>12.存储函数</h1><pre><code>要点：存储函数也叫自定义函数，可以接收一个或者多个参数，返回一个结果。类似于Java中的方法。
+</code></pre><p>1、语法<br>函数名称后面的参数类型不需要写长度大小<br>return 后面的参数也不需要写长度</p>
 <p>2、案例<br>–需求： 创建存储函数，根据地址 ID 查询地址名称。<br>create or replace function fn_getaddress<br>(v_id number)<br>return varchar2<br>is<br>  v_name varchar2(30);<br>begin<br>  –查询地址表<br>  select name into v_name from t_address where id=v_id;<br>  return v_name;<br>end;<br>–存储函数测试<br>select fn_getaddress(3) from dual;<br>–存储函数的应用<br>–需求：查询业主 ID，业主名称，业主地址，业主地址使用刚才我们创建的函数来实现。<br>select id,name,fn_getaddress(addressid) from t_owners;</p>
-<ol>
-<li>13.存储过程-什么是存储过程<br>要点：1、存储过程实际上就是供应用程序调用的一种数据函数对象。<br>2、存储函数与存储过程的区别：存储函数一般用来select查询，且返回的只有一个值，存储过程只能供应用程序调用可以返回多个值。且存储过程没有return返回值，可以通过参数设置一个或者多个返回值。<br>3、语法：<br>CREATE [ OR REPLACE ] PROCEDURE 存储过程名称<br>（参数名 类型, 参数名 类型, 参数名 类型）<br>IS|AS<br>变量声明部分;<br>BEGIN<br>逻辑部分<br>[EXCEPTION<br>异常处理部分]<br>END;<br>参数只指定类型，不指定长度<br>过程参数的三种模式：<br>IN 传入参数（默认）<br>OUT 传出参数 ，主要用于返回程序运行结果<br>IN OUT 传入传出参数</li>
-<li>14.不带传出参数的存储过程创建及调用<br>要点：1、根据例子理解如何创建一个不带传出参数的存储过程。<br>2、根据例子理解如果用Oracle调用存储过程。</li>
-</ol>
+<h1 id="13-存储过程-什么是存储过程"><a href="#13-存储过程-什么是存储过程" class="headerlink" title="13.存储过程-什么是存储过程"></a>13.存储过程-什么是存储过程</h1><p>要点：1、存储过程实际上就是供应用程序调用的一种数据函数对象。<br>2、存储函数与存储过程的区别：存储函数一般用来select查询，且返回的只有一个值，存储过程只能供应用程序调用可以返回多个值。且存储过程没有return返回值，可以通过参数设置一个或者多个返回值。<br>3、语法：<br>CREATE [ OR REPLACE ] PROCEDURE 存储过程名称<br>（参数名 类型, 参数名 类型, 参数名 类型）<br>IS|AS<br>变量声明部分;<br>BEGIN<br>逻辑部分<br>[EXCEPTION<br>异常处理部分]<br>END;<br>参数只指定类型，不指定长度<br>过程参数的三种模式：<br>IN 传入参数（默认）<br>OUT 传出参数 ，主要用于返回程序运行结果<br>IN OUT 传入传出参数</p>
+<h1 id="14-不带传出参数的存储过程创建及调用"><a href="#14-不带传出参数的存储过程创建及调用" class="headerlink" title="14.不带传出参数的存储过程创建及调用"></a>14.不带传出参数的存储过程创建及调用</h1><p>要点：1、根据例子理解如何创建一个不带传出参数的存储过程。<br>2、根据例子理解如果用Oracle调用存储过程。</p>
 <p>–创建业主序列起始值为11<br>create sequence seq_owners start with 11;<br>–不带传出参数的存储过程<br>create or replace procedure pro_owners_add<br>(<br>v_name varchar2,–名称<br>v_addressid number,–地址编号<br>v_housenumber varchar2,–门牌号<br>v_watermeter varchar2,–水表号<br>v_ownertype number–业主类型<br>)<br>is</p>
 <p>begin<br>  insert into t_owners values(seq_owners.nextval,v_name,v_addressid,v_housenumber,v_watermeter,sysdate,v_ownertype);<br>  commit;<br>end;<br>–调用不带传出参数的存储过程<br>call pro_owners_add(‘马大哈’,2,’3232’,’22333’,1);</p>
 <p>begin<br>  pro_owners_add(‘马2哈’,2,’32312’,’223331’,1);<br>end;</p>
-<ol>
-<li>15.JDBC调用不带传出参数的存储过程<br>要点：通过jdbc代码调用存储过程注意调用存储过程使用CallableStatement，sql语句中要用“{call 存储过程名称（？，？,…）}”。</li>
-</ol>
-<ol>
-<li>16.带传出参数的存储过程创建与调用<br>要点：1、根据例子理解如何创建一个带传出参数的存储过程。<br>2、根据例子理解如果用Oracle调用存储过程。</li>
-</ol>
+<h1 id="15-JDBC调用不带传出参数的存储过程"><a href="#15-JDBC调用不带传出参数的存储过程" class="headerlink" title="15.JDBC调用不带传出参数的存储过程"></a>15.JDBC调用不带传出参数的存储过程</h1><p>要点：通过jdbc代码调用存储过程注意调用存储过程使用CallableStatement，sql语句中要用“{call 存储过程名称（？，？,…）}”。</p>
+<h1 id="16-带传出参数的存储过程创建与调用"><a href="#16-带传出参数的存储过程创建与调用" class="headerlink" title="16.带传出参数的存储过程创建与调用"></a>16.带传出参数的存储过程创建与调用</h1><p>要点：1、根据例子理解如何创建一个带传出参数的存储过程。<br>2、根据例子理解如果用Oracle调用存储过程。</p>
 <p>–创建带传出参数的存储过程<br>create or replace procedure pro_owners_add1<br>(<br>v_name varchar2,–名称<br>v_addressid number,–地址编号<br>v_housenumber varchar2,–门牌号<br>v_watermeter varchar2,–水表号<br>v_ownertypeid number,–业主类型<br>v_id out number<br>)<br>is</p>
 <p>begin<br>  select seq_owners.nextval into v_id from dual;<br>  insert into t_owners values(v_id,v_name,v_addressid,v_housenumber,v_watermeter,sysdate,v_ownertypeid);<br>  commit;<br>end;<br>–调用传出参数的存储过程<br>declare<br>   v_id number;<br>begin<br>   pro_owners_add1(‘马3哈’,2,’32-32’,’2233312’,1,v_id);<br>   dbms_output.put_line(v_id);<br>end;</p>
-<ol>
-<li><p>17.JDBC调用带传出参数的存储过程<br>要点：1、通过代码例子了解如何调用带传出参数的存储过程。<br>2、注意需要传出的参数要再执行sql语句之前注册类型，并且获得传出参数时要再执行完sql语句之后。</p>
-</li>
-<li><p>18.什么是触发器<br>要点：1、触发器：当一个指定的语句执行增删改的操作时。Oracle自动执行了触发器中自定义的数据库函数。<br>2、前置触发器：在增删改操作没有commit之前执行的触发器叫前置触发器。<br>3、后置触发器：在增删改操作commit之后执行的触发器叫后置触发器。</p>
-</li>
-<li>19.触发器语法<br>要点：1、行级触发器：针对表中每行数据变化进行操作。<br>2、语句级触发器：针对每张表进行操作的触发器。<br>3、：old 修改前的数据。Update 和 delete。<br>4、：new 修改后的数据。Insert 和 update。</li>
-</ol>
+<h1 id="17-JDBC调用带传出参数的存储过程"><a href="#17-JDBC调用带传出参数的存储过程" class="headerlink" title="17.JDBC调用带传出参数的存储过程"></a>17.JDBC调用带传出参数的存储过程</h1><p>要点：1、通过代码例子了解如何调用带传出参数的存储过程。<br>2、注意需要传出的参数要再执行sql语句之前注册类型，并且获得传出参数时要再执行完sql语句之后。</p>
+<h1 id="18-什么是触发器"><a href="#18-什么是触发器" class="headerlink" title="18.什么是触发器"></a>18.什么是触发器</h1><p>要点：1、触发器：当一个指定的语句执行增删改的操作时。Oracle自动执行了触发器中自定义的数据库函数。<br>2、前置触发器：在增删改操作没有commit之前执行的触发器叫前置触发器。<br>3、后置触发器：在增删改操作commit之后执行的触发器叫后置触发器。</p>
+<h1 id="19-触发器语法"><a href="#19-触发器语法" class="headerlink" title="19.触发器语法"></a>19.触发器语法</h1><p>要点：1、行级触发器：针对表中每行数据变化进行操作。<br>2、语句级触发器：针对每张表进行操作的触发器。<br>3、：old 修改前的数据。Update 和 delete。<br>4、：new 修改后的数据。Insert 和 update。</p>
 <p>5、语法：<br>CREATE [or REPLACE] TRIGGER 触发器名<br>BEFORE | AFTER<br>[DELETE ][[or] INSERT] [[or]UPDATE [OF 列名]]<br>ON 表名<br>[FOR EACH ROW ][WHEN(条件) ]<br>declare<br>……<br>begin<br>PLSQL 块<br>End ；</p>
-<ol>
-<li>20.前置触发器<br>要点：根据例子理解如何创建前置触发器。<br>–需求：当用户输入本月累计表数后，自动计算出本月使用数 。<br>create or replace trigger tri_account_num1<br>before<br>update of num1<br>on t_account<br>for each row<br>declare</li>
-</ol>
+<h1 id="20-前置触发器"><a href="#20-前置触发器" class="headerlink" title="20.前置触发器"></a>20.前置触发器</h1><p>要点：根据例子理解如何创建前置触发器。<br>–需求：当用户输入本月累计表数后，自动计算出本月使用数 。<br>create or replace trigger tri_account_num1<br>before<br>update of num1<br>on t_account<br>for each row<br>declare</p>
 <p>begin<br>  –通过伪记录变量修改usenum字段的值num1（水表现在的数值），num0（上个月使用的水表数）<br>  :new.usenum := :new.num1-:new.num0;<br>end;</p>
-<ol>
-<li>21.后置触发器<br>要点：根据例子理解如何创建后置触发器。<br>–需求：当用户修改了业主信息表的数据时记录修改前与修改后的值<br>–创建后置触发器日志表<br>create table t_owners_log(<br>updatetime date,<br>ownerid number,<br>oldname varchar2(30),<br>newname varchar2(30)<br>);<br>–根据需求创建后置触发器<br>create or replace trigger tri_owners_log<br>after<br>update of name<br>on t_owners<br>for each row<br>declare<br>begin<br>–向日志表插入记录<br>insert into t_owners_log values(sysdate,:new.id,:old.name,:new.name);<br>end;<br>–修改t_owners表中的name<br>update t_owners set name=’林玲玲1’ where id=4;</li>
-</ol>
+<h1 id="21-后置触发器"><a href="#21-后置触发器" class="headerlink" title="21.后置触发器"></a>21.后置触发器</h1><p>要点：根据例子理解如何创建后置触发器。<br>–需求：当用户修改了业主信息表的数据时记录修改前与修改后的值<br>–创建后置触发器日志表<br>create table t_owners_log(<br>updatetime date,<br>ownerid number,<br>oldname varchar2(30),<br>newname varchar2(30)<br>);<br>–根据需求创建后置触发器<br>create or replace trigger tri_owners_log<br>after<br>update of name<br>on t_owners<br>for each row<br>declare<br>begin<br>  –向日志表插入记录<br>  insert into t_owners_log values(sysdate,:new.id,:old.name,:new.name);<br>end;<br>–修改t_owners表中的name<br>update t_owners set name=’林玲玲1’ where id=4;</p>
 
       
     </div>
@@ -796,8 +723,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -816,7 +752,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -827,7 +763,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -838,7 +774,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1055,6 +991,25 @@ var jiathis_config={
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ORACLE"><span class="nav-number">1.</span> <span class="nav-text">ORACLE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-单表查询-简单条件和去重"><span class="nav-number">1.1.</span> <span class="nav-text">01.单表查询-简单条件和去重</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Oracle-的简单查询和去重"><span class="nav-number">1.1.1.</span> <span class="nav-text">Oracle 的简单查询和去重</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-单表查询-排序和基于伪列查询（开发中经常用到必须掌握）"><span class="nav-number">1.2.</span> <span class="nav-text">02.单表查询-排序和基于伪列查询（开发中经常用到必须掌握）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#03-单表查询-聚合统计"><span class="nav-number">2.</span> <span class="nav-text">03.单表查询-聚合统计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-内连接"><span class="nav-number">3.</span> <span class="nav-text">04.内连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#05-外连接"><span class="nav-number">4.</span> <span class="nav-text">05.外连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-where子句中的子查询"><span class="nav-number">5.</span> <span class="nav-text">06.where子句中的子查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#07-from子句的子查询"><span class="nav-number">6.</span> <span class="nav-text">07.from子句的子查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#08-select子句子查询（实际开发中经常遇到）"><span class="nav-number">7.</span> <span class="nav-text">08.select子句子查询（实际开发中经常遇到）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#09-分页查询"><span class="nav-number">8.</span> <span class="nav-text">09.分页查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-字符函数"><span class="nav-number">9.</span> <span class="nav-text">10.字符函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-数值函数"><span class="nav-number">10.</span> <span class="nav-text">11.数值函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-日期函数"><span class="nav-number">11.</span> <span class="nav-text">12.日期函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-转换函数"><span class="nav-number">12.</span> <span class="nav-text">13.转换函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-其它函数"><span class="nav-number">13.</span> <span class="nav-text">14.其它函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#15-行列转换"><span class="nav-number">14.</span> <span class="nav-text">15.行列转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#16-分析函数"><span class="nav-number">15.</span> <span class="nav-text">16.分析函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#17-集合运算"><span class="nav-number">16.</span> <span class="nav-text">17.集合运算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#01-什么是视图"><span class="nav-number">17.</span> <span class="nav-text">01.什么是视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#02-创建修改删除视图语法"><span class="nav-number">18.</span> <span class="nav-text">02.创建修改删除视图语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#03-视图案例-简单视图"><span class="nav-number">19.</span> <span class="nav-text">03.视图案例-简单视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-视图案例-检查约束的视图"><span class="nav-number">20.</span> <span class="nav-text">04.视图案例-检查约束的视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#05-视图案例-只读视图"><span class="nav-number">21.</span> <span class="nav-text">05.视图案例-只读视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-视图案例-带错误的视图"><span class="nav-number">22.</span> <span class="nav-text">06.视图案例-带错误的视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#07-视图案例-多表关联的视图"><span class="nav-number">23.</span> <span class="nav-text">07.视图案例-多表关联的视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#08-视图案例-聚合统计的视图"><span class="nav-number">24.</span> <span class="nav-text">08.视图案例-聚合统计的视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#09-物化视图-概念及语法"><span class="nav-number">25.</span> <span class="nav-text">09.物化视图-概念及语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-物化视图案例-手动刷新的物化视图"><span class="nav-number">26.</span> <span class="nav-text">10.物化视图案例-手动刷新的物化视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-物化视图案例-自动刷新的物化视图"><span class="nav-number">27.</span> <span class="nav-text">11.物化视图案例-自动刷新的物化视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-物化视图案例-创建时不生成数据的物化视图"><span class="nav-number">28.</span> <span class="nav-text">12.物化视图案例-创建时不生成数据的物化视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-物化视图案例-增量刷新的物化视图（了解）"><span class="nav-number">29.</span> <span class="nav-text">13.物化视图案例-增量刷新的物化视图（了解）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-序列-什么是序列"><span class="nav-number">30.</span> <span class="nav-text">14.序列-什么是序列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#15-序列-语法"><span class="nav-number">31.</span> <span class="nav-text">15.序列-语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#16-序列-案例"><span class="nav-number">32.</span> <span class="nav-text">16.序列-案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#17-同义词-概念"><span class="nav-number">33.</span> <span class="nav-text">17.同义词-概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#18-同义词-案例"><span class="nav-number">34.</span> <span class="nav-text">18.同义词-案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#19-索引-什么是索引"><span class="nav-number">35.</span> <span class="nav-text">19.索引-什么是索引</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-索引-普通索引"><span class="nav-number">36.</span> <span class="nav-text">20.索引-普通索引</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21-索引-唯一索引和复合索引"><span class="nav-number">37.</span> <span class="nav-text">21.索引-唯一索引和复合索引</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#22-索引-反向键索引"><span class="nav-number">38.</span> <span class="nav-text">22.索引-反向键索引</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#23-索引-位图索引"><span class="nav-number">39.</span> <span class="nav-text">23.索引-位图索引</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#01-什么是PLSQL"><span class="nav-number">40.</span> <span class="nav-text">01.什么是PLSQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#02-变量声明与赋值"><span class="nav-number">41.</span> <span class="nav-text">02.变量声明与赋值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#03-变量select-into赋值"><span class="nav-number">42.</span> <span class="nav-text">03.变量select into赋值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-属性类型"><span class="nav-number">43.</span> <span class="nav-text">04.属性类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#05-异常"><span class="nav-number">44.</span> <span class="nav-text">05.异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-条件判断"><span class="nav-number">45.</span> <span class="nav-text">06.条件判断</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#07-循环"><span class="nav-number">46.</span> <span class="nav-text">07.循环</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#08-游标语法"><span class="nav-number">47.</span> <span class="nav-text">08.游标语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#09-游标案例"><span class="nav-number">48.</span> <span class="nav-text">09.游标案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-带参数的游标"><span class="nav-number">49.</span> <span class="nav-text">10.带参数的游标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-for循环游标"><span class="nav-number">50.</span> <span class="nav-text">11.for循环游标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-存储函数"><span class="nav-number">51.</span> <span class="nav-text">12.存储函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-存储过程-什么是存储过程"><span class="nav-number">52.</span> <span class="nav-text">13.存储过程-什么是存储过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-不带传出参数的存储过程创建及调用"><span class="nav-number">53.</span> <span class="nav-text">14.不带传出参数的存储过程创建及调用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#15-JDBC调用不带传出参数的存储过程"><span class="nav-number">54.</span> <span class="nav-text">15.JDBC调用不带传出参数的存储过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#16-带传出参数的存储过程创建与调用"><span class="nav-number">55.</span> <span class="nav-text">16.带传出参数的存储过程创建与调用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#17-JDBC调用带传出参数的存储过程"><span class="nav-number">56.</span> <span class="nav-text">17.JDBC调用带传出参数的存储过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#18-什么是触发器"><span class="nav-number">57.</span> <span class="nav-text">18.什么是触发器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#19-触发器语法"><span class="nav-number">58.</span> <span class="nav-text">19.触发器语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-前置触发器"><span class="nav-number">59.</span> <span class="nav-text">20.前置触发器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21-后置触发器"><span class="nav-number">60.</span> <span class="nav-text">21.后置触发器</span></a></li></ol></div>
+            
+
+          </div>
+		  
+		  
+       
+	   </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1083,7 +1038,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">网站文字总数&#58;</span>
     
-    <span title="网站文字总数">33.9k</span>
+    <span title="网站文字总数">36.9k</span>
   
 </div>
 
