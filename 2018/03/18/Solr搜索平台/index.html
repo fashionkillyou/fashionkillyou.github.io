@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Fashionkillyou">
 <meta property="og:description" content="Solr安装与配置什么是Solr大多数搜索引擎应用都必须具有某种搜索功能，问题是搜索功能往往是巨大的资源消耗并且它们由于沉重的数据库加载而拖垮你的应用的性能。这就是为什么转移负载到一个外部的搜索服务器是一个不错的主意，Apache Solr是一个流行的开源搜索服务器，它通过使用类似REST的HTTP API，这就确保你能从几乎任何编程语言来使用solr。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-18T15:18:44.985Z">
+<meta property="og:updated_time" content="2018-03-19T06:10:43.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Solr搜索平台">
 <meta name="twitter:description" content="Solr安装与配置什么是Solr大多数搜索引擎应用都必须具有某种搜索功能，问题是搜索功能往往是巨大的资源消耗并且它们由于沉重的数据库加载而拖垮你的应用的性能。这就是为什么转移负载到一个外部的搜索服务器是一个不错的主意，Apache Solr是一个流行的开源搜索服务器，它通过使用类似REST的HTTP API，这就确保你能从几乎任何编程语言来使用solr。">
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,374
+                  2,554
                 </span>
               
 
@@ -678,6 +678,33 @@ public void testHighLight(){
     System.out.println(&quot;总记录数：&quot;+page.getTotalElements());
     List&lt;TbItem&gt; list = page.getContent();
     showList(list);
+}
+</code></pre><h3 id="描述-分组查询"><a href="#描述-分组查询" class="headerlink" title="描述 分组查询"></a>描述 分组查询</h3><p>注意这里的测试数据的分组查询结果只有手机一项,可以自行添加索引库中item_category这一项的值</p>
+<pre><code>@Test
+public void testFindForGroup(){
+    List&lt;String&gt; list=new ArrayList();
+    Query query=new SimpleQuery();
+    //按照关键字查询
+    Criteria criteria=new Criteria(&quot;item_keywords&quot;).is(&quot;三星&quot;);
+    query.addCriteria(criteria);
+    //设置分组选项
+    GroupOptions groupOptions=new GroupOptions().addGroupByField(&quot;item_category&quot;);
+    query.setGroupOptions(groupOptions);
+    //得到分组页
+    GroupPage&lt;TbItem&gt; page = solrTemplate.queryForGroupPage(query, TbItem.class);
+    //根据列得到分组结果集
+    GroupResult&lt;TbItem&gt; groupResult = page.getGroupResult(&quot;item_category&quot;);
+    //得到分组结果入口页
+    Page&lt;GroupEntry&lt;TbItem&gt;&gt; groupEntries = groupResult.getGroupEntries();
+    //得到分组入口集合
+    List&lt;GroupEntry&lt;TbItem&gt;&gt; content = groupEntries.getContent();
+    for(GroupEntry&lt;TbItem&gt; entry:content){
+        list.add(entry.getGroupValue());//将分组结果的名称封装到返回值中
+    }
+
+    for (String s : list) {
+        System.out.println(s);
+    }
 
 }
 </code></pre>
@@ -1088,7 +1115,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Solr安装与配置"><span class="nav-number">1.</span> <span class="nav-text">Solr安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Solr"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Solr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solr安装"><span class="nav-number">1.2.</span> <span class="nav-text">Solr安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#中文分析器IK-Analyzer"><span class="nav-number">2.</span> <span class="nav-text">中文分析器IK Analyzer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IK-Analyzer简介"><span class="nav-number">2.1.</span> <span class="nav-text">IK Analyzer简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IK-Analyzer配置"><span class="nav-number">2.2.</span> <span class="nav-text">IK Analyzer配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置域"><span class="nav-number">2.2.1.</span> <span class="nav-text">配置域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#域"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制域"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">复制域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态域"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">动态域</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Data-Solr入门"><span class="nav-number">3.</span> <span class="nav-text">Spring Data Solr入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Data-Solr简介"><span class="nav-number">3.1.</span> <span class="nav-text">Spring Data Solr简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Data-Solr入门小Demo"><span class="nav-number">3.2.</span> <span class="nav-text">Spring Data Solr入门小Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建工程"><span class="nav-number">3.2.1.</span> <span class="nav-text">搭建工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Field-注解"><span class="nav-number">3.2.2.</span> <span class="nav-text">@Field 注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加（修改）"><span class="nav-number">3.2.3.</span> <span class="nav-text">增加（修改）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按主键查询"><span class="nav-number">3.2.4.</span> <span class="nav-text">按主键查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按主键删除"><span class="nav-number">3.2.5.</span> <span class="nav-text">按主键删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分页查询"><span class="nav-number">3.2.6.</span> <span class="nav-text">分页查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件查询"><span class="nav-number">3.2.7.</span> <span class="nav-text">条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除全部数据"><span class="nav-number">3.2.8.</span> <span class="nav-text">删除全部数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#描述-设置高亮显示"><span class="nav-number">3.2.9.</span> <span class="nav-text">描述 设置高亮显示</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Solr安装与配置"><span class="nav-number">1.</span> <span class="nav-text">Solr安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Solr"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Solr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solr安装"><span class="nav-number">1.2.</span> <span class="nav-text">Solr安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#中文分析器IK-Analyzer"><span class="nav-number">2.</span> <span class="nav-text">中文分析器IK Analyzer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IK-Analyzer简介"><span class="nav-number">2.1.</span> <span class="nav-text">IK Analyzer简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IK-Analyzer配置"><span class="nav-number">2.2.</span> <span class="nav-text">IK Analyzer配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置域"><span class="nav-number">2.2.1.</span> <span class="nav-text">配置域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#域"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制域"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">复制域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态域"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">动态域</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Data-Solr入门"><span class="nav-number">3.</span> <span class="nav-text">Spring Data Solr入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Data-Solr简介"><span class="nav-number">3.1.</span> <span class="nav-text">Spring Data Solr简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Data-Solr入门小Demo"><span class="nav-number">3.2.</span> <span class="nav-text">Spring Data Solr入门小Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建工程"><span class="nav-number">3.2.1.</span> <span class="nav-text">搭建工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Field-注解"><span class="nav-number">3.2.2.</span> <span class="nav-text">@Field 注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加（修改）"><span class="nav-number">3.2.3.</span> <span class="nav-text">增加（修改）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按主键查询"><span class="nav-number">3.2.4.</span> <span class="nav-text">按主键查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按主键删除"><span class="nav-number">3.2.5.</span> <span class="nav-text">按主键删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分页查询"><span class="nav-number">3.2.6.</span> <span class="nav-text">分页查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件查询"><span class="nav-number">3.2.7.</span> <span class="nav-text">条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除全部数据"><span class="nav-number">3.2.8.</span> <span class="nav-text">删除全部数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#描述-设置高亮显示"><span class="nav-number">3.2.9.</span> <span class="nav-text">描述 设置高亮显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#描述-分组查询"><span class="nav-number">3.2.10.</span> <span class="nav-text">描述 分组查询</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1126,7 +1153,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">网站文字总数&#58;</span>
     
-    <span title="网站文字总数">36.9k</span>
+    <span title="网站文字总数">37.1k</span>
   
 </div>
 
