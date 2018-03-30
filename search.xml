@@ -31,7 +31,6 @@
       </categories>
       <tags>
         <tag>Solr</tag>
-        <tag>Spring Data Solr</tag>
       </tags>
   </entry>
   <entry>
@@ -43,8 +42,6 @@
       </categories>
       <tags>
         <tag>redis</tag>
-        <tag>spring-data-redis</tag>
-        <tag>jedis</tag>
       </tags>
   </entry>
   <entry>
@@ -67,9 +64,6 @@
       </categories>
       <tags>
         <tag>FastDFS</tag>
-        <tag>angularJS</tag>
-        <tag>HTML5</tag>
-        <tag>springMVC</tag>
       </tags>
   </entry>
   <entry>
@@ -80,7 +74,6 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>angularJS</tag>
         <tag>select2</tag>
       </tags>
   </entry>
@@ -116,8 +109,6 @@
       </categories>
       <tags>
         <tag>Dubbox</tag>
-        <tag>分布式服务框架</tag>
-        <tag>Dubbo</tag>
       </tags>
   </entry>
   <entry>
@@ -129,7 +120,6 @@
       </categories>
       <tags>
         <tag>Lucene</tag>
-        <tag>全文检索</tag>
       </tags>
   </entry>
   <entry>
@@ -165,7 +155,6 @@
       </categories>
       <tags>
         <tag>SpringMVC</tag>
-        <tag>SpringWebMVC</tag>
       </tags>
   </entry>
   <entry>
