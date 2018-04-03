@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Lucene," />
+  <meta name="keywords" content="fastDFS," />
 
 
 
@@ -88,18 +88,29 @@
 
 
 
-<meta name="description" content="#Lucene概述 什么是Lucene Lucene是一套用于全文检索和搜寻的开源程序库，由Apache软件基金会支持和提供  Lucene提供了一个简单却强大的应用程序接口（API），能够做全文索引和搜寻，在Java开发环境里Lucene是一个成熟的免费开放源代码工具  Lucene并不是现成的搜索引擎产品，但可以用来制作搜索引擎产品  官网：http://lucene.apache.org/">
-<meta name="keywords" content="Lucene">
+<meta name="description" content="关于fastDFS的安装第一步：搭建虚拟环境FastDFS需要在Linux系统上安装，我们一般使用的都是Windows系统，这样就需要有虚拟环境，我这里使用Vmware12创建虚拟机，关于虚拟机最小化的安装大家可以参考：http://blog.csdn.net/u012453843/article/details/68947589这篇博客进行学习">
+<meta name="keywords" content="fastDFS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lucene全文检索入门">
-<meta property="og:url" content="http://www.fashionkillyou.xyz/2018/03/03/Lucene全文检索入门/index.html">
+<meta property="og:title" content="fastDFS与nginx安装部署">
+<meta property="og:url" content="http://www.fashionkillyou.xyz/2018/04/03/fastDFS与nginx安装部署/index.html">
 <meta property="og:site_name" content="DreamItPossible">
-<meta property="og:description" content="#Lucene概述 什么是Lucene Lucene是一套用于全文检索和搜寻的开源程序库，由Apache软件基金会支持和提供  Lucene提供了一个简单却强大的应用程序接口（API），能够做全文索引和搜寻，在Java开发环境里Lucene是一个成熟的免费开放源代码工具  Lucene并不是现成的搜索引擎产品，但可以用来制作搜索引擎产品  官网：http://lucene.apache.org/">
+<meta property="og:description" content="关于fastDFS的安装第一步：搭建虚拟环境FastDFS需要在Linux系统上安装，我们一般使用的都是Windows系统，这样就需要有虚拟环境，我这里使用Vmware12创建虚拟机，关于虚拟机最小化的安装大家可以参考：http://blog.csdn.net/u012453843/article/details/68947589这篇博客进行学习">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-30T08:23:06.782Z">
+<meta property="og:image" content="http://p6lpbrjv6.bkt.clouddn.com/1.jpg">
+<meta property="og:image" content="http://p6lpbrjv6.bkt.clouddn.com/2.png">
+<meta property="og:image" content="http://p6lpbrjv6.bkt.clouddn.com/3.png">
+<meta property="og:image" content="http://p6lpbrjv6.bkt.clouddn.com/4.png">
+<meta property="og:image" content="http://p6lpbrjv6.bkt.clouddn.com/5.png">
+<meta property="og:image" content="http://p6lpbrjv6.bkt.clouddn.com/6.png">
+<meta property="og:image" content="http://p6lpbrjv6.bkt.clouddn.com/7.png">
+<meta property="og:image" content="http://p6lpbrjv6.bkt.clouddn.com/8.png">
+<meta property="og:image" content="http://p6lpbrjv6.bkt.clouddn.com/9.png">
+<meta property="og:image" content="http://p6lpbrjv6.bkt.clouddn.com/10.png">
+<meta property="og:updated_time" content="2018-04-03T11:46:06.685Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lucene全文检索入门">
-<meta name="twitter:description" content="#Lucene概述 什么是Lucene Lucene是一套用于全文检索和搜寻的开源程序库，由Apache软件基金会支持和提供  Lucene提供了一个简单却强大的应用程序接口（API），能够做全文索引和搜寻，在Java开发环境里Lucene是一个成熟的免费开放源代码工具  Lucene并不是现成的搜索引擎产品，但可以用来制作搜索引擎产品  官网：http://lucene.apache.org/">
+<meta name="twitter:title" content="fastDFS与nginx安装部署">
+<meta name="twitter:description" content="关于fastDFS的安装第一步：搭建虚拟环境FastDFS需要在Linux系统上安装，我们一般使用的都是Windows系统，这样就需要有虚拟环境，我这里使用Vmware12创建虚拟机，关于虚拟机最小化的安装大家可以参考：http://blog.csdn.net/u012453843/article/details/68947589这篇博客进行学习">
+<meta name="twitter:image" content="http://p6lpbrjv6.bkt.clouddn.com/1.jpg">
 
 
 
@@ -129,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://www.fashionkillyou.xyz/2018/03/03/Lucene全文检索入门/"/>
+  <link rel="canonical" href="http://www.fashionkillyou.xyz/2018/04/03/fastDFS与nginx安装部署/"/>
 
 
 
 
 
-  <title>Lucene全文检索入门 | DreamItPossible</title>
+  <title>fastDFS与nginx安装部署 | DreamItPossible</title>
   
 
 
@@ -306,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/03/03/Lucene全文检索入门/">
+    <link itemprop="mainEntityOfPage" href="http://www.fashionkillyou.xyz/2018/04/03/fastDFS与nginx安装部署/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuxinming">
@@ -323,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Lucene全文检索入门</h1>
+          <h1 class="post-title" itemprop="name headline">fastDFS与nginx安装部署</h1>
         
 
         <div class="post-meta">
@@ -335,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-03T21:02:41+08:00">
-                2018-03-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-03T19:45:20+08:00">
+                2018-04-03
               </time>
             
 
@@ -358,8 +369,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/搜索解决方案/" itemprop="url" rel="index">
-                    <span itemprop="name">搜索解决方案</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -389,7 +400,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  124
+                  4,743
                 </span>
               
 
@@ -405,7 +416,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  24
                 </span>
               
             </div>
@@ -426,19 +437,420 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><p>#Lucene概述</p>
-<h2 id="什么是Lucene"><a href="#什么是Lucene" class="headerlink" title="什么是Lucene"></a>什么是Lucene</h2><ul>
-<li><p>Lucene是一套用于全文检索和搜寻的开源程序库，由Apache软件基金会支持和提供</p>
-</li>
-<li><p>Lucene提供了一个简单却强大的应用程序接口（API），能够做全文索引和搜寻，在Java开发环境里Lucene是一个成熟的免费开放源代码工具</p>
-</li>
-<li><p>Lucene并不是现成的搜索引擎产品，但可以用来制作搜索引擎产品</p>
-</li>
-<li><p>官网：<a href="http://lucene.apache.org/" target="_blank" rel="noopener">http://lucene.apache.org/</a></p>
-</li>
-</ul>
-<p># </p>
-<p>待更新…</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h1 id="关于fastDFS的安装"><a href="#关于fastDFS的安装" class="headerlink" title="关于fastDFS的安装"></a>关于fastDFS的安装</h1><h2 id="第一步：搭建虚拟环境"><a href="#第一步：搭建虚拟环境" class="headerlink" title="第一步：搭建虚拟环境"></a>第一步：搭建虚拟环境</h2><p>FastDFS需要在Linux系统上安装，我们一般使用的都是Windows系统，这样就需要有虚拟环境，我这里使用Vmware12创建虚拟机，关于虚拟机最小化的安装大家可以参考：<a href="http://blog.csdn.net/u012453843/article/details/68947589" target="_blank" rel="noopener">http://blog.csdn.net/u012453843/article/details/68947589</a>这篇博客进行学习<br><a id="more"></a></p>
+<h2 id="第二步：配置静态IP而且要保证能上网"><a href="#第二步：配置静态IP而且要保证能上网" class="headerlink" title="第二步：配置静态IP而且要保证能上网"></a>第二步：配置静态IP而且要保证能上网</h2><p>大家可以参考：<a href="http://blog.csdn.net/u012453843/article/details/52839105" target="_blank" rel="noopener">http://blog.csdn.net/u012453843/article/details/52839105</a>这篇博客进行学习，需要提醒的是，由于最小化安装默认是没有vim命令的，因此在配置静态IP时使用vi命令即可。</p>
+<h2 id="第三步：安装vim命令"><a href="#第三步：安装vim命令" class="headerlink" title="第三步：安装vim命令"></a>第三步：安装vim命令</h2><p>之所以安装vim命令是因为在安装它的同时会自动帮我们安装perl，而perl在进行编译安装时是必须要有的。安装vim的命令是：yum install vim-enhanced</p>
+<h2 id="第四步：安装gcc"><a href="#第四步：安装gcc" class="headerlink" title="第四步：安装gcc"></a>第四步：安装gcc</h2><p>使用命令：yum install make cmake gcc gcc-c++进行安装即可</p>
+<h2 id="第五步：上传安装文件到Linux服务器"><a href="#第五步：上传安装文件到Linux服务器" class="headerlink" title="第五步：上传安装文件到Linux服务器"></a>第五步：上传安装文件到Linux服务器</h2><p>  为了便于管理，我们在Linux服务器上新建一个/usr/local/software目录，专门用于存放安装包，如下所示</p>
+<pre><code>[html] view plain copy
+[root@fastdfs ~]# mkdir /usr/local/software  
+[root@fastdfs ~]#  
+</code></pre><p>下面我们把需要用到的安装包都上传到/usr/local/software目录下，我们可以使用XShell和Xftp5相结合来方便的进行上传下载操作，大家可以参考<a href="http://blog.csdn.net/u012453843/article/details/68951776" target="_blank" rel="noopener">http://blog.csdn.net/u012453843/article/details/68951776</a>这篇博客进行学习。也可以通过安装rzsz命令来进行上传下载操作，安装rzsz的命令是yum install lrzsz，安装完之后，rz表示上传，sz 文件表示下载。</p>
+<p>大家可以到<a href="http://download.csdn.net/detail/u012453843/9802538" target="_blank" rel="noopener">http://download.csdn.net/detail/u012453843/9802538</a>这个地址下载需要的安装包，上传完之后，如下所示</p>
+<pre><code>[html] view plain copy
+[root@fastdfs software]# ll  
+总用量 1248 
+-rw-r--r--. 1 root root  17510 11月 28 00:19 fastdfs-nginx-module_v1.16.tar.gz  
+-rw-r--r--. 1 root root 345400 11月 28 00:20 FastDFS_v5.05.tar.gz  
+-rw-r--r--. 1 root root 102378 11月 28 00:19 libfastcommon-master.zip  
+-rw-r--r--. 1 root root 804164 11月 28 01:11 nginx-1.6.2.tar.gz  
+[root@fastdfs software]# 
+</code></pre><h2 id="第六步：安装zip和unzip命令"><a href="#第六步：安装zip和unzip命令" class="headerlink" title="第六步：安装zip和unzip命令"></a>第六步：安装zip和unzip命令</h2><pre><code>由于解压.zip结尾的文件需要用到unzip命令，因此我们需要安装，安装命令是yum install zip unzip
+</code></pre><h2 id="第七步：安装libfastcommon"><a href="#第七步：安装libfastcommon" class="headerlink" title="第七步：安装libfastcommon"></a>第七步：安装libfastcommon</h2><pre><code>1、解压
+[html] view plain copy
+[root@fastdfs software]# unzip libfastcommon-master.zip -d /usr/local/fast/  
+2、进入目录
+[html] view plain copy
+[root@fastdfs software]# cd /usr/local/fast/libfastcommon-master/  
+[root@fastdfs libfastcommon-master]# ll  
+总用量 28  
+-rw-r--r--. 1 root root 2913 2月  27 2015 HISTORY  
+-rw-r--r--. 1 root root  582 2月  27 2015 INSTALL  
+-rw-r--r--. 1 root root 1342 2月  27 2015 libfastcommon.spec  
+-rwxr-xr-x. 1 root root 2151 2月  27 2015 make.sh  
+drwxr-xr-x. 2 root root 4096 2月  27 2015 php-fastcommon  
+-rw-r--r--. 1 root root  617 2月  27 2015 README  
+drwxr-xr-x. 2 root root 4096 2月  27 2015 src  
+[root@fastdfs libfastcommon-master]#  
+  3、编译
+[html] view plain copy
+[root@fastdfs libfastcommon-master]# ./make.sh  
+  4、安装
+[html] view plain copy
+[root@fastdfs libfastcommon-master]# ./make.sh install
+</code></pre><h2 id="第八步：创建软链接"><a href="#第八步：创建软链接" class="headerlink" title="第八步：创建软链接"></a>第八步：创建软链接</h2><p> FastDFS主程序设置的目录为/usr/local/lib/，所以我们需要创建/ usr/lib64/下的一些核心执行程序的软连接文件。如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs libfastcommon-master]# ln -s /usr/lib64/libfastcommon.so /usr/local/lib/libfastcommon.so  
+[root@fastdfs libfastcommon-master]# ln -s /usr/lib64/libfastcommon.so /usr/lib/libfastcommon.so  
+[root@fastdfs libfastcommon-master]# ln -s /usr/lib64/libfdfsclient.so /usr/local/lib/libfdfsclient.so  
+[root@fastdfs libfastcommon-master]# ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
+</code></pre><h2 id="第九步：安装FastDFS"><a href="#第九步：安装FastDFS" class="headerlink" title="第九步：安装FastDFS"></a>第九步：安装FastDFS</h2><p>1、进入到cd /usr/local/software下，解压FastDFS_v5.05.tar.gz文件 </p>
+<pre><code>[html] view plain copy
+[root@fastdfs fast]# cd /usr/local/software/  
+[root@fastdfs software]# ll  
+总用量 1248  
+-rw-r--r--. 1 root root  17510 4月  11 03:28 fastdfs-nginx-module_v1.16.tar.gz  
+-rw-r--r--. 1 root root 345400 4月  11 03:28 FastDFS_v5.05.tar.gz  
+-rw-r--r--. 1 root root 102378 4月  11 03:28 libfastcommon-master.zip  
+-rw-r--r--. 1 root root 804164 4月  11 03:29 nginx-1.6.2.tar.gz  
+[root@fastdfs software]# tar -zxvf FastDFS_v5.05.tar.gz -C /usr/local/fast/  
+</code></pre><p>2、编译安装</p>
+<pre><code>[html] view plain copy
+[root@fastdfs software]# cd /usr/local/fast/FastDFS/  
+[root@fastdfs FastDFS]# ./make.sh  
+[root@fastdfs FastDFS]# ./make.sh install  
+  安装完后，服务脚本位置如下
+[html] view plain copy
+[root@fastdfs FastDFS]# cd /etc/init.d/ &amp;&amp; ls | grep fdfs  
+fdfs_storaged  
+fdfs_trackerd  
+[root@fastdfs init.d]#  
+   配置文件位置如下：
+[html] view plain copy
+[root@fastdfs init.d]# cd /etc/fdfs/  
+[root@fastdfs fdfs]# ll  
+总用量 20  
+-rw-r--r--. 1 root root 1461 4月  11 04:10 client.conf.sample  
+-rw-r--r--. 1 root root 7829 4月  11 04:10 storage.conf.sample  
+-rw-r--r--. 1 root root 7102 4月  11 04:10 tracker.conf.sample  
+[root@fastdfs fdfs]#   
+   FastDFS一系列执行脚本如下，可以看到有上传文件脚本、下载文件脚本等等。
+[html] view plain copy
+[root@fastdfs fdfs]# cd /usr/bin/ &amp;&amp; ls | grep fdfs  
+fdfs_appender_test  
+fdfs_appender_test1  
+fdfs_append_file  
+fdfs_crc32  
+fdfs_delete_file  
+fdfs_download_file  
+fdfs_file_info  
+fdfs_monitor  
+fdfs_storaged  
+fdfs_test  
+fdfs_test1  
+fdfs_trackerd  
+fdfs_upload_appender  
+fdfs_upload_file  
+[root@fastdfs bin]#  
+</code></pre><p>3、因为FastDFS服务脚本设置的bin目录为/usr/local/bin/下,但是实际我们安装在了/u sr/bin/下面。所以我们需要修改FastDFS配置文件中的路径，也就是需要修改两个配置文件</p>
+<p>使用命令vim /etc/init.d/fdfs_storaged进入编辑模式，然后直接输入”:”，光标会定位到最后一行，在”:”后输入”%s+/usr/local/bin+/usr/bin”，如下图所示。输入完之后回车，会提示修改了7处。为了确保所有的/usr/local/bin都被替换了，我们可以再打开文件确认一下。</p>
+<p><img src="http://p6lpbrjv6.bkt.clouddn.com/1.jpg" alt=""></p>
+<p>接着修改第二个配置文件，我们使用命令vim /etc/init.d/fdfs_trackerd进入编辑模式，接着按照上面那样输入”:%s+/usr/local/bin+/usr/bin “并按回车，同样会提醒我们修改了7处。</p>
+<p><img src="http://p6lpbrjv6.bkt.clouddn.com/2.png" alt=""></p>
+<h2 id="第十步：配置跟踪器"><a href="#第十步：配置跟踪器" class="headerlink" title="第十步：配置跟踪器"></a>第十步：配置跟踪器</h2><pre><code> 1、进入到/etc/fdfs目录并且复制一份tracker.conf.sample并命名为tracker.conf，如下所示。
+[html] view plain copy
+[root@fastdfs bin]# cd /etc/fdfs/  
+[root@fastdfs fdfs]# ll  
+总用量 20  
+-rw-r--r--. 1 root root 1461 4月  11 04:10 client.conf.sample  
+-rw-r--r--. 1 root root 7829 4月  11 04:10 storage.conf.sample  
+-rw-r--r--. 1 root root 7102 4月  11 04:10 tracker.conf.sample  
+[root@fastdfs fdfs]# cp tracker.conf.sample tracker.conf  
+[root@fastdfs fdfs]#   
+</code></pre><p>2、使用命令vim /etc/fdfs/tracker.conf进入编辑模式，然后修改base_path的值为/fastdfs/tracker，如下图所示。</p>
+<p><img src="http://p6lpbrjv6.bkt.clouddn.com/3.png" alt=""></p>
+<p>3、我们在上图配置文件中配置的/fastdfs/tracker目前是不存在的，因此我们需要创建一下该目录</p>
+<pre><code>[html] view plain copy
+[root@fastdfs fdfs]# mkdir -p /fastdfs/tracker  
+[root@fastdfs fdfs]#   
+</code></pre><p>4、配置防火墙，放开tracker使用的端口22122，使用命令vim /etc/sysconfig/iptables进入编辑模式，添加一行内容-A INPUT -m state –state NEW -m tcp -p tcp –dport 22122 -j ACCEPT，如下图所示。</p>
+<p><img src="http://p6lpbrjv6.bkt.clouddn.com/4.png" alt=""></p>
+<p>5、重启防火墙</p>
+<pre><code>[html] view plain copy
+[root@fastdfs fdfs]# service iptables restart  
+iptables：将链设置为政策 ACCEPT：filter                    [确定]  
+iptables：清除防火墙规则：                                 [确定]  
+iptables：正在卸载模块：                                   [确定]  
+iptables：应用防火墙规则：                                 [确定]  
+[root@fastdfs fdfs]#   
+</code></pre><p>6、在启动tracker之前，/fastdfs/tracker目录下是没有任何文件的，如下所示</p>
+<pre><code>[html] view plain copy
+[root@fastdfs tracker]# cd /fastdfs/tracker/ &amp;&amp; ll  
+总用量 0  
+[root@fastdfs tracker]#  
+</code></pre><p>启动tracker，启动完之后，可以看到这个目录下多了两个目录data和logs。如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs tracker]# /etc/init.d/fdfs_trackerd start   
+Starting FastDFS tracker server:   
+[root@fastdfs tracker]# cd /fastdfs/tracker/ &amp;&amp; ll  
+总用量 8  
+drwxr-xr-x. 2 root root 4096 4月  11 05:01 data  
+drwxr-xr-x. 2 root root 4096 4月  11 05:01 logs  
+[root@fastdfs tracker]#   
+</code></pre><p>7、设置开机自启动，在rc.local文件中添加/etc/init.d/fdfs_trackerd start，如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs tracker]# vim /etc/rc.d/rc.local  
+
+#!/bin/sh  
+#  
+# This script will be executed *after* all the other init scripts.  
+# You can put your own initialization stuff in here if you don&apos;t  
+# want to do the full Sys V style init stuff.  
+
+touch /var/lock/subsys/local  
+/etc/init.d/fdfs_trackerd start
+</code></pre><h2 id="第十一步：配置FastDFS存储"><a href="#第十一步：配置FastDFS存储" class="headerlink" title="第十一步：配置FastDFS存储"></a>第十一步：配置FastDFS存储</h2><p>1、进入/etc/fdfs目录，复制一份storage.conf.sample文件并命名为storage.conf，如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs tracker]# cd /etc/fdfs/  
+[root@fastdfs fdfs]# ll  
+总用量 28  
+-rw-r--r--. 1 root root 1461 4月  11 04:10 client.conf.sample  
+-rw-r--r--. 1 root root 7829 4月  11 04:10 storage.conf.sample  
+-rw-r--r--. 1 root root 7098 4月  11 04:45 tracker.conf  
+-rw-r--r--. 1 root root 7102 4月  11 04:10 tracker.conf.sample  
+[root@fastdfs fdfs]# cp storage.conf.sample storage.conf  
+[root@fastdfs fdfs]# ll  
+总用量 36  
+-rw-r--r--. 1 root root 1461 4月  11 04:10 client.conf.sample  
+-rw-r--r--. 1 root root 7829 4月  11 05:07 storage.conf  
+-rw-r--r--. 1 root root 7829 4月  11 04:10 storage.conf.sample  
+-rw-r--r--. 1 root root 7098 4月  11 04:45 tracker.conf  
+-rw-r--r--. 1 root root 7102 4月  11 04:10 tracker.conf.sample  
+[root@fastdfs fdfs]#  
+</code></pre><p>2、修改storage.conf文件 ，我们使用命令vim /etc/fdfs/storage.conf进入编辑模式，对以下四项进行修改，192.168.156.13是我的虚拟机的IP，大家根据自己虚拟机的IP自行设置。(注意网上的那片文章没有加group_name和buff_size)</p>
+<pre><code>[html] view plain copy
+group_name=group1
+base_path=/fastdfs/storage
+store_path0=/fastdfs/storage
+tracker_server=10.1.84.52:22122
+http.server_port=8888
+buff_size = 256KB 
+</code></pre><p>3、创建存储目录，如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs fdfs]# mkdir -p /fastdfs/storage  
+[root@fastdfs fdfs]#   
+</code></pre><p>4、配置防火墙，允许外界访问storage的默认端口23000，如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs fdfs]# vim /etc/sysconfig/iptables  
+
+# Firewall configuration written by system-config-firewall  
+# Manual customization of this file is not recommended.  
+*filter  
+:INPUT ACCEPT [0:0]  
+:FORWARD ACCEPT [0:0]  
+:OUTPUT ACCEPT [0:0]  
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT  
+-A INPUT -p icmp -j ACCEPT  
+-A INPUT -i lo -j ACCEPT  
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT  
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 22122 -j ACCEPT  
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 23000 -j ACCEPT  
+-A INPUT -j REJECT --reject-with icmp-host-prohibited  
+-A FORWARD -j REJECT --reject-with icmp-host-prohibited  
+COMMIT  
+</code></pre><p>添加完之后，重启防火墙，如下所示。<br>    [html] view plain copy<br>    [root@fastdfs fdfs]# service iptables restart<br>    iptables：将链设置为政策 ACCEPT：filter                    [确定]<br>    iptables：清除防火墙规则：                                 [确定]<br>    iptables：正在卸载模块：                                   [确定]<br>    iptables：应用防火墙规则：                                 [确定]<br>    [root@fastdfs fdfs]#<br>5、在启动storage之前，/fastdbf/storage目录下是没有任何文件的</p>
+<pre><code>[html] view plain copy
+[root@fastdfs fdfs]# cd /fastdfs/storage/ &amp;&amp; ll  
+总用量 0  
+[root@fastdfs storage]#   
+</code></pre><p>启动storage，启动后再看/fastdfs/storage目录，可以看到多了data和logs。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs storage]# /etc/init.d/fdfs_storaged start  
+Starting FastDFS storage server:   
+[root@fastdfs storage]# cd /fastdfs/storage/ &amp;&amp; ll  
+总用量 8  
+drwxr-xr-x. 68 root root 4096 4月  11 05:21 data  
+drwxr-xr-x.  2 root root 4096 4月  11 05:20 logs  
+[root@fastdfs storage]#  
+</code></pre><p>6、查看FastDFS tracker和storage 是否启动成功，当看到如下所示信息时说明都启动成功了。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs storage]# ps -ef | grep fdfs  
+root       2124      1  0 05:01 ?        00:00:00 /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf  
+root       2228      1  0 05:21 ?        00:00:00 /usr/bin/fdfs_storaged /etc/fdfs/storage.conf  
+root       2238   1360  0 05:22 pts/0    00:00:00 grep fdfs  
+[root@fastdfs storage]#  
+</code></pre><p>7、我们进入到 /fastdfs/storage/data/目录下，可以看到两级共256*256个目录，每级都是从00到FF，如下只是列出了第一级的目录，点进去每个目录都还有00到FF共256个目录。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs storage]# cd /fastdfs/storage/data/ &amp;&amp; ls  
+00  09  12  1B  24  2D  36  3F  48  51  5A  63  6C  75  7E  87  90  99  A2  AB  B4  BD  C6  CF  D8  E1  EA  F3  FC  
+01  0A  13  1C  25  2E  37  40  49  52  5B  64  6D  76  7F  88  91  9A  A3  AC  B5  BE  C7  D0  D9  E2  EB  F4  FD  
+02  0B  14  1D  26  2F  38  41  4A  53  5C  65  6E  77  80  89  92  9B  A4  AD  B6  BF  C8  D1  DA  E3  EC  F5  fdfs_storaged.pid  
+03  0C  15  1E  27  30  39  42  4B  54  5D  66  6F  78  81  8A  93  9C  A5  AE  B7  C0  C9  D2  DB  E4  ED  F6  FE  
+04  0D  16  1F  28  31  3A  43  4C  55  5E  67  70  79  82  8B  94  9D  A6  AF  B8  C1  CA  D3  DC  E5  EE  F7  FF  
+05  0E  17  20  29  32  3B  44  4D  56  5F  68  71  7A  83  8C  95  9E  A7  B0  B9  C2  CB  D4  DD  E6  EF  F8  storage_stat.dat  
+06  0F  18  21  2A  33  3C  45  4E  57  60  69  72  7B  84  8D  96  9F  A8  B1  BA  C3  CC  D5  DE  E7  F0  F9  sync  
+07  10  19  22  2B  34  3D  46  4F  58  61  6A  73  7C  85  8E  97  A0  A9  B2  BB  C4  CD  D6  DF  E8  F1  FA  
+08  11  1A  23  2C  35  3E  47  50  59  62  6B  74  7D  86  8F  98  A1  AA  B3  BC  C5  CE  D7  E0  E9  F2  FB  
+[root@fastdfs data]#   
+</code></pre><p>8、设置storage开机自启动，添加一行/etc/init.d/fdfs_storaged start，如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs data]# vim /etc/rc.local   
+
+#!/bin/sh  
+#  
+# This script will be executed *after* all the other init scripts.  
+# You can put your own initialization stuff in here if you don&apos;t  
+# want to do the full Sys V style init stuff.  
+
+touch /var/lock/subsys/local  
+/etc/init.d/fdfs_trackerd start  
+/etc/init.d/fdfs_storaged start  
+</code></pre><h2 id="第十二步：测试图片上传"><a href="#第十二步：测试图片上传" class="headerlink" title="第十二步：测试图片上传"></a>第十二步：测试图片上传</h2><p>1、进入到/etc/fdfs目录下并复制一份client.conf.sample并更名为client.conf，如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs data]# cd /etc/fdfs  
+[root@fastdfs fdfs]# ll  
+总用量 36  
+-rw-r--r--. 1 root root 1461 4月  11 04:10 client.conf.sample  
+-rw-r--r--. 1 root root 7820 4月  11 05:12 storage.conf  
+-rw-r--r--. 1 root root 7829 4月  11 04:10 storage.conf.sample  
+-rw-r--r--. 1 root root 7098 4月  11 04:45 tracker.conf  
+-rw-r--r--. 1 root root 7102 4月  11 04:10 tracker.conf.sample  
+[root@fastdfs fdfs]# cp client.conf.sample client.conf  
+[root@fastdfs fdfs]# ll  
+总用量 40  
+-rw-r--r--. 1 root root 1461 4月  11 05:40 client.conf  
+-rw-r--r--. 1 root root 1461 4月  11 04:10 client.conf.sample  
+-rw-r--r--. 1 root root 7820 4月  11 05:12 storage.conf  
+-rw-r--r--. 1 root root 7829 4月  11 04:10 storage.conf.sample  
+-rw-r--r--. 1 root root 7098 4月  11 04:45 tracker.conf  
+-rw-r--r--. 1 root root 7102 4月  11 04:10 tracker.conf.sample  
+[root@fastdfs fdfs]#   
+</code></pre><p>2、使用命令vim /etc/fdfs/client.conf进入编辑模式并修改如下两项内容，如下所示。</p>
+<pre><code>[html] view plain copy
+base_path=/fastdfs/tracker  
+tracker_server=192.168.156.13:22122  
+</code></pre><p>3、我们找到命令的脚本位置，并且使用命令，进行文件的上传。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs bin]# cd /usr/bin/ &amp;&amp; ls | grep fdfs  
+fdfs_appender_test  
+fdfs_appender_test1  
+fdfs_append_file  
+fdfs_crc32  
+fdfs_delete_file  
+fdfs_download_file  
+fdfs_file_info  
+fdfs_monitor  
+fdfs_storaged  
+fdfs_test  
+fdfs_test1  
+fdfs_trackerd  
+fdfs_upload_appender  
+fdfs_upload_file  
+[root@fastdfs bin]#   
+</code></pre><p>下面使用fdfs_upload_file脚本进行文件上传操作，如下所示。可以看到已经上传成功了，返回的是图片的保存位置：group1/M00/00/00/wKicDVjr_ayAE4VVAAHk-VzqZ6w020.jpg</p>
+<pre><code>[html] view plain copy
+[root@fastdfs bin]# /usr/bin/fdfs_upload_file /etc/fdfs/client.conf /usr/local/software/3.jpg  
+group1/M00/00/00/wKicDVjr_ayAE4VVAAHk-VzqZ6w020.jpg  
+[root@fastdfs bin]#  
+</code></pre><h2 id="第十三步：FastDFS与nginx相结合"><a href="#第十三步：FastDFS与nginx相结合" class="headerlink" title="第十三步：FastDFS与nginx相结合"></a>第十三步：FastDFS与nginx相结合</h2><p>1、先安装nginx，大家可以参考<a href="http://blog.csdn.net/u012453843/article/details/69396434" target="_blank" rel="noopener">http://blog.csdn.net/u012453843/article/details/69396434</a>这篇博客的第四步Nginx安装（我们已经安装过的vim、gcc等就不需要重复安装了）。</p>
+<p>2、安装fastdfs-nginxmodule_v1.16.tar.gz（fast与nginx相结合的模块安装包）， 进入 /usr/local/software目录并解压，如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs nginx-1.6.2]# cd /usr/local/software/  
+[root@fastdfs software]# tar -zxvf fastdfs-nginx-module_v1.16.tar.gz -C /usr/local/fast/  
+fastdfs-nginx-module/  
+fastdfs-nginx-module/src/  
+fastdfs-nginx-module/src/ngx_http_fastdfs_module.c  
+fastdfs-nginx-module/src/mod_fastdfs.conf  
+fastdfs-nginx-module/src/config  
+fastdfs-nginx-module/src/common.h  
+fastdfs-nginx-module/src/common.c  
+fastdfs-nginx-module/INSTALL  
+fastdfs-nginx-module/HISTORY  
+[root@fastdfs software]#  
+</code></pre><p>3、进入到/usr/local/fast目录下可以看到解压的fastdfs-nginx-module目录，然后进入到fastdfs-nginx-module/src/目录下，可以看到config文件。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs software]# cd /usr/local/fast/  
+[root@fastdfs fast]# ll  
+总用量 12  
+drwxr-xr-x. 10 8980 users 4096 4月  11 04:10 FastDFS  
+drwxrwxr-x.  3  500   500 4096 5月   4 2014 fastdfs-nginx-module  
+drwxr-xr-x.  4 root root  4096 4月  11 03:30 libfastcommon-master  
+[root@fastdfs fast]# cd fastdfs-nginx-module/src/  
+[root@fastdfs src]# ll  
+总用量 76  
+-rw-rw-r--. 1 500 500 33207 8月  30 2013 common.c  
+-rw-rw-r--. 1 500 500  3479 1月   3 2012 common.h  
+-rw-rw-r--. 1 500 500   447 11月  4 2010 config  
+-rw-rw-r--. 1 500 500  3679 3月  30 2013 mod_fastdfs.conf  
+-rw-rw-r--. 1 500 500 28542 5月   4 2014 ngx_http_fastdfs_module.c  
+[root@fastdfs src]#   
+</code></pre><p>修改该conf文件，我们把文件的第四行配置中的/usr/local/include都改为/usr/include，共两处。</p>
+<p><img src="http://p6lpbrjv6.bkt.clouddn.com/5.png" alt=""></p>
+<p>4、fastdfs与nginx进行结合，由于我们刚才安装过nginx了，因此在/usr/local目录下已经生成了一个nginx目录了，如下图所示。</p>
+<p><img src="http://p6lpbrjv6.bkt.clouddn.com/6.png" alt=""></p>
+<p>为了将nginx与fastdfs相结合，我们先把这个nginx目录删除掉，如下图所示，可以看到已经没有nginx目录了。</p>
+<p><img src="http://p6lpbrjv6.bkt.clouddn.com/7.png" alt=""></p>
+<p> 进入到nginx-1.6.2/目录下并执行配置和编译安装，如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs local]# cd nginx-1.6.2/  
+[root@fastdfs nginx-1.6.2]# ./configure --add-module=/usr/local/fast/fastdfs-nginx-module/src/  
+[root@fastdfs nginx-1.6.2]# make &amp;&amp; make install  
+</code></pre><p>复制fastdfs-nginx-module中的配置文件，到/etc/fdfs目录中，如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs fdfs]# cd /usr/local/fast/fastdfs-nginx-module/src/  
+[root@fastdfs src]# ll  
+总用量 76  
+-rw-rw-r--. 1 500 500 33207 8月  30 2013 common.c  
+-rw-rw-r--. 1 500 500  3479 1月   3 2012 common.h  
+-rw-rw-r--. 1 500 500   435 4月  11 06:09 config  
+-rw-rw-r--. 1 500 500  3679 3月  30 2013 mod_fastdfs.conf  
+-rw-rw-r--. 1 500 500 28542 5月   4 2014 ngx_http_fastdfs_module.c  
+[root@fastdfs src]# cp /usr/local/fast/fastdfs-nginx-module/src/mod_fastdfs.conf /etc/fdfs/  
+[root@fastdfs src]#   
+</code></pre><p>我们到 /etc/fdfs/ 目录下，修改我们刚copy过来的mod_fastdfs.conf 文件，需要修改的项如下，其中第一项是超时时长，第三项是允许外界通过http方式访问资源。</p>
+<pre><code>[html] view plain copy
+connect_timeout=10  
+tracker_server=192.168.156.13:22122  
+url_have_group_name = true  
+store_path0=/fastdfs/storage  
+</code></pre><p>复制FastDFS里的2个文件，到/etc/fdfs目录中，如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs fdfs]# cd /usr/local/fast/FastDFS/conf/  
+[root@fastdfs conf]# ll  
+总用量 84  
+-rw-r--r--. 1 8980 users 23981 12月  2 2014 anti-steal.jpg  
+-rw-r--r--. 1 8980 users  1461 12月  2 2014 client.conf  
+-rw-r--r--. 1 8980 users   858 12月  2 2014 http.conf  
+-rw-r--r--. 1 8980 users 31172 12月  2 2014 mime.types  
+-rw-r--r--. 1 8980 users  7829 12月  2 2014 storage.conf  
+-rw-r--r--. 1 8980 users   105 12月  2 2014 storage_ids.conf  
+-rw-r--r--. 1 8980 users  7102 12月  2 2014 tracker.conf  
+[root@fastdfs conf]# cp http.conf mime.types /etc/fdfs/  
+[root@fastdfs conf]#   
+</code></pre><p>创建一个软连接，在/fastdfs/storage文件存储目录下创建软连接，将其链接到实际存放数据 的目录，如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs conf]# ln -s /fastdfs/storage/data/ /fastdfs/storage/data/M00  
+[root@fastdfs conf]#   
+</code></pre><p>进入到/usr/local/nginx/conf/目录下，修改nginx.conf文件，如下图所示。</p>
+<p><img src="http://p6lpbrjv6.bkt.clouddn.com/8.png" alt=""></p>
+<p>修改的内容如下图示</p>
+<p><img src="http://p6lpbrjv6.bkt.clouddn.com/9.png" alt=""></p>
+<p>可以直接复制下面的内容。</p>
+<pre><code>[html] view plain copy
+listen       8888;  
+
+location ~/group([0-9])/M00 {   
+    ngx_fastdfs_module;  
+}  
+</code></pre><p>设置nginx开机自启动，这样下次重启设备之后，tracker、storage、nginx都自动启动了，直接就可以使用服务，如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs ~]# vim /etc/rc.d/rc.local   
+
+#!/bin/sh  
+#  
+# This script will be executed *after* all the other init scripts.  
+# You can put your own initialization stuff in here if you don&apos;t  
+# want to do the full Sys V style init stuff.  
+
+touch /var/lock/subsys/local  
+/etc/init.d/fdfs_trackerd start  
+/etc/init.d/fdfs_storaged start  
+/usr/local/nginx/sbin/nginx  
+</code></pre><p>启动nginx，如下所示。</p>
+<pre><code>[html] view plain copy
+[root@fastdfs conf]# /usr/local/nginx/sbin/nginx   
+ngx_http_fastdfs_set pid=6809  
+[root@fastdfs conf]#   
+</code></pre><p>5、在通过8888端口访问图片之前先配置下防火墙，允许外界访问8888端口，添加的一行是-A INPUT -m state –state NEW -m tcp -p tcp –dport 8888 -j ACCEPT，如下图所示。<br><img src="http://p6lpbrjv6.bkt.clouddn.com/10.png" alt=""></p>
+<p>配置完防火墙后重启防火墙</p>
+<pre><code>[html] view plain copy
+[root@fastdfs conf]# service iptables restart  
+iptables：将链设置为政策 ACCEPT：filter                    [确定]  
+iptables：清除防火墙规则：                                 [确定]  
+iptables：正在卸载模块：                                   [确定]  
+iptables：应用防火墙规则：                                 [确定]  
+[root@fastdfs conf]#   
+</code></pre><p>6、现在我们便可以通过http的方式访问我们刚才上传的图片了（我们刚才上传图片返回的地址是group1/M00/00/00/wKicDVjr_ayAE4VVAAHk-VzqZ6w020.jpg）</p>
 
       
     </div>
@@ -464,7 +876,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Lucene/" rel="tag"># Lucene</a>
+            <a href="/tags/fastDFS/" rel="tag"># fastDFS</a>
           
         </div>
       
@@ -477,8 +889,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/02/使用formfill-js快速填充表单/" rel="next" title="使用formfill.js快速填充表单">
-                <i class="fa fa-chevron-left"></i> 使用formfill.js快速填充表单
+              <a href="/2018/03/25/最近收集的前端素材-给大家分享一波/" rel="next" title="最近收集的前端素材,给大家分享一波~">
+                <i class="fa fa-chevron-left"></i> 最近收集的前端素材,给大家分享一波~
               </a>
             
           </div>
@@ -486,10 +898,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/05/Dubbox框架入门小demo/" rel="prev" title="Dubbox框架入门小demo">
-                Dubbox框架入门小demo <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -845,7 +1253,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Lucene"><span class="nav-number">1.</span> <span class="nav-text">什么是Lucene</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于fastDFS的安装"><span class="nav-number">1.</span> <span class="nav-text">关于fastDFS的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：搭建虚拟环境"><span class="nav-number">1.1.</span> <span class="nav-text">第一步：搭建虚拟环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：配置静态IP而且要保证能上网"><span class="nav-number">1.2.</span> <span class="nav-text">第二步：配置静态IP而且要保证能上网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：安装vim命令"><span class="nav-number">1.3.</span> <span class="nav-text">第三步：安装vim命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步：安装gcc"><span class="nav-number">1.4.</span> <span class="nav-text">第四步：安装gcc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五步：上传安装文件到Linux服务器"><span class="nav-number">1.5.</span> <span class="nav-text">第五步：上传安装文件到Linux服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第六步：安装zip和unzip命令"><span class="nav-number">1.6.</span> <span class="nav-text">第六步：安装zip和unzip命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第七步：安装libfastcommon"><span class="nav-number">1.7.</span> <span class="nav-text">第七步：安装libfastcommon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第八步：创建软链接"><span class="nav-number">1.8.</span> <span class="nav-text">第八步：创建软链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第九步：安装FastDFS"><span class="nav-number">1.9.</span> <span class="nav-text">第九步：安装FastDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十步：配置跟踪器"><span class="nav-number">1.10.</span> <span class="nav-text">第十步：配置跟踪器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十一步：配置FastDFS存储"><span class="nav-number">1.11.</span> <span class="nav-text">第十一步：配置FastDFS存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十二步：测试图片上传"><span class="nav-number">1.12.</span> <span class="nav-text">第十二步：测试图片上传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十三步：FastDFS与nginx相结合"><span class="nav-number">1.13.</span> <span class="nav-text">第十三步：FastDFS与nginx相结合</span></a></li></ol></li></ol></div>
             
 
           </div>
